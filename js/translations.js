@@ -66,6 +66,9 @@ const translations = {
     "project6.description":
       "Aplicación desarrollada en Flutter que permite a los usuarios registrarse, iniciar sesión y acceder a su galería de fotos. Se implementó funcionalidad CRUD para gestionar imágenes y los datos se almacenan en Firebase.",
 
+    "project7.title": "Proximamente...",
+    "project7.description": "Sin descripción.",
+
     "projects.code": "Código",
     "projects.demo": "Demo",
 
@@ -195,6 +198,9 @@ const translations = {
     "project6.title": "Photo Gallery App",
     "project6.description":
       "Application developed in Flutter that allows users to register, log in, and access their photo gallery. CRUD functionality was implemented to manage images and data is stored in Firebase.",
+
+    "project7.title": "Coming soon...",
+    "project7.description": "No caption.",
 
     "projects.code": "Code",
     "projects.demo": "Demo",
