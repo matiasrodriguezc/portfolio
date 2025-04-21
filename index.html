@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matías Rodríguez Cárdenas | Ingeniero en Sistemas</title>
+  <meta name="description" content="Portfolio profesional de Matías Rodríguez Cárdenas, Ingeniero en Sistemas especializado en desarrollo de software y arquitectura de sistemas.">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Matías Rodríguez Cárdenas | Ingeniero en Sistemas">
+  <meta property="og:description" content="Portfolio profesional de Matías Rodríguez Cárdenas, Ingeniero en Sistemas especializado en desarrollo de software y arquitectura de sistemas.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:url" content="https://matiasrodriguezc.github.io">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Matías Rodríguez Cárdenas | Ingeniero en Sistemas">
+  <meta name="twitter:description" content="Portfolio profesional de Matías Rodríguez Cárdenas, Ingeniero en Sistemas especializado en desarrollo de software y arquitectura de sistemas.">
+  <meta name="twitter:image" content="assets/og-image.jpg">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Matías Rodríguez</div>
+          <nav class="desktop-nav">
+            <ul>
+              <li><a href="#about" class="nav-link" data-section="about">Sobre mí</a></li>
+              <li><a href="#skills" class="nav-link" data-section="skills">Habilidades</a></li>
+              <li><a href="#projects" class="nav-link" data-section="projects">Proyectos</a></li>
+              <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
+              <li><a href="#contact" class="nav-link" data-section="contact">Contacto</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <button id="language-toggle" class="icon-button" aria-label="Cambiar idioma">
+              <i class="fas fa-globe"></i>
+            </button>
+            <button id="theme-toggle" class="icon-button" aria-label="Cambiar tema">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+            <a href="https://github.com/matiasrodriguezc" target="_blank" class="icon-button" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/matiasrodriguezc" target="_blank" class="icon-button" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <button id="mobile-menu-toggle" class="icon-button mobile-only" aria-label="Menú">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <ul>
+        <li><a href="#about" class="nav-link" data-section="about">Sobre mí</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Habilidades</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Proyectos</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contacto</a></li>
+      </ul>
+      <div class="language-selector">
+        <button data-lang="es" class="lang-btn active">Español</button>
+        <button data-lang="en" class="lang-btn">English</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text" data-aos="fade-right">
+              <h1><span class="greeting">Hola, soy</span> <span class="name">Matías</span></h1>
+              <h2 class="title">Ingeniero en Sistemas</h2>
+              <p class="description">Especializado en desarrollo de software, arquitectura de sistemas y soluciones tecnológicas innovadoras.</p>
+              <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Contactar</a>
+                <a href="#projects" class="btn btn-outline">Ver proyectos</a>
+              </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
+              <img src="assets/profile.jpg" alt="Matías Rodríguez Cárdenas" width="256" height="256">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <i class="fas fa-user section-icon"></i>
+            <h2 class="section-title">Sobre mí</h2>
+          </div>
+          <div class="about-content">
+            <div class="about-text" data-aos="fade-right" data-aos-delay="200">
+              <p>Soy un Ingeniero en Sistemas con experiencia en el desarrollo de soluciones tecnológicas. Me especializo en arquitectura de software, desarrollo full-stack y optimización de sistemas.</p>
+              <p>Mi enfoque combina sólidos conocimientos técnicos con habilidades de resolución de problemas, permitiéndome diseñar e implementar soluciones eficientes y escalables para desafíos complejos.</p>
+              <p>Constantemente me mantengo actualizado con las últimas tecnologías y metodologías, lo que me permite ofrecer soluciones innovadoras y de vanguardia.</p>
+            </div>
+            <div class="about-info" data-aos="fade-left" data-aos-delay="400">
+              <div class="info-grid">
+                <div class="info-item">
+                  <h3>Nombre:</h3>
+                  <p>Matías Rodríguez Cárdenas</p>
+                </div>
+                <div class="info-item">
+                  <h3>Email:</h3>
+                  <p>matiasrodriguezc01@gmail.com</p>
+                </div>
+                <div class="info-item">
+                  <h3>Ubicación:</h3>
+                  <p>Tandil, Buenos Aires, Argentina</p>
+                </div>
+                <div class="info-item">
+                  <h3>Disponibilidad:</h3>
+                  <p>Tiempo completo</p>
+                </div>
+              </div>
+              <div class="cv-download">
+                <div class="dropdown">
+                  <button class="btn btn-outline dropdown-toggle">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar CV</span>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a href="assets/CV-ES - MR.pdf" download class="dropdown-item">Español</a>
+                    <a href="assets/CV-EN - MR.pdf" download class="dropdown-item">Inglés</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <i class="fas fa-code section-icon"></i>
+            <h2 class="section-title">Habilidades</h2>
+          </div>
+          <div class="skills-tabs" data-aos="fade-up" data-aos-delay="200">
+            <div class="tabs-nav">
+              <button class="tab-btn active" data-tab="development">Desarrollo</button>
+              <button class="tab-btn" data-tab="infrastructure">Infraestructura</button>
+              <button class="tab-btn" data-tab="tools">Herramientas</button>
+            </div>
+            <div class="tabs-content">
+              <div class="tab-pane active" id="development">
+                <div class="skills-grid">
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="100">JavaScript</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="150">TypeScript</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="200">React</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="250">Node.js</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="300">Python</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="350">Java</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="400">Flutter</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="450">Maven</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="500">Spring</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="550">PHP</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="600">Rasa</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="650">SQL</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="700">MongoDB</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="750">Firebase</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="800">REST API</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="850">Next.js</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="850">Python</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="850">C++</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="850">Angular</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="850">PostgreSQL</div>
+                </div>
+              </div>
+              <div class="tab-pane" id="infrastructure">
+                <div class="skills-grid">
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="100">AWS</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="150">Azure</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="200">Docker</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="250">Kubernetes</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="300">CI/CD</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="350">Linux</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="400">Networking</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="450">Security</div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tools">
+                <div class="skills-grid">
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="100">Git</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="150">GitHub</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="200">JIRA</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="250">VS Code</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="300">Postman</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="350">Notion</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="400">GitLab</div>
+                  <div class="skill-card" data-aos="fade-up" data-aos-delay="400">Slack</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <i class="fas fa-server section-icon"></i>
+            <h2 class="section-title">Proyectos</h2>
+          </div>
+          <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="project-image">
+                <img src="assets/blogapp.jpg" alt="Blog App" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Blog App</h3>
+                <p class="project-description">Aplicación FullStack con Next.js que permite a usuarios autenticados crear, editar y eliminar publicaciones. Incluye autenticación con JWT, almacenamiento en MongoDB y una interfaz moderna con Tailwind CSS.</p>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Shell</span>
+                  <span class="tag">Perl</span>
+                  <span class="tag">CSS</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/matiasrodriguezc/Blog" target="_blank" class="btn btn-sm btn-outline">
+                    <i class="fab fa-github"></i> Código
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="project-image">
+                <img src="assets/clientsapp.jpg" alt="Clients Web App" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Clients Web App</h3>
+                <p class="project-description">Aplicación web desarrollada con Angular para gestionar información de clientes. Permite visualizar saldos, agregar nuevos clientes y editar los existentes, con estadísticas en tiempo real. Diseño amigable y funcional con soporte para Firebase.</p>
+                <div class="project-tags">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Angular</span>
+                  <span class="tag">Firebase</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/matiasrodriguezc/Clients-Web-App" target="_blank" class="btn btn-sm btn-outline">
+                    <i class="fab fa-github"></i> Código
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="project-image">
+                <img src="assets/miniapps.jpg" alt="JavaScript Mini Apps" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">JavaScript Mini Apps</h3>
+                <p class="project-description">Una colección de proyectos web interactivos que incluyen un reloj digital en tiempo real, un listado de personas dinámico, una aplicación de presupuesto con ingresos y egresos, y una calculadora simple. Ideales para demostrar conocimientos en manipulación del DOM, lógica de negocio y diseño web básico.</p>
+                <div class="project-tags">
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">HTML</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/matiasrodriguezc/HTML-JS-CSS-Mini-Apps" target="_blank" class="btn btn-sm btn-outline">
+                    <i class="fab fa-github"></i> Código
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="project-image">
+                <img src="assets/shoppingcart.jpg" alt="Shopping Cart" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Shopping Cart</h3>
+                <p class="project-description">Sistema e-commerce desarrollado con Spring Boot y PostgreSQL. Permite gestionar carritos, productos, usuarios y realizar compras con validaciones de stock y precio en tiempo real.</p>
+                <div class="project-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">SpringBoot</span>
+                  <span class="tag">Docker</span>
+                  <span class="tag">API REST</span>
+                  <span class="tag">Postman</span>
+                  <span class="tag">Maven</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/matiasrodriguezc/Lamansys-Bootcamp-Backend-2024" target="_blank" class="btn btn-sm btn-outline">
+                    <i class="fab fa-github"></i> Código
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+              <div class="project-image">
+                <img src="assets/webgenerator2.jpg" alt="Web Generator" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Web Generator</h3>
+                <p class="project-description">Asistente conversacional desarrollado en Python con Rasa, integrado con Telegram para generar sitios web automáticamente desde el chat.</p>
+                <div class="project-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Rasa</span>
+                  <span class="tag">Chatbot</span>
+                  <span class="tag">MongoDB</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/matiasrodriguezc/Design-Label-Web-Generator" target="_blank" class="btn btn-sm btn-outline">
+                    <i class="fab fa-github"></i> Código
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+              <div class="project-image">
+                <img src="assets/flutterphotoapp.jpg" alt="Photo Gallery App" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Photo Gallery App</h3>
+                <p class="project-description">Aplicación desarrollada en Flutter que permite a los usuarios registrarse, iniciar sesión y acceder a su galería de fotos. Se implementó funcionalidad CRUD para gestionar imágenes y los datos se almacenan en Firebase.</p>
+                <div class="project-tags">
+                  <span class="tag">Flutter</span>
+                  <span class="tag">Firebase</span>
+                  <span class="tag">Dart</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-sm btn-outline">
+                    <i class="fab fa-github"></i> Código
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <i class="fas fa-briefcase section-icon"></i>
+            <h2 class="section-title">Experiencia</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Desarrollador FullStack</h3>
+                  <span class="timeline-period">2024 - Presente</span>
+                </div>
+                <div class="timeline-company">Abaco Informatica</div>
+                <p class="timeline-description">Desarrollo y mantengo una aplicación web con frontend en React y backend en PHP, en la cual realicé una migración del entorno antiguo hacia uno moderno utilizando Vite, mejorando notablemente los tiempos de carga y la experiencia de desarrollo. Implementé AG Grid para optimizar la visualización de datos, y trabajé en la adaptación responsiva del sitio, incluyendo botones para aumentar o reducir el tamaño de fuente, los cuales también ajustan dinámicamente la cantidad de filas visibles en la tabla según el tamaño seleccionado. En la parte backend, optimicé el uso de vistas materializadas en la base de datos, evitando su recreación en cada recarga; en su lugar, diseñé un sistema que genera la vista al inicio de cada sesión y la reutiliza durante toda su duración, mejorando la eficiencia del sistema y reduciendo el consumo de recursos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header education-header" data-aos="fade-up">
+            <i class="fas fa-graduation-cap section-icon"></i>
+            <h2 class="section-title">Educación</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Ingeniería en Sistemas</h3>
+                  <span class="timeline-period">2020 - 2024</span>
+                </div>
+                <div class="timeline-company">Universidad Nacional del Centro de la Provincia de Buenos Aires</div>
+                <p class="timeline-description">Carrera centrada en la planificación, análisis y gestión de sistemas complejos, integrando habilidades en desarrollo de software, infraestructura, arquitectura de sistemas y liderazgo técnico.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Analista Programador Universitario</h3>
+                  <span class="timeline-period">2020 - 2024</span>
+                </div>
+                <div class="timeline-company">Universidad Nacional del Centro de la Provincia de Buenos Aires</div>
+                <p class="timeline-description">Formación orientada al diseño, desarrollo e implementación de sistemas de software, con sólidos conocimientos en programación, bases de datos y metodologías de desarrollo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header certification-header" data-aos="fade-up">
+            <i class="fas fa-certificate section-icon"></i>
+            <h2 class="section-title">Certificaciones</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Inglés - C1 Certificate</h3>
+                  <span class="timeline-period">2024</span>
+                </div>
+                <div class="timeline-company">EF SET, Online</div>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Inglés - B2 First Certificate Exam</h3>
+                  <span class="timeline-period">2018</span>
+                </div>
+                <div class="timeline-company">Cambridge University, Reino Unido</div>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Desarrollador Java Backend</h3>
+                  <span class="timeline-period">2024</span>
+                </div>
+                <div class="timeline-company">Lamansys, Tandil, Argentina</div>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Angular - Desarrollador Web</h3>
+                  <span class="timeline-period">2024</span>
+                </div>
+                <div class="timeline-company">Udemy, Online</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <i class="fas fa-envelope section-icon"></i>
+            <h2 class="section-title">Contacto</h2>
+          </div>
+          <div class="contact-content">
+            <div class="contact-description" data-aos="fade-up" data-aos-delay="200">
+              <p>¿Interesado en trabajar juntos o alguna pregunta? No dudes en contactarme a través de alguno de los datos de contacto.</p>
+            </div>
+            <div class="contact-methods" data-aos="fade-up" data-aos-delay="300">
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Email</h3>
+                  <p>matiasrodriguezc01@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>LinkedIn</h3>
+                  <p>linkedin.com/in/matiasrodriguezc</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>GitHub</h3>
+                  <p>github.com/matiasrodriguezc</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="copyright">
+            © <span id="current-year"></span> Matías Rodríguez Cárdenas. Todos los derechos reservados.
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/matiasrodriguezc" target="_blank" class="social-link" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/matiasrodriguezc" target="_blank" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:matiasrodriguezc01@gmail.com" class="social-link" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Volver arriba">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
