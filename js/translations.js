@@ -79,7 +79,7 @@ const translations = {
     // Experiencia
     "experience.title": "Experiencia",
     "exp1.role": "Desarrollador FullStack",
-    "exp1.company": "Abaco Informatica",
+    "exp1.company": "Abaco Informática",
     "exp1.period": "2024 - Presente",
     "exp1.description":
       "Desarrollo y mantengo una aplicación web con frontend en React y backend en PHP, en la cual realicé una migración del entorno antiguo hacia uno moderno utilizando Vite, mejorando notablemente los tiempos de carga y la experiencia de desarrollo. Implementé AG Grid para optimizar la visualización de datos, y trabajé en la adaptación responsiva del sitio, incluyendo botones para aumentar o reducir el tamaño de fuente, los cuales también ajustan dinámicamente la cantidad de filas visibles en la tabla según el tamaño seleccionado. En la parte backend, optimicé el uso de vistas materializadas en la base de datos, evitando su recreación en cada recarga; en su lugar, diseñé un sistema que genera la vista al inicio de cada sesión y la reutiliza durante toda su duración, mejorando la eficiencia del sistema y reduciendo el consumo de recursos.",
@@ -215,7 +215,7 @@ const translations = {
     // Experience
     "experience.title": "Experience",
     "exp1.role": "FullStack Developer",
-    "exp1.company": "Abaco Informatica",
+    "exp1.company": "Abaco Informática",
     "exp1.period": "2024 - Present",
     "exp1.description":
       "I develop and maintain a web application with React frontend and PHP backend, where I migrated the legacy environment to a modern one using Vite, significantly improving load times and developer experience. I implemented AG Grid to optimize data visualization, and worked on responsive design, including buttons to increase or decrease font size, which also dynamically adjust the number of visible rows in the table according to the selected size. On the backend, I optimized the use of materialized views in the database by avoiding their recreation on each reload; instead, I designed a system that generates the view at the beginning of each session and reuses it throughout, enhancing system efficiency and reducing resource consumption.",
