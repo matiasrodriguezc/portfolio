@@ -72,8 +72,7 @@ const translations = {
     "project8.title": "RFQ Response Generator",
     "project8.description":
       "Sistema impulsado por IA que genera automáticamente respuestas completas a RFQs (Request for Quote) gubernamentales. Transforma horas de análisis manual y llenado de formularios en un proceso de un click. Analiza contratos federales, evalúa capacidades empresariales y genera propuestas técnicas completas con documentación de cumplimiento.",
-
-
+    
     "projects.code": "Código",
     "projects.demo": "Demo",
 
@@ -208,8 +207,7 @@ const translations = {
     "project7.description": "No caption.",
 
     "project8.title": "RFQ Response Generator",
-    "project8.description":
-      "AI-powered system that automatically generates complete responses to government RFQs (Request for Quote). Transforms hours of manual analysis and form filling into a one-click process. Analyzes federal contracts, evaluates business capabilities, and generates complete technical proposals with compliance documentation.",
+    "project8.description":"AI-powered system that automatically generates complete responses to government RFQs (Request for Quote). Transforms hours of manual analysis and form filling into a one-click process. Analyzes federal contracts, evaluates business capabilities, and generates complete technical proposals with compliance documentation.",
 
     "projects.code": "Code",
     "projects.demo": "Demo",
