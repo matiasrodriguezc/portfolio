@@ -304,22 +304,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // Update Experience Sec.
-    const expItem = document.querySelector("section#experience > .container > .timeline > .timeline-item")
-    if (expItem) {
-      const titleEl = expItem.querySelector(".timeline-title")
-      const companyEl = expItem.querySelector(".timeline-company")
-      const periodEl = expItem.querySelector(".timeline-period")
-      const descEl = expItem.querySelector(".timeline-description")
-
-      if (titleEl) titleEl.textContent = translations[lang]["exp1.role"]
-      if (companyEl) companyEl.textContent = translations[lang]["exp1.company"]
-      if (periodEl) periodEl.textContent = translations[lang]["exp1.period"]
-      if (descEl) descEl.textContent = translations[lang]["exp1.description"]
-      if (titleEl) titleEl.textContent = translations[lang]["exp2.role"]
-      if (companyEl) companyEl.textContent = translations[lang]["exp2.company"]
-      if (periodEl) periodEl.textContent = translations[lang]["exp2.period"]
-      if (descEl) descEl.textContent = translations[lang]["exp2.description"]
-    }
+    const expItems = document.querySelectorAll("section#experience .timeline-item")
+    expItems.forEach((item, index) => {
+      const titleEl = item.querySelector(".timeline-title")
+      const companyEl = item.querySelector(".timeline-company")
+      const periodEl = item.querySelector(".timeline-period")
+      const descEl = item.querySelector(".timeline-description")
+      if (titleEl) titleEl.textContent = translations[lang][`exp${index + 1}.role`]
+      if (companyEl) companyEl.textContent = translations[lang][`exp${index + 1}.company`]
+      if (periodEl) periodEl.textContent = translations[lang][`exp${index + 1}.period`]
+      if (descEl) descEl.textContent = translations[lang][`exp${index + 1}.description`]
+    })
 
     // Update Education Section
     const eduItems = document.querySelectorAll(".education-header + .timeline .timeline-item")
