@@ -315,6 +315,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (companyEl) companyEl.textContent = translations[lang]["exp1.company"]
       if (periodEl) periodEl.textContent = translations[lang]["exp1.period"]
       if (descEl) descEl.textContent = translations[lang]["exp1.description"]
+      if (titleEl) titleEl.textContent = translations[lang]["exp2.role"]
+      if (companyEl) companyEl.textContent = translations[lang]["exp2.company"]
+      if (periodEl) periodEl.textContent = translations[lang]["exp2.period"]
+      if (descEl) descEl.textContent = translations[lang]["exp2.description"]
     }
 
     // Update Education Section
