@@ -147,6 +147,11 @@ const translations = {
     // Footer
     "footer.rights": "Todos los derechos reservados.",
 
+    "chat.title": "Asistente de IA",
+    "chat.intro": "¡Hola! Soy un asistente de IA. Pregúntame sobre el CV de Matías.",
+    "chat.placeholder": "Haz una pregunta...",
+    "chat.error": "Lo siento, ocurrió un error. Intenta de nuevo.",
+
     // Language
     language: "Idioma",
     "language.spanish": "Español",
@@ -296,6 +301,10 @@ const translations = {
 
     // Footer
     "footer.rights": "All rights reserved.",
+    "chat.title": "AI Assistant",
+    "chat.intro": "Hi! I'm an AI assistant. Ask me about Matías' resume.",
+    "chat.placeholder": "Ask a question...",
+    "chat.error": "Sorry, an error occurred. Please try again.",
 
     // Language
     language: "Language",

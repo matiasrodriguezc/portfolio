@@ -369,4 +369,134 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.toggle("active", btn.getAttribute("data-lang") === lang)
     })
   }
+  // ========== CHATBOT LOGIC ==========
+  const chatToggleButton = document.getElementById("chat-toggle");
+  const chatWidgetContainer = document.querySelector(".chat-widget-container");
+  const chatMessages = document.getElementById("chat-messages");
+  const chatInput = document.getElementById("chat-input");
+  const chatSendButton = document.getElementById("chat-send");
+  const chatTitle = document.getElementById("chat-title");
+
+  // Función para añadir un mensaje a la UI
+  function addChatMessage(sender, text) {
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("chat-message", sender); // 'user' o 'bot'
+    messageElement.textContent = text;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll al final
+    return messageElement;
+  }
+
+  // Función para el mensaje de bienvenida del bot
+  function showBotWelcomeMessage() {
+    // Limpia solo el mensaje de bienvenida anterior para evitar duplicados
+    const oldWelcome = chatMessages.querySelector(".bot-welcome");
+    if (oldWelcome) {
+      chatMessages.removeChild(oldWelcome);
+    }
+    // Añade el nuevo mensaje traducido
+    const welcomeMsg = addChatMessage("bot", translations[currentLanguage]["chat.intro"]);
+    welcomeMsg.classList.add("bot-welcome");
+  }
+  
+  // Función para manejar el envío de mensajes
+  // Reemplaza tu función handleSendMessage con esta
+  async function handleSendMessage() {
+    const messageText = chatInput.value.trim();
+    if (!messageText) return;
+
+    // 1. Muestra el mensaje del usuario
+    addChatMessage("user", messageText);
+    chatInput.value = ""; // Limpia el input
+
+    // 2. Crea un elemento vacío para el bot y AÑADE LA CLASE 'loading'
+    // El CSS que acabamos de añadir se encargará de mostrar los "..." animados
+    const botMessageElement = addChatMessage("bot", "");
+    botMessageElement.classList.add("loading");
+    chatMessages.scrollTop = chatMessages.scrollHeight; // Baja el scroll
+
+    try {
+      // ⚠️ IMPORTANTE: Sigue usando tu URL local o la de Render/Fly.io
+      const API_URL = "https://rag-chatbot-cv.onrender.com/ask"; 
+
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ texto: messageText }),
+      });
+
+      if (!response.ok || !response.body) {
+        throw new Error("La respuesta de la red no fue válida.");
+      }
+
+      // 4. Lee el Stream
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let fullResponse = "";
+      let isFirstChunk = true; // Para saber cuándo quitar la animación
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        
+        // ¡Aquí está la magia!
+        if (isFirstChunk) {
+          // 3. QUITA la clase 'loading' en cuanto llega el primer trozo
+          botMessageElement.classList.remove("loading");
+          isFirstChunk = false;
+        }
+
+        const chunk = decoder.decode(value, { stream: true });
+        fullResponse += chunk;
+        botMessageElement.textContent = fullResponse; // Actualiza el texto en tiempo real
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Sigue bajando
+      }
+
+    } catch (error) {
+      console.error("Error al contactar al chatbot:", error);
+      botMessageElement.classList.remove("loading"); // Quita el "loading" si hay un error
+      botMessageElement.textContent = translations[currentLanguage]["chat.error"];
+    }
+  }
+
+  // --- Event Listeners del Chat ---
+  chatToggleButton.addEventListener("click", () => {
+    chatWidgetContainer.classList.toggle("open");
+    // Si se acaba de abrir, muestra el mensaje de bienvenida si no hay mensajes
+    if (chatWidgetContainer.classList.contains("open") && chatMessages.children.length === 0) {
+      showBotWelcomeMessage();
+    }
+  });
+
+  chatSendButton.addEventListener("click", handleSendMessage);
+  chatInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  });
+
+  // --- Integración con la función de idioma existente ---
+  // Guardamos la función setLanguage original que cargaste de main.js
+  const originalSetLanguage = window.setLanguage; 
+
+  // Re-definimos setLanguage para que haga lo de antes Y ADEMÁS actualice el chat
+  window.setLanguage = (lang) => {
+    originalSetLanguage(lang); // Llama a la lógica original de tu portafolio
+    
+    // Ahora, actualiza el texto del chat
+    chatTitle.textContent = translations[lang]["chat.title"];
+    chatInput.placeholder = translations[lang]["chat.placeholder"];
+    
+    // Actualiza el mensaje de bienvenida si existe
+    const welcomeMsg = chatMessages.querySelector(".bot-welcome");
+    if (welcomeMsg) {
+      welcomeMsg.textContent = translations[lang]["chat.intro"];
+    }
+  };
+  
+  // Llama a la lógica de idioma una vez al cargar para establecer el texto inicial del chat
+  window.setLanguage(currentLanguage);
+
+  // ========== END CHATBOT LOGIC ==========
 })

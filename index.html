@@ -636,5 +636,26 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
+  <div class="chat-widget-container">
+  <button id="chat-toggle" class="chat-toggle-button" aria-label="Abrir chat">
+    <i class="fas fa-comments"></i> <i class="fas fa-times"></i> </button>
+
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+      <h3 id="chat-title" data-i18n="chat.title">Asistente Virtual</h3>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      </div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" data-i18n-placeholder="chat.placeholder" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <button id="chat-send" class="chat-send-button" aria-label="Enviar mensaje">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
