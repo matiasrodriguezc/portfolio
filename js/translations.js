@@ -61,11 +61,11 @@ const translations = {
     "project5.description":
       "Asistente conversacional desarrollado en Python con Rasa, integrado con Telegram para generar sitios web automáticamente desde el chat.",
 
-    "project5.title": "Data Science - Segmentación y Clasificación",
+    "project5.title": "Data Science - IA - Clustering",
     "project5.description":
-      "Proyecto de Machine Learning No Supervisado que utiliza el algoritmo K-Means para segmentar clientes en función de Satisfacción y Lealtad. Incluye estandarización de datos y el Método del Codo para optimización.",
+      "Desarrollé una aplicación web full-stack que realiza clustering K-Means. Permite a los usuarios subir un CSV, seleccionar variables y visualizar los datos en gráficos interactivos (Recharts). La app identifica automáticamente el número óptimo de clusters (Método del Codo) y utiliza la API de Google Gemini para analizar los segmentos y asignarles nombres y descripciones accionables.",
     
-      "project6.title": "NLP - Búsqueda semántica",
+    "project6.title": "NLP - Búsqueda semántica",
     "project6.description": "Proyecto de procesamiento de lenguaje natural (NLP) que implementa un sistema de búsqueda por aproximación para temas de cursos. Utiliza la base de datos de vectores Pinecone para búsquedas más relevantes contextualmente que las basadas en palabras clave.",
   
     "projects.code": "Código",
@@ -210,9 +210,9 @@ const translations = {
     "project5.description":
       "Conversational assistant developed in Python with Rasa, integrated with Telegram to automatically generate websites from the chat.",
 
-    "project5.title": "Data Science - Clustering and Classification",
+    "project5.title": "Data Science - AI - Clustering",
     "project5.description":
-      "Application developed in Flutter that allows users to register, log in, and access their photo gallery. CRUD functionality was implemented to manage images and data is stored in Firebase.",
+      "I developed a full-stack web application that performs K-Means clustering. It allows users to upload a CSV, select variables, and visualize the data on interactive charts (Recharts). The app automatically identifies the optimal number of clusters (Elbow Method) and uses the Google Gemini API to analyze the segments and assign them actionable names and descriptions.",
 
     "project6.title": "NLP - Semantic Search",
     "project6.description": "Natural Language Processing (NLP) project that implements an approximation-based search system for course topics. Leverages the Pinecone vector database for contextually relevant searches instead of simple keyword matching.",
