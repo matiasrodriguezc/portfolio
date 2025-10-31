@@ -69,6 +69,28 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  const openChatButton = document.getElementById("open-rag-chat")
+  const chatWidgetContainerElement = document.querySelector(".chat-widget-container")
+  // Asegúrate de que esta variable chatMessages esté disponible globalmente o pásala como parámetro.
+  const chatMessagesElement = document.getElementById("chat-messages"); // Asegura que se defina aquí
+
+  if (openChatButton && chatWidgetContainerElement) {
+    openChatButton.addEventListener("click", (event) => {
+      event.preventDefault()
+
+      // 1. Abre el chat
+      chatWidgetContainerElement.classList.add("open")
+
+      // 2. Muestra el mensaje de bienvenida SOLO si el chat está vacío
+      if (chatMessagesElement && chatMessagesElement.children.length === 0) {
+        showBotWelcomeMessage();
+      }
+
+      // 3. Desplaza la vista al chat
+      chatWidgetContainerElement.scrollIntoView({ behavior: "smooth", block: "end" })
+    })
+  }
+
   // Tabs functionality
   const tabButtons = document.querySelectorAll(".tab-btn")
   tabButtons.forEach((button) => {
@@ -416,7 +438,6 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMessages.scrollTop = chatMessages.scrollHeight; // Baja el scroll
 
     try {
-      // ⚠️ IMPORTANTE: Sigue usando tu URL local o la de Render/Fly.io
       const API_URL = "https://rag-chatbot-cv.onrender.com/ask"; 
 
       const response = await fetch(API_URL, {

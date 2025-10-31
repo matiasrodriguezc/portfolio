@@ -19,7 +19,7 @@ const translations = {
     // Sobre mí
     "about.title": "Sobre mí",
     "about.p1":
-      "Soy un Ingeniero en Sistemas con experiencia en el desarrollo de soluciones tecnológicas. Me especializo en arquitectura de software, desarrollo full-stack y optimización de sistemas.",
+      "Soy Ingeniero en Sistemas con experiencia en el desarrollo de soluciones tecnológicas. Me especializo en desarrollo Full-Stack y actualmente MLOps (Operaciones de Machine Learning).",
     "about.p2":
       "Mi enfoque combina sólidos conocimientos técnicos con habilidades de resolución de problemas, permitiéndome diseñar e implementar soluciones eficientes y escalables para desafíos complejos.",
     "about.p3":
@@ -42,37 +42,32 @@ const translations = {
     // Proyectos
     "projects.title": "Proyectos",
 
-    "project1.title": "Blog App",
+    "project1.title": "IA - Entrevistador de RRHH",
     "project1.description":
-      "Aplicación FullStack con Next.js que permite a usuarios autenticados crear, editar y eliminar publicaciones. Incluye autenticación con JWT, almacenamiento en MongoDB y una interfaz moderna con Tailwind CSS.",
+      "Proximamente...",
 
-    "project2.title": "Clients Web App",
+    "project2.title": "RAG - Chatbot Asistente Virtual",
     "project2.description":
-      "Aplicación web desarrollada con Angular para gestionar información de clientes. Permite visualizar saldos, agregar nuevos clientes y editar los existentes, con estadísticas en tiempo real. Diseño amigable y funcional con soporte para Firebase.",
+      "Construí un chatbot RAG (Retrieval-Augmented Generation) que permite a los usuarios conversar con mi CV en tiempo real. El backend está impulsado por un pipeline ETL en Apache Airflow que monitorea mi GitHub y actualiza automáticamente una base vectorial ChromaDB con embeddings locales generados con Hugging Face. FastAPI gestiona la lógica RAG y transmite las respuestas del modelo Gemini al frontend de mi portafolio.",
 
-    "project3.title": "JavaScript Mini Apps",
+    "project3.title": "MLOps - Predictor de Ausencia",
     "project3.description":
-      "Una colección de proyectos web interactivos que incluyen un reloj digital en tiempo real, un listado de personas dinámico, una aplicación de presupuesto con ingresos y egresos, y una calculadora simple. Ideales para demostrar conocimientos en manipulación del DOM, lógica de negocio y diseño web básico.",
+      "Proyecto Full-Stack end-to-end que predice las horas de absentismo de los empleados. Este sistema gestiona el ciclo de vida completo del dato, desde la ingesta y el análisis hasta el re-entrenamiento automático y el despliegue del modelo.",
 
-    "project4.title": "Shopping Cart",
+    "project4.title": "Deep Learning - Analizador de Emociones",
     "project4.description":
-      "Sistema e-commerce desarrollado con Spring Boot y PostgreSQL. Permite gestionar carritos, productos, usuarios y realizar compras con validaciones de stock y precio en tiempo real.",
-
+      "EmotionAI es una aplicación web Full-Stack para la clasificación de emociones en tiempo real. Los usuarios pueden ingresar texto y recibir un desglose interactivo de las emociones detectadas (alegría, tristeza, ira y miedo).",
     "project5.title": "Web Generator",
     "project5.description":
       "Asistente conversacional desarrollado en Python con Rasa, integrado con Telegram para generar sitios web automáticamente desde el chat.",
 
-    "project6.title": "Photo Gallery App",
-    "project6.description":
-      "Aplicación desarrollada en Flutter que permite a los usuarios registrarse, iniciar sesión y acceder a su galería de fotos. Se implementó funcionalidad CRUD para gestionar imágenes y los datos se almacenan en Firebase.",
-
-    "project7.title": "Proximamente...",
-    "project7.description": "Sin descripción.",
-
-    "project8.title": "RFQ Response Generator",
-    "project8.description":
-      "Sistema impulsado por IA que genera automáticamente respuestas completas a RFQs (Request for Quote) gubernamentales. Transforma horas de análisis manual y llenado de formularios en un proceso de un click. Analiza contratos federales, evalúa capacidades empresariales y genera propuestas técnicas completas con documentación de cumplimiento.",
+    "project5.title": "Data Science - Segmentación y Clasificación",
+    "project5.description":
+      "Proyecto de Machine Learning No Supervisado que utiliza el algoritmo K-Means para segmentar clientes en función de Satisfacción y Lealtad. Incluye estandarización de datos y el Método del Codo para optimización.",
     
+      "project6.title": "NLP - Búsqueda semántica",
+    "project6.description": "Proyecto de procesamiento de lenguaje natural (NLP) que implementa un sistema de búsqueda por aproximación para temas de cursos. Utiliza la base de datos de vectores Pinecone para búsquedas más relevantes contextualmente que las basadas en palabras clave.",
+  
     "projects.code": "Código",
     "projects.demo": "Demo",
 
@@ -82,7 +77,7 @@ const translations = {
     "exp1.company": "Cleatus AI",
     "exp1.period": "2025",
     "exp1.description":
-      "Durante mi pasantía en Cleatus AI como desarrollador fullstack, contribuí al desarrollo de una plataforma que combina inteligencia artificial con automatización del proceso de contrataciones públicas: desde el descubrimiento inteligente de licitaciones, pasando por la generación ágil de propuestas conformes, hasta el soporte estratégico vía un asistente conversacional de GovCon.",
+      "Durante mi pasantía en Cleatus AI como desarrollador Full-Stack, contribuí al desarrollo de una plataforma que combina inteligencia artificial con automatización del proceso de contrataciones públicas: desde el descubrimiento inteligente de licitaciones, pasando por la generación ágil de propuestas conformes, hasta el soporte estratégico vía un asistente conversacional de GovCon.",
       
     "exp2.role": "Desarrollador FullStack",
     "exp2.company": "Ábaco Informática",
@@ -175,12 +170,9 @@ const translations = {
 
     // About
     "about.title": "About me",
-    "about.p1":
-      "I'm a Systems Engineer with experience in the development of technological solutions. I specialize in software architecture, full-stack development, and systems optimization.",
-    "about.p2":
-      "My approach combines solid technical knowledge with problem-solving skills, allowing me to design and implement efficient and scalable solutions for complex challenges.",
-    "about.p3":
-      "I constantly stay up to date with the latest technologies and methodologies, which enables me to deliver innovative and cutting-edge solutions.",
+    "about.p1": "I'm a Systems Engineer with experience in developing technological solutions. I specialize in Full-Stack development and currently in MLOps (Machine Learning Operations).",
+    "about.p2": "My approach combines solid technical knowledge with problem-solving skills, allowing me to design and implement efficient and scalable solutions for complex challenges.",
+    "about.p3": "I constantly stay up to date with the latest technologies and methodologies, which enables me to offer innovative and cutting-edge solutions.",
     "about.name": "Name:",
     "about.email": "Email:",
     "about.location": "Location:",
@@ -199,35 +191,31 @@ const translations = {
     // Projects
     "projects.title": "Projects",
 
-    "project1.title": "Blog App",
+    "project1.title": "AI - HR Interviewer",
     "project1.description":
-      "FullStack application built with Next.js that allows authenticated users to create, edit, and delete posts. Includes JWT authentication, MongoDB storage, and a modern interface with Tailwind CSS.",
+      "Soon...",
 
-    "project2.title": "Clients Web App",
+    "project2.title": "RAG - Chatbot Virtual Assistant",
     "project2.description":
-      "Web application developed with Angular to manage client information. It allows viewing balances, adding new clients, and editing existing ones, with real-time statistics. User-friendly and functional design with Firebase support.",
+      "A RAG (Retrieval-Augmented Generation) chatbot that lets users chat with my CV in real time. The backend is powered by an Apache Airflow ETL pipeline that monitors my GitHub and automatically updates a ChromaDB vector store with locally generated Hugging Face embeddings. FastAPI handles the RAG logic and streams Gemini model responses to my portfolio frontend.",
 
-    "project3.title": "JavaScript Mini Apps",
+    "project3.title": "MLOps - Absence Predictor",
     "project3.description":
-      "A collection of interactive web projects including a real-time digital clock, a dynamic people list, a budget app with income and expenses, and a simple calculator. Ideal for showcasing DOM manipulation, business logic, and basic web design skills.",
+      "End-to-end Full-Stack project that predicts employee absenteeism hours. This system manages the complete data lifecycle, from ingestion and analysis to automatic re-training and model deployment.",
 
-    "project4.title": "Shopping Cart",
+    "project4.title": "Deep Learning - Emotion Analyzer",
     "project4.description":
-      "E-commerce system developed with Spring Boot and PostgreSQL. Allows managing carts, products, users, and performing purchases with real-time stock and price validation.",
-
+      "A Full-Stack web application for real-time emotion classification. Users can input text and receive an interactive breakdown of the detected emotions (joy, sadness, anger, and fear).",
     "project5.title": "Web Generator",
     "project5.description":
       "Conversational assistant developed in Python with Rasa, integrated with Telegram to automatically generate websites from the chat.",
 
-    "project6.title": "Photo Gallery App",
-    "project6.description":
+    "project5.title": "Data Science - Clustering and Classification",
+    "project5.description":
       "Application developed in Flutter that allows users to register, log in, and access their photo gallery. CRUD functionality was implemented to manage images and data is stored in Firebase.",
 
-    "project7.title": "Coming soon...",
-    "project7.description": "No caption.",
-
-    "project8.title": "RFQ Response Generator",
-    "project8.description":"AI-powered system that automatically generates complete responses to government RFQs (Request for Quote). Transforms hours of manual analysis and form filling into a one-click process. Analyzes federal contracts, evaluates business capabilities, and generates complete technical proposals with compliance documentation.",
+    "project6.title": "NLP - Semantic Search",
+    "project6.description": "Natural Language Processing (NLP) project that implements an approximation-based search system for course topics. Leverages the Pinecone vector database for contextually relevant searches instead of simple keyword matching.",
 
     "projects.code": "Code",
     "projects.demo": "Demo",

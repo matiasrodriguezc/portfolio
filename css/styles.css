@@ -102,26 +102,39 @@ ul {
 
 /* Header */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 40;
-  height: var(--header-height);
+  
+  /* CAMBIO CLAVE 1: Aplicamos un padding vertical. Esto hará que el alto total sea mayor a --header-height, 
+     pero da el respiro visual que buscamos. (5rem + 0.75rem + 0.75rem = 6.5rem de alto total aprox) */
+  padding: 0.75rem 0; 
+
+  /* Mantenemos el height para que sea la referencia para el padding-top de main, 
+     pero el padding lo hace más alto */
+  /* height: var(--header-height); <-- Lo ideal es quitarlo o comentarlo para que el padding defina el alto. */
+
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(var(--background-rgb), 0.8);
-  padding: 1rem 0; /* Ajustado para dar espacio vertical */
-  margin-top: 10px; /* Espacio entre la barra del navegador y el header */
+  background-color: rgba(var(--background-rgb), 0.9);
+  
+  margin-top: 0; 
 }
 
 
 .header-content {
   display: flex;
-  align-items: center; /* Esto ya estaba, pero es crucial para alinear verticalmente */
+  align-items: center; /* CLAVE para el centrado vertical */
   justify-content: space-between;
-  height: 100%;
-  padding-bottom: 0.5rem; /* Añade espacio entre el contenido y la línea divisoria */
+  
+  /* CAMBIO CLAVE 2: Usamos calc() para que la altura interna (donde se centra el contenido) 
+     sea el alto definido originalmente (5rem). Esto ayuda a que el align-items: center funcione bien. */
+  height: calc(var(--header-height) - 1.5rem); /* 1.5rem = 0.75rem top + 0.75rem bottom */
+  
+  padding-bottom: 0; 
 }
 
 .logo {
@@ -289,6 +302,7 @@ ul {
 /* Main Content */
 main {
   flex: 1;
+  padding-top: calc(var(--header-height) + 1.5rem);
 }
 
 /* Section */
@@ -1067,4 +1081,28 @@ body.dark-theme #chat-input {
   content: '.'; /* Contenido inicial */
   display: inline-block;
   animation: loading-dots 1.5s infinite steps(3, end);
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #4f46e5, #9333ea); /* azul → violeta */
+  color: #fff;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.btn-gradient:hover {
+  color: #000; /* texto negro en hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+}
+
+.btn i,
+.btn img {
+  margin-right: 6px;
+  vertical-align: middle;
 }
