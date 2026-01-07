@@ -42,7 +42,7 @@ const translations = {
     // Proyectos
     "projects.title": "Proyectos",
 
-    "project1.title": "IA - Entrevistador de RRHH",
+    "project1.title": "Autobid AI",
     "project1.description":
       "Proximamente...",
 
@@ -191,7 +191,7 @@ const translations = {
     // Projects
     "projects.title": "Projects",
 
-    "project1.title": "AI - HR Interviewer",
+    "project1.title": "Autobid AI",
     "project1.description":
       "Soon...",
 
