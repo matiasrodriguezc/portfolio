@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update page title and meta description
     if (lang === "es") {
-      document.title = "Matías Rodríguez Cárdenas | Ingeniero en Sistemas"
+      document.title = "Matías Rodríguez | Ing. en Sistemas"
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "Portfolio profesional de Matías Rodríguez Cárdenas, Ingeniero en Sistemas especializado en desarrollo de software y arquitectura de sistemas.",
         )
     } else {
-      document.title = "Matías Rodríguez Cárdenas | Systems Engineer"
+      document.title = "Matías Rodríguez | Systems Engineer"
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
