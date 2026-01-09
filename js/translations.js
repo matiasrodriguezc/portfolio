@@ -44,7 +44,7 @@ const translations = {
 
     "project1.title": "Autobid AI",
     "project1.description":
-      "Proximamente...",
+      "SaaS Full Stack desarrollado con Next.js y FastAPI. Implementa una arquitectura RAG con Pinecone y Google Gemini para el análisis semántico de licitaciones (PDFs), junto con un modelo de ML (Scikit-Learn) que predice la probabilidad de ganar (Win Rate). Incluye anonimización de datos sensibles (PII) y autenticación multi-tenant.",
 
     "project2.title": "RAG - Chatbot Asistente Virtual",
     "project2.description":
@@ -193,7 +193,7 @@ const translations = {
 
     "project1.title": "Autobid AI",
     "project1.description":
-      "Soon...",
+      "Full-Stack SaaS developed with Next.js and FastAPI. Implements a RAG architecture using Pinecone and Google Gemini for semantic analysis of tenders (PDFs), alongside a Machine Learning model (Scikit-Learn) that predicts win probability (Win Rate). Includes sensitive data anonymization (PII) and multi-tenant authentication.",
 
     "project2.title": "RAG - Chatbot Virtual Assistant",
     "project2.description":
