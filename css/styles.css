@@ -943,8 +943,8 @@ main {
   max-width: 90vw;
   height: 450px;
   max-height: 70vh;
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
+  background-color: var(--card); 
+  border: 1px solid var(--border);
   border-radius: 8px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -994,14 +994,14 @@ main {
 }
 
 .chat-message.user {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--primary); 
+  color: var(--primary-foreground);
   border-bottom-right-radius: 5px;
   align-self: flex-end;
 }
 
 .chat-message.bot {
-  background-color: var(--secondary-background-color);
+  background-color: var(--secondary);
   color: var(--text-color);
   border-bottom-left-radius: 5px;
   align-self: flex-start;
