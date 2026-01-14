@@ -48,7 +48,7 @@ const translations = {
 
     "project2.title": "RAG - Chatbot Asistente Virtual",
     "project2.description":
-      "Construí un chatbot RAG (Retrieval-Augmented Generation) que permite a los usuarios conversar con mi CV en tiempo real. El backend está impulsado por un pipeline ETL en Apache Airflow que monitorea mi GitHub y actualiza automáticamente una base vectorial ChromaDB con embeddings locales generados con Hugging Face. FastAPI gestiona la lógica RAG y transmite las respuestas del modelo Gemini al frontend de mi portafolio.",
+      "Construí un chatbot RAG (Retrieval-Augmented Generation) que permite a los usuarios conversar con mi experiencia profesional en tiempo real. La arquitectura implementa un concepto de Live Resume: un pipeline CI/CD en GitHub Actions extrae mi biografía directamente desde Google Docs y actualiza automáticamente la base de datos vectorial Pinecone. FastAPI gestiona la lógica RAG con LangChain y transmite las respuestas del modelo Google Gemini 2.5 mediante streaming.",
 
     "project3.title": "MLOps - Predictor de Ausencia",
     "project3.description":
@@ -197,7 +197,7 @@ const translations = {
 
     "project2.title": "RAG - Chatbot Virtual Assistant",
     "project2.description":
-      "A RAG (Retrieval-Augmented Generation) chatbot that lets users chat with my CV in real time. The backend is powered by an Apache Airflow ETL pipeline that monitors my GitHub and automatically updates a ChromaDB vector store with locally generated Hugging Face embeddings. FastAPI handles the RAG logic and streams Gemini model responses to my portfolio frontend.",
+      "I built a RAG (Retrieval-Augmented Generation) chatbot that enables users to converse with my professional experience in real-time. The architecture implements a Live Resume concept: a CI/CD pipeline in GitHub Actions extracts my biography directly from Google Docs and automatically updates the Pinecone vector database. FastAPI manages the RAG logic with LangChain and streams responses from the Google Gemini 2.5 model.",
 
     "project3.title": "MLOps - Absence Predictor",
     "project3.description":
