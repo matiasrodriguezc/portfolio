@@ -438,7 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMessages.scrollTop = chatMessages.scrollHeight; // Baja el scroll
 
     try {
-      const API_URL = "https://rag-chatbot-cv.onrender.com/ask"; 
+      const API_URL = "https://ideal-noella-matiasrodriguezc-d1b4fcbc.koyeb.app/ask"; 
 
       const response = await fetch(API_URL, {
         method: "POST",
