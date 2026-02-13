@@ -65,8 +65,8 @@ const translations = {
     "project5.description":
       "Desarrollé una aplicación web full-stack que realiza clustering K-Means. Permite a los usuarios subir un CSV, seleccionar variables y visualizar los datos en gráficos interactivos (Recharts). La app identifica automáticamente el número óptimo de clusters (Método del Codo) y utiliza la API de Google Gemini para analizar los segmentos y asignarles nombres y descripciones accionables.",
     
-    "project6.title": "NLP - Búsqueda semántica",
-    "project6.description": "Proyecto de procesamiento de lenguaje natural (NLP) que implementa un sistema de búsqueda por aproximación para temas de cursos. Utiliza la base de datos de vectores Pinecone para búsquedas más relevantes contextualmente que las basadas en palabras clave.",
+    "project6.title": "DevOps - Arquitectura Cloud-Native",
+    "project6.description": "Plataforma de monitoreo de criptomonedas basada en microservicios (Python/FastAPI). Implementa orquestación completa con Kubernetes y Helm, Infraestructura como Código (IaC) con Terraform y pipelines de CI/CD automatizados. Integra observabilidad en tiempo real mediante Grafana y persistencia en PostgreSQL.",
   
     "projects.code": "Código",
     "projects.demo": "Demo",
@@ -214,8 +214,8 @@ const translations = {
     "project5.description":
       "I developed a full-stack web application that performs K-Means clustering. It allows users to upload a CSV, select variables, and visualize the data on interactive charts (Recharts). The app automatically identifies the optimal number of clusters (Elbow Method) and uses the Google Gemini API to analyze the segments and assign them actionable names and descriptions.",
 
-    "project6.title": "NLP - Semantic Search",
-    "project6.description": "Natural Language Processing (NLP) project that implements an approximation-based search system for course topics. Leverages the Pinecone vector database for contextually relevant searches instead of simple keyword matching.",
+    "project6.title": "DevOps - Cloud-Native Architecture",
+    "project6.description": "Microservices-based cryptocurrency monitoring platform (Python/FastAPI). Implements full orchestration with Kubernetes and Helm, Infrastructure as Code (IaC) using Terraform, and automated CI/CD pipelines. Integrates real-time observability via Grafana and PostgreSQL persistence.",
 
     "projects.code": "Code",
     "projects.demo": "Demo",
