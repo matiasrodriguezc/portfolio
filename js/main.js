@@ -132,23 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Scroll to top button
-  const scrollTopBtn = document.getElementById("scroll-top")
 
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 300) {
-      scrollTopBtn.classList.add("visible")
-    } else {
-      scrollTopBtn.classList.remove("visible")
-    }
-  })
-
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  })
 
   // Active navigation link on scroll
   const sections = document.querySelectorAll("section[id]")
@@ -157,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function highlightNavLink() {
     const scrollPosition = window.scrollY;
     let currentSectionId = null;
-  
+
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
@@ -232,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".hero-text .description").textContent = translations[lang]["hero.description"]
     document.querySelector(".hero-buttons .btn-primary").textContent = translations[lang]["hero.contact"]
     document.querySelector(".hero-buttons .btn-outline").textContent = translations[lang]["hero.projects"]
-    
+
 
     // Update section titles
     document.querySelectorAll(".section-title").forEach((el) => {
@@ -324,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (certificationTitle) {
       certificationTitle.textContent = translations[lang]["certification.title"]
     }
-    
+
     // Update Experience Sec.
     const expItems = document.querySelectorAll("section#experience .timeline-item")
     expItems.forEach((item, index) => {
@@ -420,7 +404,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const welcomeMsg = addChatMessage("bot", translations[currentLanguage]["chat.intro"]);
     welcomeMsg.classList.add("bot-welcome");
   }
-  
+
   // Función para manejar el envío de mensajes
   // Reemplaza tu función handleSendMessage con esta
   async function handleSendMessage() {
@@ -438,7 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMessages.scrollTop = chatMessages.scrollHeight; // Baja el scroll
 
     try {
-      const API_URL = "https://ideal-noella-matiasrodriguezc-d1b4fcbc.koyeb.app/ask"; 
+      const API_URL = "https://ideal-noella-matiasrodriguezc-d1b4fcbc.koyeb.app/ask";
 
       const response = await fetch(API_URL, {
         method: "POST",
@@ -459,7 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
-        
+
         // ¡Aquí está la magia!
         if (isFirstChunk) {
           // 3. QUITA la clase 'loading' en cuanto llega el primer trozo
@@ -499,23 +483,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Integración con la función de idioma existente ---
   // Guardamos la función setLanguage original que cargaste de main.js
-  const originalSetLanguage = window.setLanguage; 
+  const originalSetLanguage = window.setLanguage;
 
   // Re-definimos setLanguage para que haga lo de antes Y ADEMÁS actualice el chat
   window.setLanguage = (lang) => {
     originalSetLanguage(lang); // Llama a la lógica original de tu portafolio
-    
+
     // Ahora, actualiza el texto del chat
     chatTitle.textContent = translations[lang]["chat.title"];
     chatInput.placeholder = translations[lang]["chat.placeholder"];
-    
+
     // Actualiza el mensaje de bienvenida si existe
     const welcomeMsg = chatMessages.querySelector(".bot-welcome");
     if (welcomeMsg) {
       welcomeMsg.textContent = translations[lang]["chat.intro"];
     }
   };
-  
+
   // Llama a la lógica de idioma una vez al cargar para establecer el texto inicial del chat
   window.setLanguage(currentLanguage);
 
