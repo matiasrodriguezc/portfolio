@@ -42,21 +42,21 @@ const translations = {
     // Proyectos
     "projects.title": "Proyectos",
 
-    "project1.title": "Autobid AI",
+    "project1.title": "AI Agent - Fluent AI",
     "project1.description":
+      "Construí Fluent AI, una plataforma autónoma de inteligencia de datos que transforma información cruda en insights accionables. Su núcleo es un orquestador multiagente (LangGraph y Gemini) que evalúa la intención del usuario y decide dinámicamente qué herramientas ejecutar: desde generar y correr consultas SQL en esquemas de PostgreSQL estrictamente aislados (multi-tenant), hasta realizar búsquedas RAG en Pinecone o renderizar gráficos en la UI. El backend en FastAPI valida la seguridad de cada prompt y transmite el razonamiento del agente y las respuestas mediante streaming (SSE) hacia un frontend de alto rendimiento en Next.js.",
+
+    "project2.title": "Autobid AI",
+    "project2.description":
       "SaaS Full Stack desarrollado con Next.js y FastAPI. Implementa una arquitectura RAG con Pinecone y Google Gemini para el análisis semántico de licitaciones (PDFs), junto con un modelo de ML (Scikit-Learn) que predice la probabilidad de ganar (Win Rate). Incluye anonimización de datos sensibles (PII) y autenticación multi-tenant.",
 
-    "project2.title": "RAG - Chatbot Asistente Virtual",
-    "project2.description":
+    "project3.title": "RAG - Chatbot Asistente Virtual",
+    "project3.description":
       "Construí un chatbot RAG (Retrieval-Augmented Generation) que permite a los usuarios conversar con mi experiencia profesional en tiempo real. La arquitectura implementa un concepto de Live Resume: un pipeline CI/CD en GitHub Actions extrae mi biografía directamente desde Google Docs y actualiza automáticamente la base de datos vectorial Pinecone. FastAPI gestiona la lógica RAG con LangChain y transmite las respuestas del modelo Google Gemini 2.5 mediante streaming.",
 
-    "project3.title": "MLOps - Predictor de Ausencia",
-    "project3.description":
-      "Proyecto Full-Stack end-to-end que predice las horas de absentismo de los empleados. Este sistema gestiona el ciclo de vida completo del dato, desde la ingesta y el análisis hasta el re-entrenamiento automático y el despliegue del modelo.",
-
-    "project4.title": "Deep Learning - Analizador de Emociones",
+    "project4.title": "MLOps - Predictor de Ausencia",
     "project4.description":
-      "EmotionAI es una aplicación web Full-Stack para la clasificación de emociones en tiempo real. Los usuarios pueden ingresar texto y recibir un desglose interactivo de las emociones detectadas (alegría, tristeza, ira y miedo).",
+      "Proyecto Full-Stack end-to-end que predice las horas de absentismo de los empleados. Este sistema gestiona el ciclo de vida completo del dato, desde la ingesta y el análisis hasta el re-entrenamiento automático y el despliegue del modelo.",
     "project5.title": "Web Generator",
     "project5.description":
       "Asistente conversacional desarrollado en Python con Rasa, integrado con Telegram para generar sitios web automáticamente desde el chat.",
@@ -197,21 +197,21 @@ const translations = {
     // Projects
     "projects.title": "Projects",
 
-    "project1.title": "Autobid AI",
+    "project1.title": "AI Agent - Fluent AI",
     "project1.description":
+      "Built Fluent AI, an autonomous data intelligence platform that transforms raw information into actionable insights. Its core is a multi-agent orchestrator (LangGraph and Gemini) that evaluates user intent and dynamically decides which tools to execute: from generating and running SQL queries in strictly isolated (multi-tenant) PostgreSQL schemas, to performing RAG searches in Pinecone or rendering charts in the UI. The FastAPI backend validates the security of each prompt and streams the agent's reasoning and responses via Server-Sent Events (SSE) to a high-performance Next.js frontend.",
+
+    "project2.title": "Autobid AI",
+    "project2.description":
       "Full-Stack SaaS developed with Next.js and FastAPI. Implements a RAG architecture using Pinecone and Google Gemini for semantic analysis of tenders (PDFs), alongside a Machine Learning model (Scikit-Learn) that predicts win probability (Win Rate). Includes sensitive data anonymization (PII) and multi-tenant authentication.",
 
-    "project2.title": "RAG - Chatbot Virtual Assistant",
-    "project2.description":
+    "project3.title": "RAG - Chatbot Virtual Assistant",
+    "project3.description":
       "I built a RAG (Retrieval-Augmented Generation) chatbot that enables users to converse with my professional experience in real-time. The architecture implements a Live Resume concept: a CI/CD pipeline in GitHub Actions extracts my biography directly from Google Docs and automatically updates the Pinecone vector database. FastAPI manages the RAG logic with LangChain and streams responses from the Google Gemini 2.5 model.",
 
-    "project3.title": "MLOps - Absence Predictor",
-    "project3.description":
-      "End-to-end Full-Stack project that predicts employee absenteeism hours. This system manages the complete data lifecycle, from ingestion and analysis to automatic re-training and model deployment.",
-
-    "project4.title": "Deep Learning - Emotion Analyzer",
+    "project4.title": "MLOps - Absence Predictor",
     "project4.description":
-      "A Full-Stack web application for real-time emotion classification. Users can input text and receive an interactive breakdown of the detected emotions (joy, sadness, anger, and fear).",
+      "End-to-end Full-Stack project that predicts employee absenteeism hours. This system manages the complete data lifecycle, from ingestion and analysis to automatic re-training and model deployment.",
     "project5.title": "Web Generator",
     "project5.description":
       "Conversational assistant developed in Python with Rasa, integrated with Telegram to automatically generate websites from the chat.",
