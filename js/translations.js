@@ -70,6 +70,7 @@ const translations = {
   
     "projects.code": "Código",
     "projects.demo": "Demo",
+    "projects.info": "+ Info",
 
     // Experiencia
     "experience.title": "Experiencia",
@@ -225,6 +226,7 @@ const translations = {
 
     "projects.code": "Code",
     "projects.demo": "Demo",
+    "projects.info": "+ Info",
 
     // Experience
     "experience.title": "Experience",

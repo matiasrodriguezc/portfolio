@@ -286,12 +286,34 @@ document.addEventListener("DOMContentLoaded", () => {
         card.querySelector(".project-description").textContent = translations[lang][descKey]
       }
 
-      // Update code button text
-      const codeBtn = card.querySelector(".project-links .btn-outline")
-      if (codeBtn) {
-        const codeText = codeBtn.querySelector("i").nextSibling
-        codeText.textContent = ` ${translations[lang]["projects.code"]}`
-      }
+      // Update project links text
+      const projectLinks = card.querySelectorAll(".project-links .btn")
+      projectLinks.forEach((link) => {
+        if (link.querySelector(".fa-github")) {
+          const textNode = link.querySelector("i").nextSibling
+          if (textNode) textNode.textContent = ` ${translations[lang]["projects.code"]}`
+        } else if (link.querySelector(".fa-info-circle")) {
+          const textNode = link.querySelector("i").nextSibling
+          if (textNode) textNode.textContent = ` ${translations[lang]["projects.info"]}`
+        } else if (link.textContent.trim().toLowerCase().includes("demo")) {
+          // For demo buttons, they might have an img or just text
+          const img = link.querySelector("img")
+          if (img) {
+            link.innerHTML = ""
+            link.appendChild(img)
+            link.appendChild(document.createTextNode(` ${translations[lang]["projects.demo"]}`))
+          } else {
+            const icon = link.querySelector("i")
+            if (icon) {
+              link.innerHTML = ""
+              link.appendChild(icon)
+              link.appendChild(document.createTextNode(` ${translations[lang]["projects.demo"]}`))
+            } else {
+              link.textContent = translations[lang]["projects.demo"]
+            }
+          }
+        }
+      })
     })
 
     const experienceTitle = document.querySelector("section#experience > .container > .section-header > .section-title")
