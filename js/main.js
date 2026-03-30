@@ -312,6 +312,23 @@ document.addEventListener("DOMContentLoaded", () => {
               link.textContent = translations[lang]["projects.demo"]
             }
           }
+        } else if (link.textContent.trim().toLowerCase().includes("post")) {
+          // For post buttons
+          const icon = link.querySelector("i")
+          if (icon) {
+            link.innerHTML = ""
+            link.appendChild(icon)
+            link.appendChild(document.createTextNode(` ${translations[lang]["projects.post"]}`))
+          } else {
+            const img = link.querySelector("img")
+            if (img) {
+              link.innerHTML = ""
+              link.appendChild(img)
+              link.appendChild(document.createTextNode(` ${translations[lang]["projects.post"]}`))
+            } else {
+              link.textContent = translations[lang]["projects.post"]
+            }
+          }
         }
       })
     })
