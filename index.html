@@ -4,25 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matías Rodríguez | Ing. en Sistemas</title>
+  <title>Matías Rodríguez | AI Solutions Engineer</title>
   <meta name="description"
-    content="Professional portfolio of Matías Rodríguez Cárdenas, Systems Engineer specializing in software development and systems architecture.">
+    content="Portfolio de Matías Rodríguez Cárdenas, AI Solutions Engineer y Full Stack AI Engineer especializado en agentes autónomos, integraciones MCP y aplicaciones GenAI.">
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="canonical" href="https://matiasrodriguezc.github.io/portfolio" />
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0f0f0f">
 
   <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content="Matías Rodríguez | Ing. en Sistemas">
+  <meta property="og:title" content="Matías Rodríguez | AI Solutions Engineer">
   <meta property="og:description"
-    content="Professional portfolio of Matías Rodríguez Cárdenas, Systems Engineer specializing in software development and systems architecture.">
+    content="Portfolio of Matías Rodríguez Cárdenas, AI Solutions Engineer and Full Stack AI Engineer specializing in autonomous agents, MCP integrations and GenAI applications.">
   <meta property="og:image" content="https://matiasrodriguezc.github.io/portfolio/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Matías Rodríguez | Portfolio - Software Engineer">
+  <meta property="og:image:alt" content="Matías Rodríguez | Portfolio - AI Solutions Engineer">
   <meta property="og:url" content="https://matiasrodriguezc.github.io/portfolio">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Matías Rodríguez | Portfolio">
@@ -30,11 +30,17 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Matías Rodríguez | Ing. en Sistemas">
+  <meta name="twitter:title" content="Matías Rodríguez | AI Solutions Engineer">
   <meta name="twitter:description"
-    content="Professional portfolio of Matías Rodríguez Cárdenas, Systems Engineer specializing in software development and systems architecture.">
+    content="Portfolio of Matías Rodríguez Cárdenas, AI Solutions Engineer and Full Stack AI Engineer specializing in autonomous agents, MCP integrations and GenAI applications.">
   <meta name="twitter:image" content="https://matiasrodriguezc.github.io/portfolio/assets/og-image.jpg">
   <meta name="twitter:site" content="@matiasrodriguezc">
+
+  <!-- Fonts: base editorial set + one display face per experience / project identity -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Lato:wght@400;700;900&family=Manrope:wght@500;700;800&family=Rajdhani:wght@500;600;700&family=Syne:wght@600;800&family=Unbounded:wght@500;600&display=swap">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
@@ -42,8 +48,8 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- AOS Animation Library -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Flag JS early so reveal animations never hide content when scripts are off -->
+  <script>document.documentElement.classList.add("js");</script>
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -52,690 +58,1097 @@
     "@type": "Person",
     "name": "Matías Rodríguez Cárdenas",
     "url": "https://matiasrodriguezc.github.io/portfolio",
-    "jobTitle": "Ingeniero en Sistemas",
+    "jobTitle": "AI Solutions Engineer",
     "sameAs": [
       "https://github.com/matiasrodriguezc",
       "https://linkedin.com/in/matiasrodriguezc"
     ],
-    "description": "Ingeniero en Sistemas especializado en desarrollo de software, arquitectura de sistemas y soluciones tecnológicas innovadoras."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Matías Rodríguez | Portfolio",
-    "description": "Portfolio profesional de Matías Rodríguez Cárdenas, Ingeniero en Sistemas especializado en desarrollo de software y arquitectura de sistemas."
+    "description": "AI Solutions Engineer and Full Stack AI Engineer specializing in autonomous agents, MCP-based enterprise integrations and end-to-end GenAI applications."
   }
   </script>
 </head>
 
 <body>
-  <div class="page-wrapper">
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <div class="header-content">
-          <div class="logo">Matías Rodríguez</div>
-          <nav class="desktop-nav">
-            <ul>
-              <li><a href="#about" class="nav-link" data-section="about">Sobre mí</a></li>
-              <li><a href="#skills" class="nav-link" data-section="skills">Habilidades</a></li>
-              <li><a href="#projects" class="nav-link" data-section="projects">Proyectos</a></li>
-              <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
-              <li><a href="#contact" class="nav-link" data-section="contact">Contacto</a></li>
-            </ul>
-          </nav>
-          <div class="header-actions">
-            <button id="language-toggle" class="icon-button" aria-label="Cambiar idioma">
-              <i class="fas fa-globe"></i>
-            </button>
-            <button id="theme-toggle" class="icon-button" aria-label="Cambiar tema">
-              <i class="fas fa-moon"></i>
-              <i class="fas fa-sun"></i>
-            </button>
-            <a href="https://github.com/matiasrodriguezc" target="_blank" class="icon-button" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/matiasrodriguezc" target="_blank" class="icon-button"
-              aria-label="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <button id="mobile-menu-toggle" class="icon-button mobile-only" aria-label="Menú">
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
+  <a class="skip-link" href="#about">Skip to content</a>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav">
+  <!-- Shared SVG symbols -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true">
+    <symbol id="paperclip" viewBox="0 0 20 44">
+      <path d="M7 30V8a4.5 4.5 0 0 1 9 0v26a7 7 0 0 1-14 0V11" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" />
+    </symbol>
+  </svg>
+
+  <!-- Header: colors and display font follow the active slide -->
+  <header class="site-header">
+    <a href="#cover" class="site-header__brand" aria-label="Matías Rodríguez — inicio">
+      <span class="site-header__mark">Matías Rodríguez</span>
+      <small data-i18n="cover.role1"></small>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
       <ul>
-        <li><a href="#about" class="nav-link" data-section="about">Sobre mí</a></li>
-        <li><a href="#skills" class="nav-link" data-section="skills">Habilidades</a></li>
-        <li><a href="#projects" class="nav-link" data-section="projects">Proyectos</a></li>
-        <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
-        <li><a href="#contact" class="nav-link" data-section="contact">Contacto</a></li>
+        <li><a href="#about" class="nav-link" data-section="about" data-i18n="nav.about"></a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience" data-i18n="nav.experience"></a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects" data-i18n="nav.projects"></a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills" data-i18n="nav.skills"></a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact" data-i18n="nav.contact"></a></li>
       </ul>
-      <div class="language-selector">
-        <button data-lang="es" class="lang-btn active">Español</button>
-        <button data-lang="en" class="lang-btn">English</button>
-      </div>
+    </nav>
+    <div class="header-actions">
+      <button id="language-toggle" class="icon-button lang-toggle" aria-label="Cambiar idioma / Change language">
+        <span data-lang="es">ES</span><span aria-hidden="true">/</span><span data-lang="en">EN</span>
+      </button>
+      <a href="https://github.com/matiasrodriguezc" target="_blank" rel="noopener" class="icon-button"
+        aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/matiasrodriguezc" target="_blank" rel="noopener" class="icon-button"
+        aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <button id="mobile-menu-toggle" class="icon-button mobile-only" aria-expanded="false"
+        aria-controls="mobile-nav" data-i18n-aria="nav.menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
+  </header>
 
-    <!-- Main Content -->
-    <main>
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <div class="container">
-          <div class="hero-content">
-            <div class="hero-text" data-aos="fade-right">
-              <h1><span class="greeting">Hola, soy</span> <span class="name">Matías</span></h1>
-              <h2 class="title">Ingeniero en Sistemas</h2>
-              <p class="description">Especializado en desarrollo de software, arquitectura de sistemas y soluciones
-                tecnológicas innovadoras.</p>
-              <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Contactar</a>
-                <a href="#projects" class="btn btn-outline">Ver proyectos</a>
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="#about" class="nav-link" data-section="about" data-i18n="nav.about"></a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience" data-i18n="nav.experience"></a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects" data-i18n="nav.projects"></a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills" data-i18n="nav.skills"></a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact" data-i18n="nav.contact"></a></li>
+    </ul>
+  </div>
+
+  <!-- Chapter indicator (vertical) -->
+  <nav class="chapter-dots" aria-label="Capítulos">
+    <a href="#cover" data-section="cover" aria-label="Portfolio"></a>
+    <a href="#about" data-section="about" data-i18n-aria="nav.about"></a>
+    <a href="#experience" data-section="experience" data-i18n-aria="nav.experience"></a>
+    <a href="#projects" data-section="projects" data-i18n-aria="nav.projects"></a>
+    <a href="#skills" data-section="skills" data-i18n-aria="nav.skills"></a>
+    <a href="#contact" data-section="contact" data-i18n-aria="nav.contact"></a>
+  </nav>
+
+  <main>
+    <!-- ========== 00 · Cover ========== -->
+    <section class="chapter" id="cover">
+      <div class="slide cover" data-theme="ink">
+        <div class="binder reveal">
+          <div class="binder__pages">
+            <div class="binder__page binder__page--left">
+              <p class="binder__owner">
+                <span data-i18n="cover.owner"></span>
+                <small data-i18n="cover.place"></small>
+              </p>
+              <span class="binder__pill" data-i18n="cover.year"></span>
+              <span class="tape binder__role binder__role--1" data-i18n="cover.role1"></span>
+              <div class="binder__card">
+                <a href="mailto:matiasrodriguezc01@gmail.com">matiasrodriguezc01@gmail.com</a>
+                <a href="https://linkedin.com/in/matiasrodriguezc" target="_blank" rel="noopener"><strong>linkedin.com/in/matiasrodriguezc</strong></a>
+                <a href="https://github.com/matiasrodriguezc" target="_blank" rel="noopener">github.com/matiasrodriguezc</a>
               </div>
             </div>
-            <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
-              <img src="assets/profile.jpeg" alt="Matías Rodríguez Cárdenas" width="256" height="256">
+            <div class="binder__page binder__page--right">
+              <figure class="polaroid binder__photo">
+                <svg class="clip" aria-hidden="true"><use href="#paperclip" /></svg>
+                <img src="assets/profile.jpeg" alt="Matías Rodríguez Cárdenas" width="360" height="636">
+                <figcaption data-i18n="cover.caption"></figcaption>
+              </figure>
+              <span class="tape binder__role binder__role--2" data-i18n="cover.role2"></span>
+              <p class="hand binder__note"><span data-i18n="cover.note"></span> <i class="fas fa-arrow-down"></i></p>
+            </div>
+            <div class="binder__rings" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <h1 class="binder__title" aria-label="Portfolio — Matías Rodríguez Cárdenas">
+              <span class="binder__port">Port</span><span class="binder__folio">folio</span>
+            </h1>
+          </div>
+          <nav class="binder__tabs" aria-label="Índice">
+            <a href="#experience" data-i18n="nav.experience"></a>
+            <a href="#projects" data-i18n="nav.projects"></a>
+            <a href="#skills" data-i18n="nav.skills"></a>
+            <a href="#contact" data-i18n="nav.contact"></a>
+          </nav>
+        </div>
+        <footer class="slide__foot"><span>01</span><span>Portfolio 2026</span></footer>
+      </div>
+    </section>
+
+    <!-- ========== 01 · About ========== -->
+    <section class="chapter" id="about">
+      <div class="slide about" data-theme="ink-glow">
+        <div class="slide__body about__body">
+          <div class="about__visual reveal">
+            <figure class="polaroid polaroid--lg">
+              <svg class="clip" aria-hidden="true"><use href="#paperclip" /></svg>
+              <img src="assets/profile.jpeg" alt="Retrato de Matías Rodríguez Cárdenas" width="360" height="636"
+                loading="lazy">
+            </figure>
+            <span class="paper-word paper-word--1" data-i18n="about.tape1"></span>
+            <span class="paper-word paper-word--2" data-i18n="about.tape2"></span>
+          </div>
+          <div class="about__text">
+            <p class="hand about__hello reveal" style="--d: 1"><span data-i18n="about.hello"></span> <i
+                class="fas fa-arrow-turn-down"></i></p>
+            <h2 class="display about__name reveal" style="--d: 2">Matías Rodríguez <em>Cárdenas</em></h2>
+            <div class="about__copy reveal" style="--d: 3">
+              <p data-i18n="about.p1"></p>
+              <p data-i18n="about.p2"></p>
+              <p data-i18n="about.p3"></p>
+            </div>
+            <dl class="facts reveal" style="--d: 4">
+              <div>
+                <dt data-i18n="about.location.label"></dt>
+                <dd data-i18n="about.location"></dd>
+              </div>
+              <div>
+                <dt data-i18n="about.availability.label"></dt>
+                <dd data-i18n="about.availability"></dd>
+              </div>
+              <div>
+                <dt data-i18n="about.languages.label"></dt>
+                <dd data-i18n="about.languages"></dd>
+              </div>
+              <div>
+                <dt data-i18n="about.cert.label"></dt>
+                <dd>Google Professional AI Certificate</dd>
+              </div>
+            </dl>
+            <div class="btn-row reveal" style="--d: 5">
+              <a href="assets/CV-ES - MR.pdf" download class="btn btn--solid">
+                <i class="fas fa-download"></i><span data-i18n="about.cv"></span> · <span data-i18n="about.cv.es"></span>
+              </a>
+              <a href="assets/CV-EN - MR.pdf" download class="btn">
+                <i class="fas fa-download"></i><span data-i18n="about.cv"></span> · <span data-i18n="about.cv.en"></span>
+              </a>
             </div>
           </div>
         </div>
-      </section>
+        <footer class="slide__foot"><span>02</span><span data-i18n="about.meta"></span></footer>
+      </div>
+    </section>
 
-      <!-- About Section -->
-      <section id="about" class="section">
-        <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <i class="fas fa-user section-icon"></i>
-            <h2 class="section-title">Sobre mí</h2>
-          </div>
-          <div class="about-content">
-            <div class="about-text" data-aos="fade-right" data-aos-delay="200">
-              <p>Soy Ingeniero en Sistemas con experiencia en el desarrollo de soluciones tecnológicas. Me especializo
-                en desarrollo full-stack y actualmente MLOps.</p>
-              <p>Mi enfoque combina sólidos conocimientos técnicos con habilidades de resolución de problemas,
-                permitiéndome diseñar e implementar soluciones eficientes y escalables para desafíos complejos.</p>
-              <p>Constantemente me mantengo actualizado con las últimas tecnologías y metodologías, lo que me permite
-                ofrecer soluciones innovadoras y de vanguardia.</p>
+    <!-- ========== 02 · Experience (horizontal) ========== -->
+    <section class="chapter chapter--h" id="experience">
+      <div class="h-track" tabindex="0" role="region" aria-roledescription="carousel" data-i18n-aria="nav.experience">
+
+        <!-- Intro -->
+        <article class="slide intro" data-theme="paper" role="group" aria-roledescription="slide">
+          <div class="slide__body intro__body">
+            <div class="intro__head">
+              <p class="kicker reveal" data-i18n="exp.kicker"></p>
+              <h2 class="display display--xl reveal" style="--d: 1" data-i18n-html="exp.title"></h2>
+              <p class="lead reveal" style="--d: 2" data-i18n="exp.lead"></p>
+              <p class="hand intro__note reveal" style="--d: 3" data-i18n="exp.note"></p>
             </div>
-            <div class="about-info" data-aos="fade-left" data-aos-delay="400">
-              <div class="info-grid">
-                <div class="info-item">
-                  <h3>Nombre:</h3>
-                  <p>Matías Rodríguez Cárdenas</p>
+            <ol class="index reveal" style="--d: 2">
+              <li>
+                <button class="index__item" data-goto="1"
+                  style="--dot: #e2b13c; --f: 'Lato', sans-serif; --fw: 900">
+                  <span class="index__num">01</span>
+                  <span class="index__name">Northbridge University</span>
+                  <span class="index__role">AI Solutions Engineer</span>
+                  <span class="index__year">2026</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="2" style="--dot: #3b82f6; --f: 'Inter', sans-serif; --fw: 700">
+                  <span class="index__num">02</span>
+                  <span class="index__name">Cleatus AI</span>
+                  <span class="index__role">Full Stack AI Engineer</span>
+                  <span class="index__year">2025</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="3" style="--dot: #0d2d78; --f: 'Rajdhani', sans-serif; --fw: 700">
+                  <span class="index__num">03</span>
+                  <span class="index__name">Ábaco Informática</span>
+                  <span class="index__role">Software Engineer</span>
+                  <span class="index__year">2021 —</span>
+                </button>
+              </li>
+            </ol>
+          </div>
+          <footer class="slide__foot"><span>03</span><span data-i18n="exp.meta"></span></footer>
+        </article>
+
+        <!-- Northbridge University -->
+        <article class="slide case" data-theme="northbridge" role="group" aria-roledescription="slide"
+          aria-label="Northbridge University">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="exp1.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="exp1.role"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape" data-i18n="exp1.team"></span>
+                <span data-i18n="exp1.period"></span><span aria-hidden="true">·</span><span data-i18n="exp1.place"></span>
+              </p>
+              <ul class="points reveal" style="--d: 3">
+                <li data-i18n-html="exp1.b1"></li>
+                <li data-i18n-html="exp1.b2"></li>
+                <li data-i18n-html="exp1.b3"></li>
+                <li data-i18n-html="exp1.b4"></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--northbridge">
+                    <img class="brandmark__logo" src="assets/logos/northbridge.png" alt="Northbridge University"
+                      width="1200" height="272">
+                  </div>
+                  <span class="board__num">01</span>
                 </div>
-                <div class="info-item">
-                  <h3>Email:</h3>
-                  <p>matiasrodriguezc01@gmail.com</p>
+                <div class="board__art">
+                  <p class="board__caption" data-i18n="exp1.board"></p>
+                  <div class="mcp" aria-hidden="true">
+                    <ul class="mcp__sources">
+                      <li>Microsoft 365 · Graph</li>
+                      <li>SharePoint</li>
+                      <li>Teams</li>
+                      <li>monday.com</li>
+                    </ul>
+                    <span class="mcp__wire"></span>
+                    <span class="mcp__hub">MCP</span>
+                    <span class="mcp__wire"></span>
+                    <span class="mcp__target"><strong>Claude Enterprise</strong><small>Skills · Agents · SSO</small></span>
+                  </div>
+                  <div class="stamp" aria-hidden="true"><strong>CAB</strong><span>release gate</span></div>
                 </div>
-                <div class="info-item">
-                  <h3>Ubicación:</h3>
-                  <p>Tandil, Buenos Aires, Argentina</p>
-                </div>
-                <div class="info-item">
-                  <h3>Disponibilidad:</h3>
-                  <p>Tiempo completo</p>
-                </div>
-              </div>
-              <div class="cv-download">
-                <div class="dropdown">
-                  <button class="btn btn-outline dropdown-toggle">
-                    <i class="fas fa-download"></i>
-                    <span>Descargar CV</span>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a href="assets/CV-ES - MR.pdf" download class="dropdown-item">Español</a>
-                    <a href="assets/CV-EN - MR.pdf" download class="dropdown-item">Inglés</a>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #021132" data-hex="#021132"></i>
+                      <i style="--c: #e2b13c" data-hex="#E2B13C"></i>
+                      <i style="--c: #1032cf" data-hex="#1032CF"></i>
+                      <i style="--c: #f4f4f4" data-hex="#F4F4F4"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Lato</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+          <footer class="slide__foot"><span>04</span><span><span data-i18n="exp.meta"></span> | Northbridge University</span></footer>
+        </article>
 
-      <!-- Skills Section -->
-      <section id="skills" class="section">
-        <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <i class="fas fa-code section-icon"></i>
-            <h2 class="section-title">Habilidades</h2>
-          </div>
-          <div class="skills-tabs" data-aos="fade-up" data-aos-delay="200">
-            <div class="tabs-nav">
-              <button class="tab-btn active" data-tab="development">Desarrollo</button>
-              <button class="tab-btn" data-tab="infrastructure">Infraestructura</button>
-              <button class="tab-btn" data-tab="tools">Herramientas</button>
+        <!-- Cleatus AI -->
+        <article class="slide case" data-theme="cleatus" role="group" aria-roledescription="slide"
+          aria-label="Cleatus AI">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="exp2.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="exp2.role"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape" data-i18n="exp2.team"></span>
+                <span data-i18n="exp2.period"></span><span aria-hidden="true">·</span><span data-i18n="exp2.place"></span>
+              </p>
+              <ul class="points reveal" style="--d: 3">
+                <li data-i18n-html="exp2.b1"></li>
+                <li data-i18n-html="exp2.b2"></li>
+                <li data-i18n-html="exp2.b3"></li>
+                <li data-i18n-html="exp2.b4"></li>
+              </ul>
             </div>
-            <div class="tabs-content">
-              <div class="tab-pane active" id="development">
-                <div class="skills-grid">
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="900">Artificial Intelligence</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="950">Machine Learning</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1000">Deep Learning</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1050">Natural Language Processing</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1100">Large Language Models</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1150">LangChain</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1200">Hugging Face</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1250">Vector Databases</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1350">Generative AI</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1400">Speech Recognition</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="300">Python</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="150">Next.js</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="350">Java</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="400">Flutter</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="550">PHP</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="650">PostgreSQL</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="700">MongoDB</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="750">Firebase</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="800">REST API</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="850">C++</div>
-
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1500">Statistical Analysis</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1550">Predictive Modeling</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1600">Data Visualization (matplotlib,
-                    seaborn, Tableau)</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1650">Data Cleaning & Preprocessing</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1750">Feature Engineering</div>
-
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1900">ETL / ELT Pipelines</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="1950">Apache Airflow</div>
-                  <div class="skill-card" data-aos="fade-up" data-aos-delay="2150">Data Warehousing</div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--cleatus">
+                    <img class="brandmark__logo" src="assets/logos/cleatus.webp" alt="CLEATUS" width="1200"
+                      height="194">
+                    <span class="brandmark__badge">AI for GovCon</span>
+                  </div>
+                  <span class="board__num">02</span>
+                </div>
+                <div class="board__art">
+                  <div class="browser">
+                    <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>cleat.ai · RFQ Responder</span></div>
+                    <img src="assets/cleatusrfqresponder.png" alt="Cleatus RFQ Responder" loading="lazy" width="876"
+                      height="552">
+                  </div>
+                  <span class="strip strip--tl" aria-hidden="true"></span>
+                  <span class="strip strip--br" aria-hidden="true"></span>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #0f172a" data-hex="#0F172A"></i>
+                      <i style="--c: #243665" data-hex="#243665"></i>
+                      <i style="--c: #3b82f6" data-hex="#3B82F6"></i>
+                      <i style="--c: #eaf2ff" data-hex="#EAF2FF"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Inter · system-ui</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tab-pane" id="infrastructure">
-            <div class="skills-grid">
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="100">AWS</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="150">Azure</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="200">Docker</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="200">Vercel</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="250">Kubernetes</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="300">CI/CD</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="350">Linux</div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tools">
-            <div class="skills-grid">
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="100">Git</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="150">GitHub</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="200">JIRA</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="250">VS Code</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="250">Cursor</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="300">Postman</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="350">Notion</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="400">GitLab</div>
-              <div class="skill-card" data-aos="fade-up" data-aos-delay="400">Slack</div>
-            </div>
-          </div>
-        </div>
-  </div>
-  </div>
-  </section>
+          <footer class="slide__foot"><span>05</span><span><span data-i18n="exp.meta"></span> | Cleatus AI</span></footer>
+        </article>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <i class="fas fa-server section-icon"></i>
-        <h2 class="section-title">Proyectos</h2>
-      </div>
-      <div class="projects-grid">
-
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-image">
-            <img src="assets/fluent-beta-logo.svg" alt="Fluent AI - Data Intelligence Platform" loading="lazy">
-          </div>
-          <div class="project-content">
-            <h3 class="project-title"></h3>
-            <p class="project-description"></p>
-            <div class="project-tags">
-              <span class="tag">Multi-Agent Orchestration</span>
-              <span class="tag">LangGraph</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">RAG</span>
-              <span class="tag">PostgreSQL (RLS)</span>
-              <span class="tag">Data Intelligence</span>
-              <span class="tag">Google Gemini</span>
+        <!-- Ábaco Informática -->
+        <article class="slide case" data-theme="abaco" role="group" aria-roledescription="slide"
+          aria-label="Ábaco Informática">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="exp3.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="exp3.role"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape" data-i18n="exp3.team"></span>
+                <span data-i18n="exp3.period"></span><span aria-hidden="true">·</span><span data-i18n="exp3.place"></span>
+              </p>
+              <ul class="points reveal" style="--d: 3">
+                <li data-i18n-html="exp3.b1"></li>
+                <li data-i18n-html="exp3.b2"></li>
+                <li data-i18n-html="exp3.b3"></li>
+              </ul>
             </div>
-            <div class="project-links">
-              <a href="https://fluent-mu.vercel.app/sign-in?redirect_url=https%3A%2F%2Ffluent-mu.vercel.app%2Fdashboard" target="_blank" class="btn btn-sm btn-primary">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vercel.svg" alt="Vercel"
-                  width="14" height="14" style="vertical-align: middle; margin-right: 6px; filter: invert(1);">
-                Demo
-              </a>
-              <a href="https://fluent-info.vercel.app" target="_blank" class="btn btn-sm btn-outline">
-                <i class="fas fa-info-circle" style="vertical-align: middle; margin-right: 6px;"></i>
-                + Info
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="project-image">
-            <img src="assets/bid.jpg" alt="AI - HR Interviewer App" loading="lazy">
-          </div>
-          <div class="project-content">
-            <h3 class="project-title"></h3>
-            <p class="project-description"></p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">LLM</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">RAG</span>
-              <span class="tag">GenAI</span>
-              <span class="tag">Full Stack</span>
-              <span class="tag">Pinecone</span>
-              <span class="tag">Clerk</span>
-              <span class="tag">Gemini</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/matiasrodriguezc/autobid-ai" target="_blank" class="btn btn-sm btn-outline">
-                <i class="fab fa-github"></i> Código
-              </a>
-              <a href="https://www.linkedin.com/posts/matiasrodriguezc_generativeai-mlops-saas-activity-7434954655908134912-oB_c?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3nAzoBVMKyTS2-9GJFMlic3nm1TNFPzH0" target="_blank" class="btn btn-sm btn-primary">
-                <i class="fab fa-linkedin" style="vertical-align: middle; margin-right: 6px;"></i>
-                Post
-              </a>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--abaco">
+                    <img class="brandmark__logo" src="assets/logos/abaco.png" alt="Ábaco Software" width="435"
+                      height="132">
+                  </div>
+                  <span class="board__num">03</span>
+                </div>
+                <div class="board__art">
+                  <p class="board__caption" data-i18n="exp3.board"></p>
+                  <div class="grid-mock" aria-hidden="true">
+                    <div class="grid-mock__row grid-mock__row--head"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="grid-mock__row"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="grid-mock__row"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="grid-mock__row is-selected"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="grid-mock__row"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="grid-mock__row"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="grid-mock__row"><span></span><span></span><span></span><span></span><span></span></div>
+                  </div>
+                  <div class="sticker"><strong>−40%</strong><span data-i18n="exp3.stat"></span></div>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #0d2d78" data-hex="#0D2D78"></i>
+                      <i style="--c: #191825" data-hex="#191825"></i>
+                      <i style="--c: #a6b0cb" data-hex="#A6B0CB"></i>
+                      <i style="--c: #f8f9fb" data-hex="#F8F9FB"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Rajdhani · Lato</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="project-image">
-            <img src="assets/virtual.jpg" alt="RAG Chatbot" loading="lazy">
-          </div>
-          <div class="project-content">
-            <h3 class="project-title"></h3>
-            <p class="project-description"></p>
-            <div class="project-tags">
-              <span class="tag">RAG</span>
-              <span class="tag">Python</span>
-              <span class="tag">LangChain</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">Koyeb</span>
-              <span class="tag">Pinecone</span>
-              <span class="tag">Google Gemini</span>
-              <span class="tag">Docker</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/matiasrodriguezc/rag-chatbot" target="_blank" class="btn btn-sm btn-outline">
-                <i class="fab fa-github"></i> Código
-              </a>
-              <button id="open-rag-chat" class="btn btn-sm btn-primary">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vercel.svg" alt="Vercel"
-                  width="14" height="14" style="vertical-align: middle; margin-right: 6px; filter: invert(1);">
-                Demo
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="project-image">
-            <img src="assets/absence.jpg" alt="Absenteeism Predictor App" loading="lazy">
-          </div>
-          <div class="project-content">
-            <h3 class="project-title"></h3>
-            <p class="project-description"></p>
-            <div class="project-tags">
-              <span class="tag">MLOps</span>
-              <span class="tag">Python</span>
-              <span class="tag">Random Forest</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">HugginFace</span>
-              <span class="tag">Tableau</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/matiasrodriguezc/absenteeism-predictor" target="_blank"
-                class="btn btn-sm btn-outline">
-                <i class="fab fa-github"></i> Código
-              </a>
-              <a href="https://absenteeism-predictor.vercel.app" target="_blank" class="btn btn-sm btn-primary">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vercel.svg" alt="Vercel"
-                  width="14" height="14" style="vertical-align: middle; margin-right: 6px; filter: invert(1);">
-                Demo
-              </a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="project-image">
-            <img src="assets/Clustering.png" alt="Clients Clustering and Classification" loading="lazy">
-          </div>
-          <div class="project-content">
-            <h3 class="project-title"></h3>
-            <p class="project-description"></p>
-            <div class="project-tags">
-              <span class="tag">Next.js</span>
-              <span class="tag">Artificial Intelligence</span>
-              <span class="tag">K-Means</span>
-              <span class="tag">Scikit-learn</span>
-              <span class="tag">Unsupervised Learning</span>
-              <span class="tag">Data Analysis</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/matiasrodriguezc/k-means-clustering-ai-naming" target="_blank"
-                class="btn btn-sm btn-outline">
-                <i class="fab fa-github"></i> Código
-              </a>
-              <a href="https://k-means-clustering-ai-naming.vercel.app" target="_blank" class="btn btn-sm btn-primary">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vercel.svg" alt="Vercel"
-                  width="14" height="14" style="vertical-align: middle; margin-right: 6px; filter: invert(1);">
-                Demo
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-aos="fade-up" data-aos-delay="600">
-          <div class="project-image">
-            <img src="assets/crypto.jpg" alt="RFQ Response Generator" loading="lazy">
-          </div>
-          <div class="project-content">
-            <h3 class="project-title"></h3>
-            <p class="project-description"></p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Kubernetes</span>
-              <span class="tag">Redis</span>
-              <span class="tag">Terraform</span>
-              <span class="tag">Helm</span>
-              <span class="tag">Grafana</span>
-              <span class="tag">Github Actions</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/matiasrodriguezc/crypto-tracker" target="_blank"
-                class="btn btn-sm btn-outline">
-                <i class="fab fa-github"></i> Código
-              </a>
-              <a href="https://www.linkedin.com/posts/matiasrodriguezc_devops-kubernetes-terraform-activity-7429879887382990848-Y7cu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD3nAzoBVMKyTS2-9GJFMlic3nm1TNFPzH0" target="_blank" class="btn btn-sm btn-primary">
-                <i class="fab fa-linkedin" style="vertical-align: middle; margin-right: 6px;"></i>
-                Post
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <i class="fas fa-briefcase section-icon"></i>
-        <h2 class="section-title">Experiencia</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Golas</h3>
-              <span class="timeline-period">2025 - Presente</span>
-            </div>
-            <div class="timeline-company">Abaco Informática</div>
-            <p class="timeline-description">Desarrollo y mantengo una aplicación web con frontend en React y backend en
-              PHP, en la cual realicé una migración del entorno antiguo hacia uno moderno utilizando Vite, mejorando
-              notablemente los tiempos de carga y la experiencia de desarrollo. Implementé AG Grid para optimizar la
-              visualización de datos, y trabajé en la adaptación responsiva del sitio, incluyendo botones para aumentar
-              o reducir el tamaño de fuente, los cuales también ajustan dinámicamente la cantidad de filas visibles en
-              la tabla según el tamaño seleccionado. En la parte backend, optimicé el uso de vistas materializadas en la
-              base de datos, evitando su recreación en cada recarga; en su lugar, diseñé un sistema que genera la vista
-              al inicio de cada sesión y la reutiliza durante toda su duración, mejorando la eficiencia del sistema y
-              reduciendo el consumo de recursos.</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Desarrollador FullStack</h3>
-              <span class="timeline-period">2021 - Presente</span>
-            </div>
-            <div class="timeline-company">Abaco Informática</div>
-            <p class="timeline-description">Desarrollo y mantengo una aplicación web con frontend en React y backend en
-              PHP, en la cual realicé una migración del entorno antiguo hacia uno moderno utilizando Vite, mejorando
-              notablemente los tiempos de carga y la experiencia de desarrollo. Implementé AG Grid para optimizar la
-              visualización de datos, y trabajé en la adaptación responsiva del sitio, incluyendo botones para aumentar
-              o reducir el tamaño de fuente, los cuales también ajustan dinámicamente la cantidad de filas visibles en
-              la tabla según el tamaño seleccionado. En la parte backend, optimicé el uso de vistas materializadas en la
-              base de datos, evitando su recreación en cada recarga; en su lugar, diseñé un sistema que genera la vista
-              al inicio de cada sesión y la reutiliza durante toda su duración, mejorando la eficiencia del sistema y
-              reduciendo el consumo de recursos.</p>
-          </div>
-        </div>
+          <footer class="slide__foot"><span>06</span><span><span data-i18n="exp.meta"></span> | Ábaco Informática</span></footer>
+        </article>
       </div>
 
-      <div class="section-header education-header" data-aos="fade-up">
-        <i class="fas fa-graduation-cap section-icon"></i>
-        <h2 class="section-title">Educación</h2>
+      <div class="h-controls">
+        <button class="h-btn" data-dir="-1" data-i18n-aria="ui.prev"><i class="fas fa-arrow-left"></i></button>
+        <div class="h-progress" aria-live="polite">
+          <span class="h-counter"><b>01</b> / <span>04</span></span>
+          <span class="h-bar" aria-hidden="true"><i></i></span>
+        </div>
+        <button class="h-btn" data-dir="1" data-i18n-aria="ui.next"><i class="fas fa-arrow-right"></i></button>
+        <span class="h-hint" data-i18n="ui.hint"></span>
       </div>
-      <div class="timeline">
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Ingeniería en Sistemas</h3>
-              <span class="timeline-period">2020 - 2024</span>
+    </section>
+
+    <!-- ========== 03 · Projects (horizontal) ========== -->
+    <section class="chapter chapter--h" id="projects">
+      <div class="h-track" tabindex="0" role="region" aria-roledescription="carousel" data-i18n-aria="nav.projects">
+
+        <!-- Intro -->
+        <article class="slide intro" data-theme="ink" role="group" aria-roledescription="slide">
+          <div class="slide__body intro__body">
+            <div class="intro__head">
+              <p class="kicker reveal" data-i18n="proj.kicker"></p>
+              <h2 class="display display--xl reveal" style="--d: 1" data-i18n-html="proj.title"></h2>
+              <p class="lead reveal" style="--d: 2" data-i18n="proj.lead"></p>
+              <p class="hand intro__note reveal" style="--d: 3" data-i18n="proj.note"></p>
             </div>
-            <div class="timeline-company">Universidad Nacional del Centro de la Provincia de Buenos Aires</div>
-            <p class="timeline-description">Carrera centrada en la planificación, análisis y gestión de sistemas
-              complejos, integrando habilidades en desarrollo de software, infraestructura, arquitectura de sistemas y
-              liderazgo técnico.</p>
+            <ol class="index index--compact reveal" style="--d: 2">
+              <li>
+                <button class="index__item" data-goto="1" style="--dot: #10b981; --f: 'Manrope', sans-serif; --fw: 800">
+                  <span class="index__num">01</span><span class="index__name">Fluent AI</span>
+                  <span class="index__role">LangGraph · RLS · SSE</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="2" style="--dot: #9b2c1f; --f: 'DM Serif Display', serif; --fw: 400">
+                  <span class="index__num">02</span><span class="index__name">AutoBid AI</span>
+                  <span class="index__role">Random Forest · SHAP · RAG</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="3" style="--dot: #6a45ff; --f: 'Unbounded', sans-serif; --fw: 600">
+                  <span class="index__num">03</span><span class="index__name">RAG Assistant</span>
+                  <span class="index__role">LangChain · Pinecone</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="4" style="--dot: #f6e05e; --f: 'Caveat', cursive; --fw: 700">
+                  <span class="index__num">04</span><span class="index__name">Absence Predictor</span>
+                  <span class="index__role">MLOps</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="5" style="--dot: #3a56d4; --f: 'Syne', sans-serif; --fw: 800">
+                  <span class="index__num">05</span><span class="index__name">K-Means Clustering</span>
+                  <span class="index__role">Scikit-learn · Gemini</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="6" style="--dot: #f7931a; --f: 'JetBrains Mono', monospace; --fw: 700">
+                  <span class="index__num">06</span><span class="index__name">Crypto Tracker</span>
+                  <span class="index__role">K8s · Terraform · Helm</span>
+                </button>
+              </li>
+            </ol>
           </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Analista Programador Universitario</h3>
-              <span class="timeline-period">2020 - 2024</span>
+          <footer class="slide__foot"><span>07</span><span data-i18n="proj.meta"></span></footer>
+        </article>
+
+        <!-- Fluent AI -->
+        <article class="slide case" data-theme="fluent" role="group" aria-roledescription="slide"
+          aria-label="Fluent AI">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="proj1.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="proj1.title"></h3>
+              <p class="case__meta reveal" style="--d: 2"><span class="tape" data-i18n="proj1.tag"></span></p>
+              <p class="case__desc reveal" style="--d: 2" data-i18n="proj1.desc"></p>
+              <ul class="points reveal" style="--d: 3">
+                <li data-i18n-html="proj1.b1"></li>
+                <li data-i18n-html="proj1.b2"></li>
+                <li data-i18n-html="proj1.b3"></li>
+              </ul>
+              <ul class="chips reveal" style="--d: 4">
+                <li>LangGraph</li><li>Gemini</li><li>FastAPI</li><li>Next.js</li><li>PostgreSQL RLS</li><li>Pinecone</li>
+              </ul>
+              <div class="btn-row reveal" style="--d: 5">
+                <a href="https://fluent-mu.vercel.app/sign-in?redirect_url=https%3A%2F%2Ffluent-mu.vercel.app%2Fdashboard"
+                  target="_blank" rel="noopener" class="btn btn--solid"><i class="fas fa-play"></i><span data-i18n="proj.demo"></span></a>
+                <a href="https://fluent-info.vercel.app" target="_blank" rel="noopener" class="btn"><i
+                    class="fas fa-circle-info"></i><span data-i18n="proj.info"></span></a>
+              </div>
             </div>
-            <div class="timeline-company">Universidad Nacional del Centro de la Provincia de Buenos Aires</div>
-            <p class="timeline-description">Formación orientada al diseño, desarrollo e implementación de sistemas de
-              software, con sólidos conocimientos en programación, bases de datos y metodologías de desarrollo.</p>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--fluent">
+                    <span class="brandmark__tile" aria-hidden="true">F</span>
+                    <p class="brandmark__word">fluent<sup>beta</sup></p>
+                  </div>
+                  <span class="board__num">01</span>
+                </div>
+                <div class="board__art">
+                  <div class="agent-graph" aria-hidden="true">
+                    <span class="node node--in">User prompt</span>
+                    <span class="edge"></span>
+                    <span class="node node--core"><i class="fas fa-diagram-project"></i> Router agent</span>
+                    <span class="edge"></span>
+                    <span class="agent-graph__tools">
+                      <span class="node">SQL · RLS</span>
+                      <span class="node">Vector search</span>
+                      <span class="node">Chart</span>
+                    </span>
+                    <span class="edge"></span>
+                    <span class="node node--out">SSE → Next.js</span>
+                  </div>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #0a0d14" data-hex="#0A0D14"></i>
+                      <i style="--c: #10b981" data-hex="#10B981"></i>
+                      <i style="--c: #6b7280" data-hex="#6B7280"></i>
+                      <i style="--c: #f3f4f6" data-hex="#F3F4F6"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Manrope</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+          <footer class="slide__foot"><span>08</span><span><span data-i18n="proj.meta"></span> | Fluent AI</span></footer>
+        </article>
+
+        <!-- AutoBid AI -->
+        <article class="slide case" data-theme="autobid" role="group" aria-roledescription="slide"
+          aria-label="AutoBid AI">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="proj2.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="proj2.title"></h3>
+              <p class="case__meta reveal" style="--d: 2"><span class="tape" data-i18n="proj2.tag"></span></p>
+              <p class="case__desc reveal" style="--d: 2" data-i18n="proj2.desc"></p>
+              <ul class="points reveal" style="--d: 3">
+                <li data-i18n-html="proj2.b1"></li>
+                <li data-i18n-html="proj2.b2"></li>
+                <li data-i18n-html="proj2.b3"></li>
+              </ul>
+              <ul class="chips reveal" style="--d: 4">
+                <li>Next.js</li><li>FastAPI</li><li>Scikit-learn</li><li>SHAP</li><li>Pinecone</li><li>Airflow</li><li>Clerk</li>
+              </ul>
+              <div class="btn-row reveal" style="--d: 5">
+                <a href="https://github.com/matiasrodriguezc/autobid-ai" target="_blank" rel="noopener" class="btn"><i
+                    class="fab fa-github"></i><span data-i18n="proj.code"></span></a>
+                <a href="https://www.linkedin.com/posts/matiasrodriguezc_generativeai-mlops-saas-activity-7434954655908134912-oB_c"
+                  target="_blank" rel="noopener" class="btn btn--solid"><i class="fab fa-linkedin-in"></i><span
+                    data-i18n="proj.post"></span></a>
+              </div>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--autobid">
+                    <span class="brandmark__seal" aria-hidden="true">AB</span>
+                    <p class="brandmark__word">Auto<em>Bid</em><small>AI · Tenders</small></p>
+                  </div>
+                  <span class="board__num">02</span>
+                </div>
+                <div class="board__art">
+                  <figure class="polaroid art-photo" style="--rot: -3deg">
+                    <svg class="clip" aria-hidden="true"><use href="#paperclip" /></svg>
+                    <img src="assets/bid.jpg" alt="AutoBid AI" loading="lazy">
+                  </figure>
+                  <div class="shap" aria-hidden="true">
+                    <span class="shap__title">SHAP · feature impact</span>
+                    <span class="shap__row"><span>scope fit</span><i style="--w: 82%"></i></span>
+                    <span class="shap__row"><span>past wins</span><i style="--w: 64%"></i></span>
+                    <span class="shap__row"><span>price</span><i style="--w: 47%"></i></span>
+                    <span class="shap__row"><span>deadline</span><i style="--w: 28%"></i></span>
+                  </div>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #1e1611" data-hex="#1E1611"></i>
+                      <i style="--c: #9b2c1f" data-hex="#9B2C1F"></i>
+                      <i style="--c: #c7a46a" data-hex="#C7A46A"></i>
+                      <i style="--c: #f2e9dc" data-hex="#F2E9DC"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">DM Serif Display</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>09</span><span><span data-i18n="proj.meta"></span> | AutoBid AI</span></footer>
+        </article>
+
+        <!-- RAG Virtual Assistant -->
+        <article class="slide case" data-theme="rag" role="group" aria-roledescription="slide"
+          aria-label="RAG Virtual Assistant">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="proj3.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="proj3.title"></h3>
+              <p class="case__meta reveal" style="--d: 2"><span class="tape" data-i18n="proj3.tag"></span></p>
+              <p class="case__desc reveal" style="--d: 2" data-i18n="proj3.desc"></p>
+              <ul class="points reveal" style="--d: 3">
+                <li data-i18n-html="proj3.b1"></li>
+                <li data-i18n-html="proj3.b2"></li>
+              </ul>
+              <ul class="chips reveal" style="--d: 4">
+                <li>LangChain</li><li>FastAPI</li><li>Pinecone</li><li>Gemini 2.5</li><li>GitHub Actions</li><li>Docker</li><li>Koyeb</li>
+              </ul>
+              <div class="btn-row reveal" style="--d: 5">
+                <a href="https://github.com/matiasrodriguezc/rag-chatbot" target="_blank" rel="noopener" class="btn"><i
+                    class="fab fa-github"></i><span data-i18n="proj.code"></span></a>
+                <button id="open-rag-chat" class="btn btn--solid"><i class="fas fa-comments"></i><span
+                    data-i18n="proj.demo"></span></button>
+              </div>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--rag">
+                    <span class="brandmark__bubble" aria-hidden="true">RAG</span>
+                    <p class="brandmark__word">live<em>resume</em></p>
+                  </div>
+                  <span class="board__num">03</span>
+                </div>
+                <div class="board__art">
+                  <div class="rag-visual">
+                    <img src="assets/virtual.jpg" alt="RAG Virtual Assistant" loading="lazy">
+                    <span class="bubble bubble--user" data-i18n="proj3.bubble"></span>
+                    <span class="bubble bubble--bot" aria-hidden="true"><span class="typing"><i></i><i></i><i></i></span></span>
+                  </div>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #1b1340" data-hex="#1B1340"></i>
+                      <i style="--c: #6a45ff" data-hex="#6A45FF"></i>
+                      <i style="--c: #ff7ac6" data-hex="#FF7AC6"></i>
+                      <i style="--c: #ebe6ff" data-hex="#EBE6FF"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Unbounded</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>10</span><span><span data-i18n="proj.meta"></span> | RAG Assistant</span></footer>
+        </article>
+
+        <!-- Absenteeism Predictor -->
+        <article class="slide case" data-theme="absence" role="group" aria-roledescription="slide"
+          aria-label="Absence Predictor">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="proj4.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="proj4.title"></h3>
+              <p class="case__meta reveal" style="--d: 2"><span class="tape" data-i18n="proj4.tag"></span></p>
+              <p class="case__desc reveal" style="--d: 2" data-i18n="proj4.desc"></p>
+              <ul class="chips reveal" style="--d: 3">
+                <li>Python</li><li>Random Forest</li><li>Next.js</li><li>PostgreSQL</li><li>Hugging Face</li><li>Tableau</li>
+              </ul>
+              <div class="btn-row reveal" style="--d: 4">
+                <a href="https://github.com/matiasrodriguezc/absenteeism-predictor" target="_blank" rel="noopener"
+                  class="btn"><i class="fab fa-github"></i><span data-i18n="proj.code"></span></a>
+                <a href="https://absenteeism-predictor.vercel.app" target="_blank" rel="noopener" class="btn btn--solid"><i
+                    class="fas fa-play"></i><span data-i18n="proj.demo"></span></a>
+              </div>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--absence">
+                    <span class="brandmark__note" aria-hidden="true">OOO</span>
+                    <p class="brandmark__word">absence<small>predictor · MLOps</small></p>
+                  </div>
+                  <span class="board__num">04</span>
+                </div>
+                <div class="board__art">
+                  <figure class="polaroid art-photo" style="--rot: 2.5deg">
+                    <img src="assets/absence.jpg" alt="Absence Predictor" loading="lazy">
+                  </figure>
+                  <p class="hand art-note" data-i18n="proj4.note"></p>
+                  <span class="strip strip--tl" aria-hidden="true"></span>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #161616" data-hex="#161616"></i>
+                      <i style="--c: #f6e05e" data-hex="#F6E05E"></i>
+                      <i style="--c: #2747ff" data-hex="#2747FF"></i>
+                      <i style="--c: #fff8c4" data-hex="#FFF8C4"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Caveat</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>11</span><span><span data-i18n="proj.meta"></span> | Absence Predictor</span></footer>
+        </article>
+
+        <!-- K-Means Clustering -->
+        <article class="slide case" data-theme="cluster" role="group" aria-roledescription="slide"
+          aria-label="K-Means Clustering">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="proj5.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="proj5.title"></h3>
+              <p class="case__meta reveal" style="--d: 2"><span class="tape" data-i18n="proj5.tag"></span></p>
+              <p class="case__desc reveal" style="--d: 2" data-i18n="proj5.desc"></p>
+              <ul class="chips reveal" style="--d: 3">
+                <li>Next.js</li><li>K-Means</li><li>Scikit-learn</li><li>Recharts</li><li>Gemini API</li>
+              </ul>
+              <div class="btn-row reveal" style="--d: 4">
+                <a href="https://github.com/matiasrodriguezc/k-means-clustering-ai-naming" target="_blank" rel="noopener"
+                  class="btn"><i class="fab fa-github"></i><span data-i18n="proj.code"></span></a>
+                <a href="https://k-means-clustering-ai-naming.vercel.app" target="_blank" rel="noopener"
+                  class="btn btn--solid"><i class="fas fa-play"></i><span data-i18n="proj.demo"></span></a>
+              </div>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--cluster">
+                    <span class="brandmark__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <p class="brandmark__word">k=3<small>clustering lab</small></p>
+                  </div>
+                  <span class="board__num">05</span>
+                </div>
+                <div class="board__art">
+                  <figure class="polaroid art-photo" style="--rot: -2deg">
+                    <svg class="clip" aria-hidden="true"><use href="#paperclip" /></svg>
+                    <img src="assets/Clustering.png" alt="K-Means Clustering" loading="lazy" width="510" height="403">
+                  </figure>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #e63946" data-hex="#E63946"></i>
+                      <i style="--c: #2a9d8f" data-hex="#2A9D8F"></i>
+                      <i style="--c: #3a56d4" data-hex="#3A56D4"></i>
+                      <i style="--c: #111111" data-hex="#111111"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Syne</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>12</span><span><span data-i18n="proj.meta"></span> | K-Means Clustering</span></footer>
+        </article>
+
+        <!-- Crypto Tracker -->
+        <article class="slide case" data-theme="crypto" role="group" aria-roledescription="slide"
+          aria-label="Crypto Tracker">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="proj6.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="proj6.title"></h3>
+              <p class="case__meta reveal" style="--d: 2"><span class="tape" data-i18n="proj6.tag"></span></p>
+              <p class="case__desc reveal" style="--d: 2" data-i18n="proj6.desc"></p>
+              <ul class="chips reveal" style="--d: 3">
+                <li>Python</li><li>Docker</li><li>Kubernetes</li><li>Helm</li><li>Terraform</li><li>Redis</li><li>Grafana</li><li>GitHub Actions</li>
+              </ul>
+              <div class="btn-row reveal" style="--d: 4">
+                <a href="https://github.com/matiasrodriguezc/crypto-tracker" target="_blank" rel="noopener" class="btn"><i
+                    class="fab fa-github"></i><span data-i18n="proj.code"></span></a>
+                <a href="https://www.linkedin.com/posts/matiasrodriguezc_devops-kubernetes-terraform-activity-7429879887382990848-Y7cu"
+                  target="_blank" rel="noopener" class="btn btn--solid"><i class="fab fa-linkedin-in"></i><span
+                    data-i18n="proj.post"></span></a>
+              </div>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--crypto">
+                    <span class="brandmark__tile" aria-hidden="true"><i class="fab fa-bitcoin"></i></span>
+                    <p class="brandmark__word">crypto_tracker<small>cloud-native · k8s</small></p>
+                  </div>
+                  <span class="board__num">06</span>
+                </div>
+                <div class="board__art">
+                  <img class="art-chart" src="assets/crypto.jpg" alt="Crypto Tracker" loading="lazy">
+                  <div class="terminal" aria-hidden="true">
+                    <span class="terminal__bar">~/crypto-tracker</span>
+                    <code><b>$</b> terraform apply -auto-approve
+<b>$</b> helm upgrade --install tracker ./chart
+<b>$</b> kubectl get pods
+<em>tracker-api-7f9c      1/1   Running</em>
+<em>tracker-worker-2b4d   1/1   Running</em></code>
+                  </div>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #060707" data-hex="#060707"></i>
+                      <i style="--c: #f7931a" data-hex="#F7931A"></i>
+                      <i style="--c: #22c55e" data-hex="#22C55E"></i>
+                      <i style="--c: #e7e7e7" data-hex="#E7E7E7"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">JetBrains Mono</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>13</span><span><span data-i18n="proj.meta"></span> | Crypto Tracker</span></footer>
+        </article>
       </div>
 
-      <div class="section-header certification-header" data-aos="fade-up">
-        <i class="fas fa-certificate section-icon"></i>
-        <h2 class="section-title">Certificaciones</h2>
+      <div class="h-controls">
+        <button class="h-btn" data-dir="-1" data-i18n-aria="ui.prev"><i class="fas fa-arrow-left"></i></button>
+        <div class="h-progress" aria-live="polite">
+          <span class="h-counter"><b>01</b> / <span>07</span></span>
+          <span class="h-bar" aria-hidden="true"><i></i></span>
+        </div>
+        <button class="h-btn" data-dir="1" data-i18n-aria="ui.next"><i class="fas fa-arrow-right"></i></button>
+        <span class="h-hint" data-i18n="ui.hint"></span>
       </div>
-      <div class="timeline">
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Google AI Professional Certificate</h3>
-              <span class="timeline-period">2026</span>
-            </div>
-            <div class="timeline-company">Google, Online</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Google AI Agents Course</h3>
-              <span class="timeline-period">2026</span>
-            </div>
-            <div class="timeline-company">Google, Online</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Inglés - C1 Certificate</h3>
-              <span class="timeline-period">2024</span>
-            </div>
-            <div class="timeline-company">EF SET, Online</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Inglés - C1 Certificate</h3>
-              <span class="timeline-period">2024</span>
-            </div>
-            <div class="timeline-company">EF SET, Online</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Inglés - C1 Certificate</h3>
-              <span class="timeline-period">2024</span>
-            </div>
-            <div class="timeline-company">EF SET, Online</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Inglés - C1 Certificate</h3>
-              <span class="timeline-period">2024</span>
-            </div>
-            <div class="timeline-company">EF SET, Online</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Inglés - B2 First Certificate Exam</h3>
-              <span class="timeline-period">2018</span>
-            </div>
-            <div class="timeline-company">Cambridge University, Reino Unido</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Desarrollador Java Backend</h3>
-              <span class="timeline-period">2024</span>
-            </div>
-            <div class="timeline-company">Lamansys, Tandil, Argentina</div>
-          </div>
-        </div>
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
-              <h3 class="timeline-title">Angular - Desarrollador Web</h3>
-              <span class="timeline-period">2024</span>
-            </div>
-            <div class="timeline-company">Udemy, Online</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <i class="fas fa-envelope section-icon"></i>
-        <h2 class="section-title">Contacto</h2>
+    <!-- ========== 04 · Skills & background (horizontal) ========== -->
+    <section class="chapter chapter--h" id="skills">
+      <div class="h-track" tabindex="0" role="region" aria-roledescription="carousel" data-i18n-aria="nav.skills">
+
+        <!-- Skills -->
+        <article class="slide sheet" data-theme="paper" role="group" aria-roledescription="slide">
+          <div class="slide__body sheet__body">
+            <header class="sheet__head">
+              <p class="kicker reveal" data-i18n="skills.kicker"></p>
+              <h2 class="display reveal" style="--d: 1" data-i18n-html="skills.title"></h2>
+            </header>
+            <div class="sheet__cols sheet__cols--5">
+              <div class="sheet__col reveal" style="--d: 2">
+                <h3 data-i18n="skills.g1"></h3>
+                <ul>
+                  <li>MCP (Model Context Protocol)</li>
+                  <li>Claude API</li>
+                  <li>Claude Agent SDK</li>
+                  <li>Claude Enterprise</li>
+                  <li>LangChain</li>
+                  <li>LangGraph</li>
+                  <li>RAG</li>
+                  <li>Multi-Agent Systems</li>
+                  <li>Tool Calling</li>
+                  <li>OpenAI API</li>
+                  <li>Google Gemini</li>
+                  <li>Vercel AI SDK</li>
+                  <li>Copilot Studio</li>
+                </ul>
+              </div>
+              <div class="sheet__col reveal" style="--d: 3">
+                <h3 data-i18n="skills.g2"></h3>
+                <ul>
+                  <li data-i18n="skills.gov1"></li>
+                  <li data-i18n="skills.gov2"></li>
+                  <li data-i18n="skills.gov3"></li>
+                  <li data-i18n="skills.gov4"></li>
+                  <li data-i18n="skills.gov5"></li>
+                  <li>SSO / SAML (Entra ID)</li>
+                </ul>
+              </div>
+              <div class="sheet__col reveal" style="--d: 4">
+                <h3 data-i18n="skills.g3"></h3>
+                <ul>
+                  <li>Scikit-learn</li>
+                  <li>Random Forest</li>
+                  <li>K-Means</li>
+                  <li>SHAP (Explainable AI)</li>
+                  <li>Apache Airflow</li>
+                  <li>Hugging Face</li>
+                </ul>
+              </div>
+              <div class="sheet__col reveal" style="--d: 5">
+                <h3 data-i18n="skills.g4"></h3>
+                <ul>
+                  <li>Python (FastAPI)</li>
+                  <li>Pinecone · ChromaDB</li>
+                  <li>PostgreSQL (RLS)</li>
+                  <li>Docker</li>
+                  <li>Server-Sent Events</li>
+                  <li>Power Automate</li>
+                  <li>SharePoint</li>
+                  <li>Microsoft Graph API</li>
+                </ul>
+              </div>
+              <div class="sheet__col reveal" style="--d: 6">
+                <h3 data-i18n="skills.g5"></h3>
+                <ul>
+                  <li>Next.js · React</li>
+                  <li>TypeScript</li>
+                  <li>AG Grid</li>
+                  <li>Kubernetes · Helm</li>
+                  <li>Terraform</li>
+                  <li>GitHub Actions</li>
+                  <li>Vercel</li>
+                  <li>AWS · Azure</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>14</span><span data-i18n="skills.meta"></span></footer>
+        </article>
+
+        <!-- Education & certifications -->
+        <article class="slide sheet" data-theme="stone" role="group" aria-roledescription="slide">
+          <div class="slide__body sheet__body">
+            <header class="sheet__head">
+              <p class="kicker reveal" data-i18n="skills.kicker"></p>
+              <h2 class="display reveal" style="--d: 1" data-i18n-html="bg.title"></h2>
+            </header>
+            <div class="sheet__cols sheet__cols--3">
+              <div class="sheet__col reveal" style="--d: 2">
+                <h3 data-i18n="bg.education"></h3>
+                <dl class="entries">
+                  <div>
+                    <dt data-i18n="edu1.degree"></dt>
+                    <dd data-i18n="edu.institution"></dd>
+                    <dd class="entries__period">2020 — 2024</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="edu2.degree"></dt>
+                    <dd data-i18n="edu.institution"></dd>
+                    <dd class="entries__period">2020 — 2024</dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="sheet__col reveal" style="--d: 3">
+                <h3 data-i18n="bg.certs"></h3>
+                <dl class="entries">
+                  <div>
+                    <dt>Google Professional AI Certificate</dt>
+                    <dd>Google · Online</dd>
+                    <dd class="entries__period">2025</dd>
+                  </div>
+                  <div>
+                    <dt>Google AI Agents Course</dt>
+                    <dd>Google · Online</dd>
+                    <dd class="entries__period">2026</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="cert.sdlc"></dt>
+                    <dd data-i18n="cert.sdlc.inst"></dd>
+                    <dd class="entries__period">2025</dd>
+                  </div>
+                  <div>
+                    <dt><span data-i18n="cert.aieng"></span> · <span data-i18n="cert.ds"></span> · <span
+                        data-i18n="cert.de"></span></dt>
+                    <dd>Udemy · Online</dd>
+                    <dd class="entries__period">2025</dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="sheet__col reveal" style="--d: 4">
+                <h3>&nbsp;</h3>
+                <dl class="entries">
+                  <div>
+                    <dt data-i18n="cert.c1"></dt>
+                    <dd>EF SET · Online</dd>
+                    <dd class="entries__period">2024</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="cert.b2"></dt>
+                    <dd>Cambridge University</dd>
+                    <dd class="entries__period">2018</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="cert.java"></dt>
+                    <dd>Lamansys · Tandil</dd>
+                    <dd class="entries__period">2024</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="cert.angular"></dt>
+                    <dd>Udemy · Online</dd>
+                    <dd class="entries__period">2024</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>15</span><span data-i18n="bg.meta"></span></footer>
+        </article>
       </div>
-      <div class="contact-content">
-        <div class="contact-description" data-aos="fade-up" data-aos-delay="200">
-          <p>¿Interesado en trabajar juntos o alguna pregunta? No dudes en contactarme a través de alguno de los datos
-            de contacto.</p>
+
+      <div class="h-controls">
+        <button class="h-btn" data-dir="-1" data-i18n-aria="ui.prev"><i class="fas fa-arrow-left"></i></button>
+        <div class="h-progress" aria-live="polite">
+          <span class="h-counter"><b>01</b> / <span>02</span></span>
+          <span class="h-bar" aria-hidden="true"><i></i></span>
         </div>
-        <div class="contact-methods" data-aos="fade-up" data-aos-delay="300">
-          <div class="contact-method">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Email</h3>
-              <p>matiasrodriguezc01@gmail.com</p>
-            </div>
-          </div>
-          <div class="contact-method">
-            <div class="contact-icon">
-              <i class="fab fa-linkedin"></i>
-            </div>
-            <div class="contact-details">
-              <h3>LinkedIn</h3>
-              <p>linkedin.com/in/matiasrodriguezc</p>
-            </div>
-          </div>
-          <div class="contact-method">
-            <div class="contact-icon">
-              <i class="fab fa-github"></i>
-            </div>
-            <div class="contact-details">
-              <h3>GitHub</h3>
-              <p>github.com/matiasrodriguezc</p>
-            </div>
-          </div>
-        </div>
+        <button class="h-btn" data-dir="1" data-i18n-aria="ui.next"><i class="fas fa-arrow-right"></i></button>
+        <span class="h-hint" data-i18n="ui.hint"></span>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ========== 05 · Contact ========== -->
+    <section class="chapter" id="contact">
+      <div class="slide contact" data-theme="ink-glow">
+        <div class="slide__body contact__body">
+          <div class="contact__head">
+            <p class="kicker reveal" data-i18n="contact.meta"></p>
+            <h2 class="display display--xxl reveal" style="--d: 1" data-i18n-html="contact.title"></h2>
+            <p class="lead reveal" style="--d: 2" data-i18n="contact.lead"></p>
+            <p class="hand contact__note reveal" style="--d: 3" data-i18n="contact.note"></p>
+          </div>
+          <ul class="contact-list reveal" style="--d: 2">
+            <li>
+              <a href="mailto:matiasrodriguezc01@gmail.com">
+                <span class="contact-list__label">Email</span>
+                <span class="contact-list__value">matiasrodriguezc01@gmail.com</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/matiasrodriguezc" target="_blank" rel="noopener">
+                <span class="contact-list__label">LinkedIn</span>
+                <span class="contact-list__value">in/matiasrodriguezc</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/matiasrodriguezc" target="_blank" rel="noopener">
+                <span class="contact-list__label">GitHub</span>
+                <span class="contact-list__value">matiasrodriguezc</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </li>
+            <li>
+              <a href="assets/CV-EN - MR.pdf" download>
+                <span class="contact-list__label">CV</span>
+                <span class="contact-list__value"><span data-i18n="about.cv"></span></span>
+                <i class="fas fa-download"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <footer class="slide__foot"><span>16</span><span class="copyright"></span></footer>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content" style="justify-content: center;">
-        <div class="copyright">
-          © <span id="current-year"></span> Matías Rodríguez Cárdenas. Todos los derechos reservados.
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  </div>
-
-  <!-- JavaScript -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="js/translations.js"></script>
-  <script src="js/main.js"></script>
+  <!-- RAG chat widget -->
   <div class="chat-widget-container">
-    <button id="chat-toggle" class="chat-toggle-button" aria-label="Abrir chat">
-      <i class="fas fa-comments"></i> <i class="fas fa-times"></i> </button>
-
+    <button id="chat-toggle" class="chat-toggle-button" data-i18n-aria="chat.open">
+      <i class="fas fa-comments"></i><i class="fas fa-times"></i>
+    </button>
     <div id="chat-widget" class="chat-widget">
       <div class="chat-header">
-        <h3 id="chat-title" data-i18n="chat.title">Virtual Assistant</h3>
+        <h3 id="chat-title" data-i18n="chat.title">AI Assistant</h3>
       </div>
-      <div id="chat-messages" class="chat-messages">
-      </div>
+      <div id="chat-messages" class="chat-messages"></div>
       <div class="chat-input-area">
-        <input type="text" id="chat-input" data-i18n-placeholder="chat.placeholder" placeholder="Write a message..."
+        <input type="text" id="chat-input" data-i18n-placeholder="chat.placeholder" placeholder="Ask a question..."
           autocomplete="off">
-        <button id="chat-send" class="chat-send-button" aria-label="Enviar mensaje">
+        <button id="chat-send" class="chat-send-button" data-i18n-aria="chat.send">
           <i class="fas fa-paper-plane"></i>
         </button>
       </div>
     </div>
   </div>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <!-- JavaScript -->
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 </body>

@@ -1,464 +1,413 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize AOS animations
-  AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100,
-  })
+  const root = document.documentElement;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const scrollBehavior = prefersReducedMotion ? "auto" : "smooth";
 
-  // Current year for footer
-  document.getElementById("current-year").textContent = new Date().getFullYear()
-
-  // Variables
-  let currentLanguage = localStorage.getItem("language") || "es"
-  let isDarkTheme = localStorage.getItem("theme") === "dark"
-
-  // Apply saved theme
-  if (isDarkTheme) {
-    document.body.classList.add("dark-theme")
-  }
-
-  // Apply saved language
-  setLanguage(currentLanguage)
-
-  // Theme toggle
-  const themeToggle = document.getElementById("theme-toggle")
-  themeToggle.addEventListener("click", () => {
-    isDarkTheme = !isDarkTheme
-    document.body.classList.toggle("dark-theme")
-    localStorage.setItem("theme", isDarkTheme ? "dark" : "light")
-  })
-
-  // Language toggle
-  const languageToggle = document.getElementById("language-toggle")
-  languageToggle.addEventListener("click", () => {
-    const newLanguage = currentLanguage === "es" ? "en" : "es"
-    setLanguage(newLanguage)
-  })
-
-  // Language buttons in mobile menu
-  const langButtons = document.querySelectorAll(".lang-btn")
-  langButtons.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const lang = this.getAttribute("data-lang")
-      setLanguage(lang)
-
-      // Update active state
-      langButtons.forEach((b) => b.classList.remove("active"))
-      this.classList.add("active")
-    })
-  })
-
-  // Mobile menu toggle
-  const mobileMenuToggle = document.getElementById("mobile-menu-toggle")
-  const mobileNav = document.querySelector(".mobile-nav")
-
-  mobileMenuToggle.addEventListener("click", function () {
-    mobileNav.classList.toggle("open")
-    this.querySelector("i").classList.toggle("fa-bars")
-    this.querySelector("i").classList.toggle("fa-times")
-  })
-
-  // Close mobile menu when clicking on a link
-  const mobileLinks = document.querySelectorAll(".mobile-nav .nav-link")
-  mobileLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileNav.classList.remove("open")
-      mobileMenuToggle.querySelector("i").classList.add("fa-bars")
-      mobileMenuToggle.querySelector("i").classList.remove("fa-times")
-    })
-  })
-
-  const openChatButton = document.getElementById("open-rag-chat")
-  const chatWidgetContainerElement = document.querySelector(".chat-widget-container")
-  // Asegúrate de que esta variable chatMessages esté disponible globalmente o pásala como parámetro.
-  const chatMessagesElement = document.getElementById("chat-messages"); // Asegura que se defina aquí
-
-  if (openChatButton && chatWidgetContainerElement) {
-    openChatButton.addEventListener("click", (event) => {
-      event.preventDefault()
-
-      // 1. Abre el chat
-      chatWidgetContainerElement.classList.add("open")
-
-      // 2. Muestra el mensaje de bienvenida SOLO si el chat está vacío
-      if (chatMessagesElement && chatMessagesElement.children.length === 0) {
-        showBotWelcomeMessage();
+  // localStorage can throw in private mode or with blocked storage
+  const storage = {
+    get(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch (error) {
+        return null;
       }
-
-      // 3. Desplaza la vista al chat
-      chatWidgetContainerElement.scrollIntoView({ behavior: "smooth", block: "end" })
-    })
-  }
-
-  // Tabs functionality
-  const tabButtons = document.querySelectorAll(".tab-btn")
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const tabId = this.getAttribute("data-tab")
-
-      // Hide all tab panes
-      document.querySelectorAll(".tab-pane").forEach((pane) => {
-        pane.classList.remove("active")
-      })
-
-      // Deactivate all tab buttons
-      tabButtons.forEach((btn) => {
-        btn.classList.remove("active")
-      })
-
-      // Activate the clicked tab button
-      this.classList.add("active")
-
-      // Show the corresponding tab pane
-      document.getElementById(tabId).classList.add("active")
-    })
-  })
-
-  // Dropdown functionality
-  const dropdowns = document.querySelectorAll(".dropdown")
-  dropdowns.forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".dropdown-toggle")
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault()
-      dropdown.classList.toggle("active")
-    })
-
-    // Close dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("active")
+    },
+    set(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (error) {
+        // Preference just won't persist
       }
-    })
-  })
+    },
+  };
 
+  let currentLanguage = storage.get("language") || "es";
 
+  // ========== ACTIVE SLIDE → SITE-WIDE IDENTITY ==========
+  // Every slide carries a [data-theme]; the most visible one becomes "active"
+  // and its tokens are copied to --chrome-* so header, controls and page
+  // background take on that identity.
+  const slides = document.querySelectorAll(".slide");
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const navLinks = document.querySelectorAll(".nav-link, .chapter-dots a");
+  const chromeTokens = ["bg", "ink", "muted", "line", "accent", "on-accent"];
+  const visibility = new Map();
+  let activeSlide = null;
 
-  // Active navigation link on scroll
-  const sections = document.querySelectorAll("section[id]")
-  const navLinks = document.querySelectorAll(".nav-link")
+  function activateSlide(slide) {
+    if (slide === activeSlide) return;
+    if (activeSlide) activeSlide.classList.remove("is-active");
+    activeSlide = slide;
+    slide.classList.add("is-active", "is-seen");
 
-  function highlightNavLink() {
-    const scrollPosition = window.scrollY;
-    let currentSectionId = null;
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      if (
-        scrollPosition >= sectionTop - 150 &&
-        scrollPosition < sectionTop + sectionHeight - 150
-      ) {
-        currentSectionId = section.getAttribute("id");
-      }
+    const styles = getComputedStyle(slide);
+    chromeTokens.forEach((token) => {
+      root.style.setProperty(`--chrome-${token}`, styles.getPropertyValue(`--${token}`).trim());
     });
+    root.style.setProperty("--chrome-display", styles.getPropertyValue("--font-display").trim());
+    themeMeta.setAttribute("content", styles.getPropertyValue("--bg").trim());
 
-    const isBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
-    if (isBottom) {
-      const lastSection = sections[sections.length - 1];
-      currentSectionId = lastSection.getAttribute("id");
-    }
+    const chapterId = slide.closest(".chapter").id;
     navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${currentSectionId}`) {
-        link.classList.add("active");
-      }
+      link.classList.toggle("active", link.dataset.section === chapterId);
     });
   }
 
-  window.addEventListener("scroll", highlightNavLink)
+  const slideObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => visibility.set(entry.target, entry.intersectionRatio));
 
-  // Function to set language
-  function setLanguage(lang) {
-    currentLanguage = lang
-    localStorage.setItem("language", lang)
-    document.documentElement.lang = lang
-
-    // Update page title and meta description
-    if (lang === "es") {
-      document.title = "Matías Rodríguez | Ing. en Sistemas"
-      document
-        .querySelector('meta[name="description"]')
-        .setAttribute(
-          "content",
-          "Portfolio profesional de Matías Rodríguez Cárdenas, Ingeniero en Sistemas especializado en desarrollo de software y arquitectura de sistemas.",
-        )
-    } else {
-      document.title = "Matías Rodríguez | Systems Engineer"
-      document
-        .querySelector('meta[name="description"]')
-        .setAttribute(
-          "content",
-          "Professional portfolio of Matías Rodríguez Cárdenas, Systems Engineer specialized in software development and systems architecture.",
-        )
-    }
-
-    // Update navigation links
-    document.querySelectorAll('.nav-link[data-section="about"]').forEach((el) => {
-      el.textContent = translations[lang]["nav.about"]
-    })
-    document.querySelectorAll('.nav-link[data-section="skills"]').forEach((el) => {
-      el.textContent = translations[lang]["nav.skills"]
-    })
-    document.querySelectorAll('.nav-link[data-section="projects"]').forEach((el) => {
-      el.textContent = translations[lang]["nav.projects"]
-    })
-    document.querySelectorAll('.nav-link[data-section="experience"]').forEach((el) => {
-      el.textContent = translations[lang]["nav.experience"]
-    })
-    document.querySelectorAll('.nav-link[data-section="contact"]').forEach((el) => {
-      el.textContent = translations[lang]["nav.contact"]
-    })
-
-    // Update hero section
-    document.querySelector(".hero-text .greeting").textContent = translations[lang]["hero.greeting"]
-    document.querySelector(".hero-text .title").textContent = translations[lang]["hero.title"]
-    document.querySelector(".hero-text .description").textContent = translations[lang]["hero.description"]
-    document.querySelector(".hero-buttons .btn-primary").textContent = translations[lang]["hero.contact"]
-    document.querySelector(".hero-buttons .btn-outline").textContent = translations[lang]["hero.projects"]
-
-
-    // Update section titles
-    document.querySelectorAll(".section-title").forEach((el) => {
-      const section = el.closest("section")?.id
-      if (section) {
-        el.textContent = translations[lang][`${section}.title`]
-      } else if (el.closest(".education-header")) {
-        el.textContent = translations[lang]["education.title"]
-      } else if (el.closest(".certification-header")) {
-        el.textContent = translations[lang]["certification.title"]
-      }
-    })
-
-    // Update about section
-    const aboutTexts = document.querySelectorAll(".about-text p")
-    if (aboutTexts.length >= 3) {
-      aboutTexts[0].textContent = translations[lang]["about.p1"]
-      aboutTexts[1].textContent = translations[lang]["about.p2"]
-      aboutTexts[2].textContent = translations[lang]["about.p3"]
-    }
-
-    // Update info labels
-    document.querySelectorAll(".info-item h3").forEach((el, index) => {
-      const keys = ["about.name", "about.email", "about.location", "about.availability"]
-      if (index < keys.length) {
-        el.textContent = translations[lang][keys[index]]
-      }
-    })
-
-    // Update availability text
-    const availabilityText = document.querySelector(".info-item:nth-child(4) p")
-    if (availabilityText) {
-      availabilityText.textContent = translations[lang]["about.fulltime"]
-    }
-
-    // Update CV download button
-    const cvButton = document.querySelector(".dropdown-toggle span")
-    if (cvButton) {
-      cvButton.textContent = translations[lang]["about.downloadCV"]
-    }
-
-    // Update CV language options
-    const cvOptions = document.querySelectorAll(".dropdown-item")
-    if (cvOptions.length >= 2) {
-      cvOptions[0].textContent = translations[lang]["about.spanish"]
-      cvOptions[1].textContent = translations[lang]["about.english"]
-    }
-
-    // Update skills tabs
-    document.querySelectorAll(".tab-btn").forEach((el, index) => {
-      const keys = ["skills.development", "skills.infrastructure", "skills.tools"]
-      if (index < keys.length) {
-        el.textContent = translations[lang][keys[index]]
-      }
-    })
-
-    // Update project cards
-    document.querySelectorAll(".project-card").forEach((card, index) => {
-      const titleKey = `project${index + 1}.title`
-      const descKey = `project${index + 1}.description`
-
-      if (translations[lang][titleKey]) {
-        card.querySelector(".project-title").textContent = translations[lang][titleKey]
-      }
-
-      if (translations[lang][descKey]) {
-        card.querySelector(".project-description").textContent = translations[lang][descKey]
-      }
-
-      // Update project links text
-      const projectLinks = card.querySelectorAll(".project-links .btn")
-      projectLinks.forEach((link) => {
-        if (link.querySelector(".fa-github")) {
-          const textNode = link.querySelector("i").nextSibling
-          if (textNode) textNode.textContent = ` ${translations[lang]["projects.code"]}`
-        } else if (link.querySelector(".fa-info-circle")) {
-          const textNode = link.querySelector("i").nextSibling
-          if (textNode) textNode.textContent = ` ${translations[lang]["projects.info"]}`
-        } else if (link.textContent.trim().toLowerCase().includes("demo")) {
-          // For demo buttons, they might have an img or just text
-          const img = link.querySelector("img")
-          if (img) {
-            link.innerHTML = ""
-            link.appendChild(img)
-            link.appendChild(document.createTextNode(` ${translations[lang]["projects.demo"]}`))
-          } else {
-            const icon = link.querySelector("i")
-            if (icon) {
-              link.innerHTML = ""
-              link.appendChild(icon)
-              link.appendChild(document.createTextNode(` ${translations[lang]["projects.demo"]}`))
-            } else {
-              link.textContent = translations[lang]["projects.demo"]
-            }
-          }
-        } else if (link.textContent.trim().toLowerCase().includes("post")) {
-          // For post buttons
-          const icon = link.querySelector("i")
-          if (icon) {
-            link.innerHTML = ""
-            link.appendChild(icon)
-            link.appendChild(document.createTextNode(` ${translations[lang]["projects.post"]}`))
-          } else {
-            const img = link.querySelector("img")
-            if (img) {
-              link.innerHTML = ""
-              link.appendChild(img)
-              link.appendChild(document.createTextNode(` ${translations[lang]["projects.post"]}`))
-            } else {
-              link.textContent = translations[lang]["projects.post"]
-            }
-          }
+      let bestSlide = null;
+      let bestRatio = 0;
+      visibility.forEach((ratio, slide) => {
+        if (ratio > bestRatio) {
+          bestSlide = slide;
+          bestRatio = ratio;
         }
-      })
-    })
+      });
 
-    const experienceTitle = document.querySelector("section#experience > .container > .section-header > .section-title")
-    if (experienceTitle) {
-      experienceTitle.textContent = translations[lang]["experience.title"]
-    }
+      if (bestSlide && bestRatio >= 0.5) activateSlide(bestSlide);
+    },
+    { threshold: [0, 0.25, 0.5, 0.75, 1] },
+  );
 
-    const educationTitle = document.querySelector(".education-header .section-title")
-    if (educationTitle) {
-      educationTitle.textContent = translations[lang]["education.title"]
-    }
+  slides.forEach((slide) => slideObserver.observe(slide));
 
-    const certificationTitle = document.querySelector(".certification-header .section-title")
-    if (certificationTitle) {
-      certificationTitle.textContent = translations[lang]["certification.title"]
-    }
+  // ========== VERTICAL: ONE CHAPTER AT A TIME ==========
+  // CSS snapping alone lets a fast wheel or trackpad flick skip chapters, and
+  // Safari can undo a smooth scrollTo while mandatory snapping is active, so
+  // chapter changes are driven here and snapping is paused while they run.
+  const chapters = [...document.querySelectorAll(".chapter")];
+  const WHEEL_THRESHOLD = 24;
+  const GESTURE_GAP = 200;
+  let lastWheelTime = 0;
+  let gestureDelta = 0;
+  let gestureHandled = false;
+  let chapterBusyUntil = 0;
+  let snapTimer = null;
 
-    // Update Experience Sec.
-    const expItems = document.querySelectorAll("section#experience .timeline-item")
-    expItems.forEach((item, index) => {
-      const titleEl = item.querySelector(".timeline-title")
-      const companyEl = item.querySelector(".timeline-company")
-      const periodEl = item.querySelector(".timeline-period")
-      const descEl = item.querySelector(".timeline-description")
-      if (titleEl) titleEl.textContent = translations[lang][`exp${index + 1}.role`]
-      if (companyEl) companyEl.textContent = translations[lang][`exp${index + 1}.company`]
-      if (periodEl) periodEl.textContent = translations[lang][`exp${index + 1}.period`]
-      if (descEl) descEl.textContent = translations[lang][`exp${index + 1}.description`]
-    })
-
-    // Update Education Section
-    const eduItems = document.querySelectorAll(".education-header + .timeline .timeline-item")
-    eduItems.forEach((item, index) => {
-      const eduIndex = index + 1
-      const titleEl = item.querySelector(".timeline-title")
-      const instEl = item.querySelector(".timeline-company")
-      const periodEl = item.querySelector(".timeline-period")
-      const descEl = item.querySelector(".timeline-description")
-
-      if (titleEl) titleEl.textContent = translations[lang][`edu${eduIndex}.degree`]
-      if (instEl) instEl.textContent = translations[lang][`edu${eduIndex}.institution`]
-      if (periodEl) periodEl.textContent = translations[lang][`edu${eduIndex}.period`]
-      if (descEl) descEl.textContent = translations[lang][`edu${eduIndex}.description`]
-    })
-
-    // Update Certification Section
-    const certItems = document.querySelectorAll(".certification-header + .timeline .timeline-item")
-    certItems.forEach((item, index) => {
-      const certIndex = index + 1
-      const titleEl = item.querySelector(".timeline-title")
-      const instEl = item.querySelector(".timeline-company")
-      const periodEl = item.querySelector(".timeline-period")
-
-      if (titleEl) titleEl.textContent = translations[lang][`cert${certIndex}.degree`]
-      if (instEl) instEl.textContent = translations[lang][`cert${certIndex}.institution`]
-      if (periodEl) periodEl.textContent = translations[lang][`cert${certIndex}.period`]
-    })
-
-    // Update contact section
-    const contactDesc = document.querySelector(".contact-description p")
-    if (contactDesc) {
-      contactDesc.textContent = translations[lang]["contact.description"]
-    }
-
-    // Update contact method titles
-    document.querySelectorAll(".contact-details h3").forEach((el, index) => {
-      const keys = ["contact.email", "contact.linkedin", "contact.github"]
-      if (index < keys.length) {
-        el.textContent = translations[lang][keys[index]]
+  function currentChapterIndex() {
+    let closest = 0;
+    chapters.forEach((chapter, index) => {
+      if (Math.abs(chapter.offsetTop - root.scrollTop) < Math.abs(chapters[closest].offsetTop - root.scrollTop)) {
+        closest = index;
       }
-    })
+    });
+    return closest;
+  }
 
-    // Update footer copyright
-    const copyright = document.querySelector(".copyright")
-    if (copyright) {
-      copyright.textContent = `© ${new Date().getFullYear()} Matías Rodríguez Cárdenas. ${translations[lang]["footer.rights"]}`
+  function scrollToChapter(index) {
+    const target = chapters[Math.max(0, Math.min(chapters.length - 1, index))];
+    chapterBusyUntil = performance.now() + 800;
+    root.style.scrollSnapType = "none";
+    root.scrollTo({ top: target.offsetTop, behavior: scrollBehavior });
+    clearTimeout(snapTimer);
+    snapTimer = setTimeout(() => {
+      root.style.scrollSnapType = "";
+    }, 900);
+  }
+
+  window.addEventListener(
+    "wheel",
+    (event) => {
+      if (event.ctrlKey || event.shiftKey) return; // pinch-zoom / horizontal intent
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return; // sideways swipe → tracks
+      const target = event.target instanceof Element ? event.target : document.body;
+      if (target.closest(".chat-widget, .mobile-nav")) return;
+
+      // Let a slide that overflows (small screens) scroll before changing chapter
+      const body = target.closest(".slide__body");
+      if (body && body.scrollHeight > body.clientHeight + 1) {
+        const atTop = body.scrollTop <= 0;
+        const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 1;
+        if ((event.deltaY > 0 && !atBottom) || (event.deltaY < 0 && !atTop)) return;
+      }
+
+      event.preventDefault();
+
+      // A gesture is a burst of wheel events (inertia included); it moves one chapter
+      const now = performance.now();
+      if (now - lastWheelTime > GESTURE_GAP) {
+        gestureDelta = 0;
+        gestureHandled = false;
+      }
+      lastWheelTime = now;
+      if (gestureHandled || now < chapterBusyUntil) return;
+
+      // Trackpads start with tiny deltas, so accumulate before deciding
+      gestureDelta += event.deltaMode === 1 ? event.deltaY * 16 : event.deltaY;
+      if (Math.abs(gestureDelta) < WHEEL_THRESHOLD) return;
+
+      gestureHandled = true;
+      scrollToChapter(currentChapterIndex() + Math.sign(gestureDelta));
+    },
+    { passive: false },
+  );
+
+  // In-page links to chapters use the same controlled scroll
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    const index = chapters.findIndex((chapter) => `#${chapter.id}` === link.getAttribute("href"));
+    if (index === -1) return;
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      scrollToChapter(index);
+    });
+  });
+
+  // ========== HORIZONTAL CHAPTERS ==========
+  const carousels = [];
+
+  document.querySelectorAll(".chapter--h").forEach((chapter) => {
+    const track = chapter.querySelector(".h-track");
+    const items = track.querySelectorAll(".slide");
+    const counter = chapter.querySelector(".h-counter b");
+    const total = chapter.querySelector(".h-counter span");
+    const bar = chapter.querySelector(".h-bar i");
+    const prevButton = chapter.querySelector('.h-btn[data-dir="-1"]');
+    const nextButton = chapter.querySelector('.h-btn[data-dir="1"]');
+    const pad = (n) => String(n).padStart(2, "0");
+
+    const getIndex = () => Math.round(track.scrollLeft / track.clientWidth);
+
+    function goTo(index, behavior = scrollBehavior) {
+      const target = Math.max(0, Math.min(items.length - 1, index));
+      track.scrollTo({ left: target * track.clientWidth, behavior });
     }
 
-    // Update language buttons
-    document.querySelectorAll(".lang-btn").forEach((btn) => {
-      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang)
-    })
+    function update() {
+      const index = getIndex();
+      counter.textContent = pad(index + 1);
+      bar.style.setProperty("--p", (index + 1) / items.length);
+      prevButton.disabled = index === 0;
+      nextButton.disabled = index === items.length - 1;
+    }
+
+    total.textContent = pad(items.length);
+    update();
+
+    let ticking = false;
+    track.addEventListener(
+      "scroll",
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      },
+      { passive: true },
+    );
+
+    prevButton.addEventListener("click", () => goTo(getIndex() - 1));
+    nextButton.addEventListener("click", () => goTo(getIndex() + 1));
+
+    // Table-of-contents buttons on intro slides
+    chapter.querySelectorAll("[data-goto]").forEach((button) => {
+      button.addEventListener("click", () => goTo(Number(button.dataset.goto)));
+    });
+
+    enableDragScroll(track, getIndex, goTo);
+
+    carousels.push({ chapter, track, getIndex, goTo });
+  });
+
+  // Click-and-drag for mouse users (touch and trackpads scroll natively)
+  function enableDragScroll(track, getIndex, goTo) {
+    let startX = 0;
+    let startScroll = 0;
+    let startIndex = 0;
+    let isDragging = false;
+    let hasMoved = false;
+
+    track.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "mouse" || event.button !== 0) return;
+      if (event.target.closest("a, button, input, textarea")) return;
+      isDragging = true;
+      hasMoved = false;
+      startX = event.clientX;
+      startScroll = track.scrollLeft;
+      startIndex = getIndex();
+    });
+
+    track.addEventListener("pointermove", (event) => {
+      if (!isDragging) return;
+      const deltaX = event.clientX - startX;
+      if (!hasMoved && Math.abs(deltaX) > 5) {
+        hasMoved = true;
+        track.classList.add("is-dragging");
+        try {
+          track.setPointerCapture(event.pointerId);
+        } catch (error) {
+          // Pointer already released; dragging still works without capture
+        }
+      }
+      if (hasMoved) track.scrollLeft = startScroll - deltaX;
+    });
+
+    function endDrag(event) {
+      if (!isDragging) return;
+      isDragging = false;
+      if (!hasMoved) return;
+
+      const deltaX = event.clientX - startX;
+      let target = startIndex;
+      if (deltaX < -60) target += 1;
+      if (deltaX > 60) target -= 1;
+
+      // Keep snapping off until the programmatic scroll settles
+      const restoreSnap = () => track.classList.remove("is-dragging");
+      if ("onscrollend" in window) {
+        track.addEventListener("scrollend", restoreSnap, { once: true });
+      }
+      setTimeout(restoreSnap, 700);
+      goTo(target, scrollBehavior);
+    }
+
+    track.addEventListener("pointerup", endDrag);
+    track.addEventListener("pointercancel", endDrag);
   }
+
+  // ← → move inside the active horizontal chapter
+  document.addEventListener("keydown", (event) => {
+    if (event.target.closest("input, textarea")) return;
+
+    // ↑ ↓ / PageUp / PageDown / Space move between chapters
+    const verticalKeys = { ArrowDown: 1, PageDown: 1, " ": 1, ArrowUp: -1, PageUp: -1 };
+    if (event.key in verticalKeys && !event.altKey && !event.metaKey && !event.ctrlKey) {
+      if (event.key === " " && event.target.closest("button, a")) return;
+      event.preventDefault();
+      if (performance.now() < chapterBusyUntil) return;
+      const direction = event.key === " " && event.shiftKey ? -1 : verticalKeys[event.key];
+      scrollToChapter(currentChapterIndex() + direction);
+      return;
+    }
+
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    const chapter = activeSlide && activeSlide.closest(".chapter--h");
+    const carousel = carousels.find((item) => item.chapter === chapter);
+    if (!carousel) return;
+    event.preventDefault();
+    carousel.goTo(carousel.getIndex() + (event.key === "ArrowRight" ? 1 : -1));
+  });
+
+  // Keep tracks aligned to a slide after resizing
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      carousels.forEach((carousel) => carousel.goTo(carousel.getIndex(), "auto"));
+    }, 120);
+  });
+
+  // ========== HEADER & NAVIGATION ==========
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const mobileNav = document.querySelector(".mobile-nav");
+
+  function setMobileMenu(isOpen) {
+    mobileNav.classList.toggle("open", isOpen);
+    mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+    const icon = mobileMenuToggle.querySelector("i");
+    icon.classList.toggle("fa-bars", !isOpen);
+    icon.classList.toggle("fa-times", isOpen);
+  }
+
+  mobileMenuToggle.addEventListener("click", () => {
+    setMobileMenu(!mobileNav.classList.contains("open"));
+  });
+
+  document.querySelectorAll(".mobile-nav .nav-link").forEach((link) => {
+    link.addEventListener("click", () => setMobileMenu(false));
+  });
+
+  document.getElementById("language-toggle").addEventListener("click", () => {
+    setLanguage(currentLanguage === "es" ? "en" : "es");
+  });
+
+  // ========== I18N ==========
+  function setLanguage(lang) {
+    const dict = translations[lang] || translations.es;
+    currentLanguage = translations[lang] ? lang : "es";
+    storage.set("language", currentLanguage);
+    root.lang = currentLanguage;
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const value = dict[el.dataset.i18n];
+      if (value !== undefined) el.textContent = value;
+    });
+
+    // Markup only ever comes from our own translations file
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const value = dict[el.dataset.i18nHtml];
+      if (value !== undefined) el.innerHTML = value;
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const value = dict[el.dataset.i18nAria];
+      if (value !== undefined) el.setAttribute("aria-label", value);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const value = dict[el.dataset.i18nPlaceholder];
+      if (value !== undefined) el.setAttribute("placeholder", value);
+    });
+
+    document.title = dict["meta.title"];
+    document.querySelector('meta[name="description"]').setAttribute("content", dict["meta.description"]);
+
+    document.querySelectorAll(".copyright").forEach((el) => {
+      el.textContent = `© ${new Date().getFullYear()} Matías Rodríguez Cárdenas. ${dict["footer.rights"]}`;
+    });
+
+    document.querySelectorAll(".lang-toggle [data-lang]").forEach((el) => {
+      el.classList.toggle("is-current", el.dataset.lang === currentLanguage);
+    });
+
+    const welcomeMessage = document.querySelector("#chat-messages .bot-welcome");
+    if (welcomeMessage) welcomeMessage.textContent = dict["chat.intro"];
+  }
+
+  setLanguage(currentLanguage);
+
   // ========== CHATBOT LOGIC ==========
   const chatToggleButton = document.getElementById("chat-toggle");
   const chatWidgetContainer = document.querySelector(".chat-widget-container");
   const chatMessages = document.getElementById("chat-messages");
   const chatInput = document.getElementById("chat-input");
   const chatSendButton = document.getElementById("chat-send");
-  const chatTitle = document.getElementById("chat-title");
+  const openChatButton = document.getElementById("open-rag-chat");
 
-  // Función para añadir un mensaje a la UI
   function addChatMessage(sender, text) {
     const messageElement = document.createElement("div");
-    messageElement.classList.add("chat-message", sender); // 'user' o 'bot'
+    messageElement.classList.add("chat-message", sender); // 'user' or 'bot'
     messageElement.textContent = text;
     chatMessages.appendChild(messageElement);
-    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll al final
+    chatMessages.scrollTop = chatMessages.scrollHeight;
     return messageElement;
   }
 
-  // Función para el mensaje de bienvenida del bot
   function showBotWelcomeMessage() {
-    // Limpia solo el mensaje de bienvenida anterior para evitar duplicados
     const oldWelcome = chatMessages.querySelector(".bot-welcome");
-    if (oldWelcome) {
-      chatMessages.removeChild(oldWelcome);
-    }
-    // Añade el nuevo mensaje traducido
-    const welcomeMsg = addChatMessage("bot", translations[currentLanguage]["chat.intro"]);
-    welcomeMsg.classList.add("bot-welcome");
+    if (oldWelcome) oldWelcome.remove();
+    const welcomeMessage = addChatMessage("bot", translations[currentLanguage]["chat.intro"]);
+    welcomeMessage.classList.add("bot-welcome");
   }
 
-  // Función para manejar el envío de mensajes
-  // Reemplaza tu función handleSendMessage con esta
+  function openChat() {
+    chatWidgetContainer.classList.add("open");
+    if (chatMessages.children.length === 0) showBotWelcomeMessage();
+    chatInput.focus({ preventScroll: true });
+  }
+
   async function handleSendMessage() {
     const messageText = chatInput.value.trim();
     if (!messageText) return;
 
-    // 1. Muestra el mensaje del usuario
     addChatMessage("user", messageText);
-    chatInput.value = ""; // Limpia el input
+    chatInput.value = "";
 
-    // 2. Crea un elemento vacío para el bot y AÑADE LA CLASE 'loading'
-    // El CSS que acabamos de añadir se encargará de mostrar los "..." animados
     const botMessageElement = addChatMessage("bot", "");
     botMessageElement.classList.add("loading");
-    chatMessages.scrollTop = chatMessages.scrollHeight; // Baja el scroll
 
     try {
       const API_URL = "https://ideal-noella-matiasrodriguezc-d1b4fcbc.koyeb.app/ask";
@@ -470,77 +419,56 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (!response.ok || !response.body) {
-        throw new Error("La respuesta de la red no fue válida.");
+        throw new Error("Invalid network response.");
       }
 
-      // 4. Lee el Stream
+      // Stream the answer as it arrives
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let fullResponse = "";
-      let isFirstChunk = true; // Para saber cuándo quitar la animación
+      let isFirstChunk = true;
 
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
 
-        // ¡Aquí está la magia!
         if (isFirstChunk) {
-          // 3. QUITA la clase 'loading' en cuanto llega el primer trozo
           botMessageElement.classList.remove("loading");
           isFirstChunk = false;
         }
 
-        const chunk = decoder.decode(value, { stream: true });
-        fullResponse += chunk;
-        botMessageElement.textContent = fullResponse; // Actualiza el texto en tiempo real
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Sigue bajando
+        fullResponse += decoder.decode(value, { stream: true });
+        botMessageElement.textContent = fullResponse;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
       }
-
     } catch (error) {
-      console.error("Error al contactar al chatbot:", error);
-      botMessageElement.classList.remove("loading"); // Quita el "loading" si hay un error
+      console.error("Error contacting the chatbot:", error);
+      botMessageElement.classList.remove("loading");
       botMessageElement.textContent = translations[currentLanguage]["chat.error"];
     }
   }
 
-  // --- Event Listeners del Chat ---
   chatToggleButton.addEventListener("click", () => {
-    chatWidgetContainer.classList.toggle("open");
-    // Si se acaba de abrir, muestra el mensaje de bienvenida si no hay mensajes
-    if (chatWidgetContainer.classList.contains("open") && chatMessages.children.length === 0) {
-      showBotWelcomeMessage();
+    if (chatWidgetContainer.classList.contains("open")) {
+      chatWidgetContainer.classList.remove("open");
+    } else {
+      openChat();
     }
   });
 
+  if (openChatButton) {
+    openChatButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      openChat();
+    });
+  }
+
   chatSendButton.addEventListener("click", handleSendMessage);
-  chatInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
+  chatInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
       handleSendMessage();
     }
   });
-
-  // --- Integración con la función de idioma existente ---
-  // Guardamos la función setLanguage original que cargaste de main.js
-  const originalSetLanguage = window.setLanguage;
-
-  // Re-definimos setLanguage para que haga lo de antes Y ADEMÁS actualice el chat
-  window.setLanguage = (lang) => {
-    originalSetLanguage(lang); // Llama a la lógica original de tu portafolio
-
-    // Ahora, actualiza el texto del chat
-    chatTitle.textContent = translations[lang]["chat.title"];
-    chatInput.placeholder = translations[lang]["chat.placeholder"];
-
-    // Actualiza el mensaje de bienvenida si existe
-    const welcomeMsg = chatMessages.querySelector(".bot-welcome");
-    if (welcomeMsg) {
-      welcomeMsg.textContent = translations[lang]["chat.intro"];
-    }
-  };
-
-  // Llama a la lógica de idioma una vez al cargar para establecer el texto inicial del chat
-  window.setLanguage(currentLanguage);
-
   // ========== END CHATBOT LOGIC ==========
-})
+});

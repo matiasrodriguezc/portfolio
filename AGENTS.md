@@ -10,10 +10,10 @@ This project is a static portfolio website built with fundamental web technologi
 
 **Tech Stack:**
 *   **HTML5:** Semantic markup for content structure.
-*   **CSS3:** Custom styling, including a responsive design and theme switching (light/dark mode) using CSS variables.
-*   **JavaScript (Vanilla JS):** Client-side interactivity, DOM manipulation, and feature implementation (e.g., language toggle, theme toggle, mobile menu, animations).
+*   **CSS3:** Custom styling with CSS variables. The page is split into full-screen chapters (vertical scroll snap); Experience, Projects and Skills scroll horizontally. Each slide declares its own identity with `data-theme` (colors + display font), and JS copies the active slide's tokens into `--chrome-*` so the header and controls follow it.
+*   **JavaScript (Vanilla JS):** Client-side interactivity (one-chapter-per-wheel-gesture, horizontal slide controls/drag/keyboard, language toggle via `data-i18n` attributes, mobile menu, slide reveal, RAG chat widget).
 *   **Font Awesome:** Icon library loaded via CDN.
-*   **AOS (Animate On Scroll):** Animation library loaded via CDN.
+*   **Google Fonts:** One display face per experience/project identity, loaded via CDN.
 
 ---
 
