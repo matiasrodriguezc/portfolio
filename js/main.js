@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
+      // During a chapter animation the target slide is already active
+      if (isAnimating) return;
       if (bestSlide && bestRatio >= 0.5) activateSlide(bestSlide);
     },
     { threshold: [0, 0.25, 0.5, 0.75, 1] },
@@ -74,17 +76,19 @@ document.addEventListener("DOMContentLoaded", () => {
   slides.forEach((slide) => slideObserver.observe(slide));
 
   // ========== VERTICAL: ONE CHAPTER AT A TIME ==========
-  // CSS snapping alone lets a fast wheel or trackpad flick skip chapters, and
-  // Safari can undo a smooth scrollTo while mandatory snapping is active, so
-  // chapter changes are driven here and snapping is paused while they run.
+  // Chapter changes are animated here instead of relying on CSS snapping:
+  // native smooth scrolling differs per browser, fights mandatory snap and
+  // lets fast flicks skip chapters.
   const chapters = [...document.querySelectorAll(".chapter")];
-  const WHEEL_THRESHOLD = 24;
-  const GESTURE_GAP = 200;
+  const WHEEL_THRESHOLD = 12;
+  const GESTURE_GAP = 140;
+  const CHAPTER_DURATION = 620;
+  const recentDeltas = [];
   let lastWheelTime = 0;
   let gestureDelta = 0;
   let gestureHandled = false;
-  let chapterBusyUntil = 0;
-  let snapTimer = null;
+  let isAnimating = false;
+  let animationFrame = null;
 
   function currentChapterIndex() {
     let closest = 0;
@@ -96,15 +100,53 @@ document.addEventListener("DOMContentLoaded", () => {
     return closest;
   }
 
+  // The slide the user will land on (horizontal chapters keep their position)
+  function visibleSlideOf(chapter) {
+    const track = chapter.querySelector(".h-track");
+    if (!track) return chapter.querySelector(".slide");
+    const items = track.querySelectorAll(".slide");
+    return items[Math.round(track.scrollLeft / track.clientWidth)] || items[0];
+  }
+
+  const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
   function scrollToChapter(index) {
     const target = chapters[Math.max(0, Math.min(chapters.length - 1, index))];
-    chapterBusyUntil = performance.now() + 800;
+    const from = root.scrollTop;
+    const distance = target.offsetTop - from;
+    if (distance === 0) return;
+
+    // Theme and reveal start together with the movement, not after it
+    activateSlide(visibleSlideOf(target));
+
+    cancelAnimationFrame(animationFrame);
     root.style.scrollSnapType = "none";
-    root.scrollTo({ top: target.offsetTop, behavior: scrollBehavior });
-    clearTimeout(snapTimer);
-    snapTimer = setTimeout(() => {
+    root.style.scrollBehavior = "auto";
+    isAnimating = true;
+
+    const finish = () => {
+      root.scrollTop = target.offsetTop;
       root.style.scrollSnapType = "";
-    }, 900);
+      root.style.scrollBehavior = "";
+      isAnimating = false;
+    };
+
+    if (prefersReducedMotion) {
+      finish();
+      return;
+    }
+
+    const startTime = performance.now();
+    const step = (now) => {
+      const progress = Math.min(1, (now - startTime) / CHAPTER_DURATION);
+      root.scrollTop = from + distance * easeOutQuart(progress);
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(step);
+      } else {
+        finish();
+      }
+    };
+    animationFrame = requestAnimationFrame(step);
   }
 
   window.addEventListener(
@@ -125,17 +167,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
       event.preventDefault();
 
-      // A gesture is a burst of wheel events (inertia included); it moves one chapter
       const now = performance.now();
+      const delta = event.deltaMode === 1 ? event.deltaY * 16 : event.deltaY;
+      const magnitude = Math.abs(delta);
+
+      // A pause starts a new gesture…
       if (now - lastWheelTime > GESTURE_GAP) {
+        recentDeltas.length = 0;
         gestureDelta = 0;
         gestureHandled = false;
       }
       lastWheelTime = now;
-      if (gestureHandled || now < chapterBusyUntil) return;
+
+      // …and so does a fresh swipe on top of a decaying inertia tail
+      const recentPeak = Math.max(0, ...recentDeltas.slice(-5));
+      const isAccelerating = recentDeltas.length >= 5 && magnitude > 10 && magnitude > recentPeak * 1.5;
+      recentDeltas.push(magnitude);
+      if (recentDeltas.length > 12) recentDeltas.shift();
+      if (gestureHandled && isAccelerating && !isAnimating) {
+        gestureDelta = 0;
+        gestureHandled = false;
+      }
+
+      if (gestureHandled || isAnimating) return;
 
       // Trackpads start with tiny deltas, so accumulate before deciding
-      gestureDelta += event.deltaMode === 1 ? event.deltaY * 16 : event.deltaY;
+      gestureDelta += delta;
       if (Math.abs(gestureDelta) < WHEEL_THRESHOLD) return;
 
       gestureHandled = true;
@@ -277,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.key in verticalKeys && !event.altKey && !event.metaKey && !event.ctrlKey) {
       if (event.key === " " && event.target.closest("button, a")) return;
       event.preventDefault();
-      if (performance.now() < chapterBusyUntil) return;
+      if (isAnimating) return;
       const direction = event.key === " " && event.shiftKey ? -1 : verticalKeys[event.key];
       scrollToChapter(currentChapterIndex() + direction);
       return;

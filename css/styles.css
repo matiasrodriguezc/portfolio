@@ -18,7 +18,7 @@
   --foot-h: 4.25rem;
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
-  --theme-dur: 0.6s;
+  --theme-dur: 0.45s;
 
   /* Chrome tokens (overwritten at runtime from the active slide) */
   --chrome-bg: #0f0f0f;
@@ -360,9 +360,8 @@ body::after {
   inset: 0;
   z-index: 45;
   pointer-events: none;
-  opacity: 0.09;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
 }
 
 img {
@@ -705,9 +704,9 @@ button {
 /* Reveal on slide activation */
 .js .reveal {
   opacity: 0;
-  transform: translateY(1.25rem);
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-  transition-delay: calc(var(--d, 0) * 90ms);
+  transform: translateY(1rem);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  transition-delay: calc(var(--d, 0) * 45ms);
 }
 
 .js .is-seen .reveal {
