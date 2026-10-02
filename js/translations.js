@@ -115,7 +115,7 @@ const translations = {
     "proj.kicker": "Capítulo 02",
     "proj.title": "Proyec<em>tos</em>",
     "proj.lead":
-      "Seis productos, cada uno con su propia identidad. Agentes, RAG, MLOps y DevOps llevados a producción.",
+      "Seis productos, cada uno con su propia identidad. Agentes, RAG, MLOps y DevOps llevados a producción, y tres apps en camino.",
     "proj.note": "cada uno es un mundo →",
     "proj.code": "Código",
     "proj.demo": "Demo",
@@ -175,6 +175,26 @@ const translations = {
     "proj6.title": "Crypto <em>Tracker</em>",
     "proj6.desc":
       "Plataforma de monitoreo de criptomonedas basada en microservicios (Python/FastAPI) con orquestación en Kubernetes y Helm, infraestructura como código con Terraform, CI/CD automatizado y observabilidad con Grafana.",
+
+    // Próximamente
+    "soon.kicker": "Próximamente",
+    "soon.badge": "Próximamente",
+    "soon.status": "En desarrollo",
+
+    "proj7.tag": "iOS · Marketplace de trueque",
+    "proj7.title": "Ron<em>da</em>",
+    "proj7.desc":
+      "Trueque de barrio, mobile-first. Publicás lo que tenés, decís qué aceptarías a cambio y la app te muestra con quién, cerca, el cambio tiene sentido. La plata y los créditos son el plan B. Lanza en Tandil.",
+
+    "proj8.tag": "iOS · Android · Creatividad con IA",
+    "proj8.title": "Lum<em>bre</em>",
+    "proj8.desc":
+      "App de creatividad por recombinación. Guardás ideas, la IA las destila en conceptos atómicos y todos los días hace chocar dos para que salte una chispa.",
+
+    "proj9.tag": "Finanzas personales · Zero-knowledge",
+    "proj9.title": "Ze<em>ro</em>",
+    "proj9.desc":
+      "Finanzas personales con privacidad de verdad: tu bóveda vive cifrada en el teléfono, con presupuestos, metas, gastos compartidos y un asistente de IA.",
 
     // Skills y formación
     "skills.meta": "Competencias",
@@ -338,7 +358,7 @@ const translations = {
     "proj.kicker": "Chapter 02",
     "proj.title": "Proj<em>ects</em>",
     "proj.lead":
-      "Six products, each with its own identity. Agents, RAG, MLOps and DevOps taken all the way to production.",
+      "Six products, each with its own identity. Agents, RAG, MLOps and DevOps taken all the way to production, with three apps on the way.",
     "proj.note": "each one is its own world →",
     "proj.code": "Code",
     "proj.demo": "Demo",
@@ -398,6 +418,26 @@ const translations = {
     "proj6.title": "Crypto <em>Tracker</em>",
     "proj6.desc":
       "A microservices-based crypto monitoring platform (Python/FastAPI) orchestrated with Kubernetes and Helm, Infrastructure as Code with Terraform, automated CI/CD and real-time observability with Grafana.",
+
+    // Coming soon
+    "soon.kicker": "Coming soon",
+    "soon.badge": "Soon",
+    "soon.status": "In development",
+
+    "proj7.tag": "iOS · Barter marketplace",
+    "proj7.title": "Ron<em>da</em>",
+    "proj7.desc":
+      "Neighborhood bartering, mobile-first. You post what you have, say what you'd take in return, and the app shows you who nearby makes the swap worth it. Cash and credits are plan B. Launching in Tandil.",
+
+    "proj8.tag": "iOS · Android · AI creativity",
+    "proj8.title": "Lum<em>bre</em>",
+    "proj8.desc":
+      "A creativity app built on recombination. You save ideas, AI distills them into atomic concepts, and every day it collides two of them to strike a spark.",
+
+    "proj9.tag": "Personal finance · Zero-knowledge",
+    "proj9.title": "Ze<em>ro</em>",
+    "proj9.desc":
+      "Personal finance with real privacy: your vault lives encrypted on your phone, with budgets, goals, shared expenses and an AI assistant.",
 
     // Skills & background
     "skills.meta": "Competences",

@@ -322,6 +322,86 @@
   --bg-image: linear-gradient(rgba(34, 197, 94, 0.05) 1px, transparent 1px);
 }
 
+/* Coming soon · Ronda — from the Ronda brand manual: papel, monte, mandarina, Bricolage Grotesque */
+[data-theme="ronda"] {
+  --bg: #faf4e8;
+  --ink: #143830;
+  --muted: #4f6259;
+  --line: #e4d9c4;
+  --accent: #245847;
+  --on-accent: #fffdf8;
+  --accent-2: #fce2d6;
+  --on-accent-2: #8a3a1b;
+  --font-display: "Bricolage Grotesque", ui-rounded, system-ui, sans-serif;
+  --font-body: ui-rounded, "SF Pro Rounded", var(--font-sans);
+  --display-weight: 800;
+  --display-scale: 0.98;
+  --display-tracking: -0.03em;
+  --em-style: normal;
+  --em-color: #b5431f;
+  --radius: 22px;
+  --card: #fffdf8;
+  --shadow: 0 1px 2px rgba(20, 56, 48, 0.08), 0 30px 60px -30px rgba(20, 56, 48, 0.35);
+  --bg-image:
+    radial-gradient(40% 55% at 88% 12%, rgba(240, 107, 62, 0.16), transparent 70%),
+    radial-gradient(35% 45% at 0% 100%, rgba(247, 166, 57, 0.14), transparent 70%);
+}
+
+/* Coming soon · Lumbre — from the Lumbre brand book: night, spark magenta, Fraunces */
+[data-theme="lumbre"] {
+  --bg: #0a1633;
+  --ink: #fff7ed;
+  --muted: #a7b1ce;
+  --line: rgba(167, 177, 206, 0.2);
+  --accent: #ff3ea5;
+  --on-accent: #0a1633;
+  --accent-2: #2d6cdf;
+  --on-accent-2: #ffffff;
+  --font-display: "Fraunces", Georgia, serif;
+  --display-weight: 600;
+  --display-scale: 1.02;
+  --display-tracking: -0.025em;
+  --em-style: normal;
+  --em-color: #ff6bb8;
+  --radius: 18px;
+  --card: #111f45;
+  --shadow: 0 40px 70px -35px rgba(0, 0, 0, 0.7);
+  --bg-image:
+    radial-gradient(38% 50% at 82% 22%, rgba(255, 62, 165, 0.16), transparent 70%),
+    radial-gradient(40% 55% at 5% 95%, rgba(126, 34, 206, 0.22), transparent 70%);
+}
+
+[data-theme="lumbre"] .display,
+[data-theme="lumbre"] .specs__aa,
+.brandmark--lumbre .brandmark__word {
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+/* Coming soon · Zero — from the Zero theme: bordó, ice-blue ink, Outfit */
+[data-theme="zero"] {
+  --bg: #620b26;
+  --ink: #cfe5ff;
+  --muted: #d2b7c2;
+  --line: rgba(207, 229, 255, 0.14);
+  --accent: #cfe5ff;
+  --on-accent: #7c1034;
+  --accent-2: #cfe5ff;
+  --on-accent-2: #7c1034;
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  --display-weight: 600;
+  --display-scale: 1;
+  --display-tracking: -0.04em;
+  --em-style: normal;
+  --em-color: #4fe0ae;
+  --radius: 22px;
+  --card: #7c1034;
+  --shadow: 0 40px 70px -35px rgba(30, 2, 10, 0.8);
+  --bg-image:
+    radial-gradient(45% 60% at 85% 15%, rgba(255, 241, 244, 0.1), transparent 70%),
+    linear-gradient(180deg, #6c0d2b 0%, #620b26 55%, #5a0923 100%);
+}
+
 /* ---------- Reset / base ---------- */
 *,
 *::before,
@@ -1845,6 +1925,296 @@ button {
 .brandmark--crypto .brandmark__word {
   font-size: 1.15rem;
   letter-spacing: -0.04em;
+}
+
+/* ---------- Coming soon (Ronda, Lumbre, Zero) ---------- */
+.index__item--soon {
+  opacity: 0.5;
+}
+
+.index__item--soon:hover {
+  opacity: 0.85;
+}
+
+.index__item--soon .index__name {
+  filter: blur(1.5px);
+  transition: filter 0.35s ease;
+}
+
+.index__item--soon:hover .index__name {
+  filter: none;
+}
+
+.index__item--soon .index__role {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.soon-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: clamp(1rem, 2.6vh, 1.6rem) 0 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.soon-status i {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 var(--accent);
+  animation: soon-pulse 2s ease-out infinite;
+}
+
+@keyframes soon-pulse {
+  70% {
+    box-shadow: 0 0 0 0.5rem transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* App icons (rounded like the home screen) */
+.brandmark__icon {
+  display: block;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 22.37%;
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.35);
+}
+
+.brandmark--ronda .brandmark__word {
+  font-size: 1.7rem;
+  letter-spacing: -0.03em;
+}
+
+.brandmark--lumbre .brandmark__word {
+  font-size: 1.75rem;
+}
+
+.brandmark--lumbre .brandmark__word b {
+  color: #ff3ea5;
+}
+
+/* Zero tile, drawn like ZeroMark: Outfit "0" on a bordó squircle */
+.brandmark__icon--zero {
+  display: grid;
+  place-items: center;
+  border: 0.5px solid rgba(255, 241, 244, 0.15);
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1;
+  color: #fff1f4;
+  background: linear-gradient(180deg, #8a1e40, #7c1034);
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.45);
+}
+
+.brandmark--zero .brandmark__word {
+  font-size: 1.75rem;
+  letter-spacing: -0.04em;
+}
+
+/* Blurred phone teaser */
+.soon-phone {
+  --m-pad: clamp(0.55rem, 1.4vh, 0.85rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--m-pad);
+  height: 100%;
+  max-height: 24rem;
+  aspect-ratio: 9 / 18.5;
+  padding: calc(var(--m-pad) * 2.2) var(--m-pad) var(--m-pad);
+  overflow: hidden;
+  border: 0.4rem solid var(--m-frame);
+  border-radius: 2rem;
+  background: var(--m-bg);
+  filter: blur(5px) saturate(1.1);
+  transform: rotate(-4deg);
+  user-select: none;
+}
+
+.soon-phone > * {
+  flex: none;
+}
+
+.mock-title,
+.mock-sub,
+.mock-card b,
+.mock-row b {
+  display: block;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: var(--m-ink);
+}
+
+.mock-title {
+  width: 58%;
+  height: 0.95rem;
+}
+
+.mock-sub {
+  width: 38%;
+  height: 0.45rem;
+  margin-top: -0.3rem;
+  opacity: 0.45;
+}
+
+.mock-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--m-pad);
+}
+
+.mock-card {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.mock-card i {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 0.7rem;
+  background: var(--m);
+}
+
+.mock-card b {
+  width: 85%;
+  height: 0.4rem;
+  opacity: 0.7;
+}
+
+.mock-card b + b {
+  width: 55%;
+  opacity: 0.35;
+}
+
+.mock-hero {
+  display: grid;
+  place-items: center;
+  padding: 1.1rem 0.5rem;
+  border-radius: 1rem;
+  font-family: var(--m-font, inherit);
+  font-weight: 600;
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--m-hero-ink, var(--m-ink));
+  background: var(--m-soft);
+}
+
+.mock-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem;
+  border-radius: 0.8rem;
+  background: var(--m-soft);
+}
+
+.mock-row i {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--m, var(--m-accent));
+}
+
+.mock-row b {
+  flex: 1;
+  height: 0.45rem;
+  opacity: 0.6;
+}
+
+.mock-tab {
+  margin-top: auto;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: var(--m-soft);
+  box-shadow: inset 0 0 0 1px var(--m-line, transparent);
+}
+
+.soon-phone--ronda {
+  --m-frame: #143830;
+  --m-bg: #faf4e8;
+  --m-ink: #143830;
+  --m-soft: #f2eada;
+}
+
+.soon-phone--lumbre {
+  --m-frame: #050b1c;
+  --m-bg: #0a1633;
+  --m-ink: #fff7ed;
+  --m-soft: #111f45;
+  --m-accent: #2d6cdf;
+}
+
+.mock-spark {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.4rem 0.6rem;
+  border: 2px solid #ff3ea5;
+  border-radius: 1.3rem;
+  font-size: 1.6rem;
+  color: #ff3ea5;
+  background: #1a2b5c;
+  box-shadow: 0 0 2.2rem rgba(255, 62, 165, 0.45);
+}
+
+.mock-spark b {
+  height: 2.2rem;
+  border-radius: 0.6rem;
+  background: #2d6cdf;
+}
+
+.mock-spark b:last-child {
+  background: #7e22ce;
+}
+
+.soon-phone--zero {
+  --m-frame: #2a0710;
+  --m-bg: #620b26;
+  --m-ink: #cfe5ff;
+  --m-soft: #7c1034;
+  --m-accent: #4fe0ae;
+  --m-hero-ink: #fff1f4;
+  --m-font: "Outfit", sans-serif;
+}
+
+.soon-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--on-accent);
+  background: var(--accent);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.45);
+  transform: translate(-50%, -50%) rotate(-4deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soon-status i {
+    animation: none;
+  }
 }
 
 /* ---------- Key visuals ---------- */
