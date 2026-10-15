@@ -347,28 +347,35 @@
     radial-gradient(35% 45% at 0% 100%, rgba(247, 166, 57, 0.14), transparent 70%);
 }
 
-/* Coming soon · Lumbre — from the Lumbre brand book: night, spark magenta, Fraunces */
+/* Coming soon · Lumbre — from the "Gris neurona" palette: gray, neuron black, one spark pink, Fraunces */
 [data-theme="lumbre"] {
-  --bg: #0a1633;
-  --ink: #fff7ed;
-  --muted: #a7b1ce;
-  --line: rgba(167, 177, 206, 0.2);
-  --accent: #ff3ea5;
-  --on-accent: #0a1633;
-  --accent-2: #2d6cdf;
-  --on-accent-2: #ffffff;
+  --bg: #e3e3df;
+  --ink: #0e0e10;
+  --muted: #5a5a5e;
+  --line: #c6c6c0;
+  --accent: #0e0e10;
+  --on-accent: #f2f2ef;
+  --accent-2: #d5d5d0;
+  --on-accent-2: #0e0e10;
   --font-display: "Fraunces", Georgia, serif;
   --display-weight: 600;
   --display-scale: 1.02;
   --display-tracking: -0.025em;
   --em-style: normal;
-  --em-color: #ff6bb8;
-  --radius: 18px;
-  --card: #111f45;
-  --shadow: 0 40px 70px -35px rgba(0, 0, 0, 0.7);
+  --em-color: #ff3ea5;
+  --radius: 14px;
+  --card: #ecece9;
+  --shadow: 0 1px 2px rgba(14, 14, 16, 0.06), 0 30px 60px -30px rgba(14, 14, 16, 0.25);
+  /* The app's dormant neural network: a band at the top that fades into the content */
   --bg-image:
-    radial-gradient(38% 50% at 82% 22%, rgba(255, 62, 165, 0.16), transparent 70%),
-    radial-gradient(40% 55% at 5% 95%, rgba(126, 34, 206, 0.22), transparent 70%);
+    linear-gradient(to bottom, rgba(227, 227, 223, 0) 4rem, #e3e3df 17rem),
+    url("../assets/logos/lumbre-red.svg");
+}
+
+[data-theme="lumbre"].slide {
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: auto, max(75rem, 100%) auto;
 }
 
 [data-theme="lumbre"] .display,
@@ -2151,35 +2158,58 @@ button {
 }
 
 .soon-phone--lumbre {
-  --m-frame: #050b1c;
-  --m-bg: #0a1633;
-  --m-ink: #fff7ed;
-  --m-soft: #111f45;
-  --m-accent: #2d6cdf;
+  --m-frame: #0e0e10;
+  --m-bg: #e3e3df;
+  --m-ink: #0e0e10;
+  --m-soft: #d5d5d0;
+  --m-accent: #0e0e10;
+  --m-line: #c6c6c0;
 }
 
+/* The daily spark: two neurons meeting at a synapse, pink only on black */
 .mock-spark {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 0.35rem;
-  padding: 1.4rem 0.6rem;
-  border: 2px solid #ff3ea5;
-  border-radius: 1.3rem;
-  font-size: 1.6rem;
-  color: #ff3ea5;
-  background: #1a2b5c;
-  box-shadow: 0 0 2.2rem rgba(255, 62, 165, 0.45);
+  padding: 1.2rem 0.4rem;
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 .mock-spark b {
-  height: 2.2rem;
-  border-radius: 0.6rem;
-  background: #2d6cdf;
+  position: relative;
+  height: 0.3rem;
+  border-radius: 999px;
+  background: #0e0e10;
 }
 
-.mock-spark b:last-child {
-  background: #7e22ce;
+.mock-spark b::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: inherit;
+  transform: translateY(-50%);
+}
+
+.mock-spark b:last-child::before {
+  right: 0;
+  left: auto;
+}
+
+.mock-spark span {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: #ff3ea5;
+  background: #0e0e10;
+  box-shadow: 0 0 1.4rem rgba(255, 62, 165, 0.45);
 }
 
 .soon-phone--zero {

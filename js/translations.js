@@ -187,9 +187,9 @@ const translations = {
       "Trueque de barrio, mobile-first. Publicás lo que tenés, decís qué aceptarías a cambio y la app te muestra con quién, cerca, el cambio tiene sentido. La plata y los créditos son el plan B. Lanza en Tandil.",
 
     "proj8.tag": "iOS · Android · Creatividad con IA",
-    "proj8.title": "Lum<em>bre</em>",
+    "proj8.title": "Lumbre<em>.</em>",
     "proj8.desc":
-      "App de creatividad por recombinación. Guardás ideas, la IA las destila en conceptos atómicos y todos los días hace chocar dos para que salte una chispa.",
+      "App de creatividad por recombinación. Guardás ideas, la IA las destila en neuronas y cada mañana conecta dos de mundos distintos para que salte una chispa.",
 
     "proj9.tag": "Finanzas personales · Zero-knowledge",
     "proj9.title": "Ze<em>ro</em>",
@@ -430,9 +430,9 @@ const translations = {
       "Neighborhood bartering, mobile-first. You post what you have, say what you'd take in return, and the app shows you who nearby makes the swap worth it. Cash and credits are plan B. Launching in Tandil.",
 
     "proj8.tag": "iOS · Android · AI creativity",
-    "proj8.title": "Lum<em>bre</em>",
+    "proj8.title": "Lumbre<em>.</em>",
     "proj8.desc":
-      "A creativity app built on recombination. You save ideas, AI distills them into atomic concepts, and every day it collides two of them to strike a spark.",
+      "A creativity app built on recombination. You save ideas, AI distills them into neurons, and every morning it connects two from different worlds to strike a spark.",
 
     "proj9.tag": "Personal finance · Zero-knowledge",
     "proj9.title": "Ze<em>ro</em>",
