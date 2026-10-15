@@ -2,7 +2,7 @@
   "name": "Matías Rodríguez | Portfolio",
   "short_name": "MR Portfolio",
   "description": "Portfolio profesional de Matías Rodríguez Cárdenas, Ingeniero en Sistemas.",
-  "start_url": "/portfolio/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
