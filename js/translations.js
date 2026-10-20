@@ -49,6 +49,7 @@ const translations = {
     "about.cv": "Descargar CV",
     "about.cv.es": "Español",
     "about.cv.en": "Inglés",
+    "about.cv.href": "assets/CV-ES_Ingeniero_IA_FullStack_Matias_Rodriguez.pdf",
     "about.tape1": "Ing. en Sistemas",
     "about.tape2": "AI Engineer",
     "about.note": "agentes, MCP y GenAI con gobernanza",
@@ -67,7 +68,7 @@ const translations = {
     "exp1.period": "2026 — Presente",
     "exp1.place": "Remoto",
     "exp1.b1":
-      "<strong>Plataforma MCP y agentes.</strong> Co-administro el despliegue institucional de Claude Enterprise. Diseñé la capa de conectores MCP (Microsoft 365 / Graph API, monday.com, SharePoint, Teams) y Skills reutilizables usadas por varios departamentos.",
+      "<strong>Plataforma MCP y agentes.</strong> Co-administro el despliegue institucional de Claude Enterprise. Desarrollé servidores MCP propios (SharePoint / Microsoft Graph, SurveyMonkey) y un workflow de n8n expuesto como conector MCP, más Skills reutilizables usadas por varios departamentos.",
     "exp1.b2":
       "<strong>Gobernanza y guardrails.</strong> SSO/SAML con Microsoft Entra ID, políticas de permisos de herramientas a nivel organización y patrones de acceso acotado para evitar exposición de datos entre unidades.",
     "exp1.b3":
@@ -191,10 +192,10 @@ const translations = {
     "proj8.desc":
       "App de creatividad por recombinación. Guardás ideas, la IA las destila en neuronas y cada mañana conecta dos de mundos distintos para que salte una chispa.",
 
-    "proj9.tag": "Finanzas personales · Zero-knowledge",
+    "proj9.tag": "Finanzas personales · Local-first",
     "proj9.title": "Ze<em>ro</em>",
     "proj9.desc":
-      "Finanzas personales con privacidad de verdad: tu bóveda vive cifrada en el teléfono, con presupuestos, metas, gastos compartidos y un asistente de IA.",
+      "Finanzas personales con privacidad de verdad: tus datos viven en el teléfono y un asistente que corre en el dispositivo, sin LLMs, convierte lo que escribís en movimientos. Presupuestos, metas, gastos compartidos y sync opcional entre dispositivos.",
 
     // Skills y formación
     "skills.meta": "Competencias",
@@ -292,6 +293,7 @@ const translations = {
     "about.cv": "Download CV",
     "about.cv.es": "Spanish",
     "about.cv.en": "English",
+    "about.cv.href": "assets/CV-EN_AI_Engineer_FullStack_Matias_Rodriguez.pdf",
     "about.tape1": "Systems Engineer",
     "about.tape2": "AI Engineer",
     "about.note": "agents, MCP & governed GenAI",
@@ -310,7 +312,7 @@ const translations = {
     "exp1.period": "2026 — Present",
     "exp1.place": "Remote",
     "exp1.b1":
-      "<strong>MCP & agent platform.</strong> Co-own the institutional Claude Enterprise deployment. Architected the MCP connector layer (Microsoft 365 / Graph API, monday.com, SharePoint, Teams) and reusable Skills consumed across departments.",
+      "<strong>MCP & agent platform.</strong> Co-own the institutional Claude Enterprise deployment. Built custom MCP servers (SharePoint / Microsoft Graph, SurveyMonkey) and an n8n workflow exposed as an MCP connector, plus reusable Skills consumed across departments.",
     "exp1.b2":
       "<strong>Governance & guardrails.</strong> SSO/SAML with Microsoft Entra ID, org-level tool-permission policies and scoped-access patterns that prevent cross-unit data exposure.",
     "exp1.b3":
@@ -434,10 +436,10 @@ const translations = {
     "proj8.desc":
       "A creativity app built on recombination. You save ideas, AI distills them into neurons, and every morning it connects two from different worlds to strike a spark.",
 
-    "proj9.tag": "Personal finance · Zero-knowledge",
+    "proj9.tag": "Personal finance · Local-first",
     "proj9.title": "Ze<em>ro</em>",
     "proj9.desc":
-      "Personal finance with real privacy: your vault lives encrypted on your phone, with budgets, goals, shared expenses and an AI assistant.",
+      "Personal finance with real privacy: your data lives on your phone, and an on-device assistant with no LLM calls turns what you type into transactions. Budgets, goals, shared expenses and optional multi-device sync.",
 
     // Skills & background
     "skills.meta": "Competences",

@@ -399,6 +399,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (value !== undefined) el.innerHTML = value;
     });
 
+    document.querySelectorAll("[data-i18n-href]").forEach((el) => {
+      const value = dict[el.dataset.i18nHref];
+      if (value !== undefined) el.setAttribute("href", value);
+    });
+
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
       const value = dict[el.dataset.i18nAria];
       if (value !== undefined) el.setAttribute("aria-label", value);
