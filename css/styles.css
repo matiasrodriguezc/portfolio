@@ -3058,6 +3058,19 @@ button {
   animation: loading-dots 1.5s infinite steps(3, end);
 }
 
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Caret while the answer is still streaming in */
+.chat-message.bot.streaming::after {
+  content: "▍";
+  margin-left: 1px;
+  animation: caret-blink 1s infinite steps(1, end);
+}
+
 /* ==========================================================================
    Responsive
    ========================================================================== */

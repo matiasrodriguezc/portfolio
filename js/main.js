@@ -461,6 +461,50 @@ document.addEventListener("DOMContentLoaded", () => {
     chatInput.focus({ preventScroll: true });
   }
 
+  // Writes the streamed answer a few characters per frame so it reads as typing,
+  // even when the model sends whole sentences at once.
+  function createTypewriter(element) {
+    let shown = "";
+    let target = "";
+    let frame = null;
+    let onFinish = null;
+
+    function step() {
+      const pending = target.length - shown.length;
+      if (pending <= 0) {
+        frame = null;
+        if (onFinish) onFinish();
+        return;
+      }
+      // Speeds up when it falls behind, so the text never lags far behind the stream
+      const count = prefersReducedMotion ? pending : Math.max(1, Math.ceil(pending / 30));
+      shown = target.slice(0, shown.length + count);
+      element.textContent = shown;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      frame = requestAnimationFrame(step);
+    }
+
+    return {
+      push(text) {
+        target += text;
+        if (!frame) frame = requestAnimationFrame(step);
+      },
+      finished() {
+        return new Promise((resolve) => {
+          onFinish = resolve;
+          if (!frame) step();
+        });
+      },
+      stop() {
+        if (frame) cancelAnimationFrame(frame);
+        frame = null;
+      },
+      hasText() {
+        return target.length > 0;
+      },
+    };
+  }
+
   async function handleSendMessage() {
     const messageText = chatInput.value.trim();
     if (!messageText) return;
@@ -470,6 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const botMessageElement = addChatMessage("bot", "");
     botMessageElement.classList.add("loading");
+    const typewriter = createTypewriter(botMessageElement);
 
     try {
       const API_URL = "https://ideal-noella-matiasrodriguezc-d1b4fcbc.koyeb.app/ask";
@@ -487,26 +532,36 @@ document.addEventListener("DOMContentLoaded", () => {
       // Stream the answer as it arrives
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
-      let fullResponse = "";
-      let isFirstChunk = true;
 
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
 
-        if (isFirstChunk) {
-          botMessageElement.classList.remove("loading");
-          isFirstChunk = false;
-        }
+        const text = decoder.decode(value, { stream: true });
+        if (!text) continue;
 
-        fullResponse += decoder.decode(value, { stream: true });
-        botMessageElement.textContent = fullResponse;
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        if (!typewriter.hasText()) {
+          botMessageElement.classList.remove("loading");
+          botMessageElement.classList.add("streaming");
+        }
+        typewriter.push(text);
       }
+      typewriter.push(decoder.decode());
+
+      if (!typewriter.hasText()) {
+        throw new Error("Empty response.");
+      }
+      await typewriter.finished();
     } catch (error) {
       console.error("Error contacting the chatbot:", error);
       botMessageElement.classList.remove("loading");
-      botMessageElement.textContent = translations[currentLanguage]["chat.error"];
+      // Keep a partial answer if the connection dropped halfway through
+      if (!typewriter.hasText()) {
+        typewriter.stop();
+        botMessageElement.textContent = translations[currentLanguage]["chat.error"];
+      }
+    } finally {
+      botMessageElement.classList.remove("streaming");
     }
   }
 
