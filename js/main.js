@@ -278,7 +278,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = chapter.querySelector('.h-btn[data-dir="1"]');
     const pad = (n) => String(n).padStart(2, "0");
 
-    const getIndex = () => Math.round(track.scrollLeft / track.clientWidth);
+    // A track with no width yet (hidden, or loaded in the background) is on slide 0
+    const getIndex = () => (track.clientWidth ? Math.round(track.scrollLeft / track.clientWidth) : 0);
 
     // While a smooth scroll is under way, taps count from where it is heading,
     // not from wherever the track happens to be mid-flight
@@ -335,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     enableDragScroll(track, getIndex, goTo);
 
-    carousels.push({ chapter, track, getIndex, getTarget, goTo });
+    carousels.push({ chapter, track, getIndex, getTarget, goTo, update });
   });
 
   // Click-and-drag for mouse users (touch and trackpads scroll natively)
@@ -629,7 +630,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      carousels.forEach((carousel) => carousel.goTo(carousel.getIndex(), "auto"));
+      carousels.forEach((carousel) => {
+        carousel.goTo(carousel.getIndex(), "auto");
+        carousel.update();
+      });
     }, 120);
   });
 

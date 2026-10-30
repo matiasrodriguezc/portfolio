@@ -213,6 +213,7 @@ const translations = {
     "skills.gov5": "Testing de regresión",
 
     "bg.meta": "Formación",
+    "bg.kicker": "Capítulo 03 · Parte II",
     "bg.title": "Forma<em>ción</em>",
     "bg.lead":
       "Ocho instituciones, ocho identidades. De la universidad a Anthropic Academy: cada slide adopta la marca de quien certifica.",
@@ -492,6 +493,7 @@ const translations = {
     "skills.gov5": "Regression testing",
 
     "bg.meta": "Background",
+    "bg.kicker": "Chapter 03 · Part II",
     "bg.title": "Back<em>ground</em>",
     "bg.lead":
       "Eight issuers, eight identities. From university to Anthropic Academy: each slide takes on the brand of whoever certified it.",
