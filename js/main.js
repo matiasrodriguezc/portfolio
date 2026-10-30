@@ -211,6 +211,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // iOS never hands a swipe from a scrolling slide body over to the page: once
+  // the body is at its end it just bounces. A swipe that starts at that edge
+  // and keeps going the same way changes chapter instead, one per gesture.
+  const SWIPE_THRESHOLD = 50;
+  let swipe = null;
+
+  document.addEventListener(
+    "touchstart",
+    (event) => {
+      swipe = null;
+      if (event.touches.length !== 1 || isAnimating) return;
+      const target = event.target instanceof Element ? event.target : null;
+      const body = target && target.closest(".slide__body");
+      if (!body || target.closest(".deck")) return;
+      if (body.scrollHeight <= body.clientHeight + 1) return; // the page scrolls natively
+      const touch = event.touches[0];
+      swipe = {
+        x: touch.clientX,
+        y: touch.clientY,
+        atTop: body.scrollTop <= 0,
+        atBottom: body.scrollTop + body.clientHeight >= body.scrollHeight - 1,
+        mode: null,
+        done: false,
+      };
+    },
+    { passive: true },
+  );
+
+  document.addEventListener(
+    "touchmove",
+    (event) => {
+      if (!swipe) return;
+      const touch = event.touches[0];
+      const dx = touch.clientX - swipe.x;
+      const dy = touch.clientY - swipe.y;
+
+      // Decide on the first movement, before iOS commits to a scroll
+      if (!swipe.mode) {
+        if (dx === 0 && dy === 0) return;
+        const vertical = Math.abs(dy) >= Math.abs(dx);
+        const pastEdge = (dy < 0 && swipe.atBottom) || (dy > 0 && swipe.atTop);
+        swipe.mode = vertical && pastEdge ? "chapter" : "native";
+      }
+      if (swipe.mode !== "chapter") return;
+
+      event.preventDefault();
+      if (!swipe.done && Math.abs(dy) > SWIPE_THRESHOLD) {
+        swipe.done = true;
+        scrollToChapter(currentChapterIndex() + (dy < 0 ? 1 : -1));
+      }
+    },
+    { passive: false },
+  );
+
   // ========== HORIZONTAL CHAPTERS ==========
   const carousels = [];
 
@@ -226,8 +280,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const getIndex = () => Math.round(track.scrollLeft / track.clientWidth);
 
+    // While a smooth scroll is under way, taps count from where it is heading,
+    // not from wherever the track happens to be mid-flight
+    let headingTo = null;
+    let headingTimer = null;
+    const forgetHeading = () => {
+      clearTimeout(headingTimer);
+      headingTimer = setTimeout(() => {
+        headingTo = null;
+      }, 160);
+    };
+    const getTarget = () => (headingTo === null ? getIndex() : headingTo);
+
     function goTo(index, behavior = scrollBehavior) {
       const target = Math.max(0, Math.min(items.length - 1, index));
+      headingTo = target;
+      forgetHeading();
       track.scrollTo({ left: target * track.clientWidth, behavior });
     }
 
@@ -246,6 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     track.addEventListener(
       "scroll",
       () => {
+        if (headingTo !== null) forgetHeading();
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(() => {
@@ -256,8 +325,8 @@ document.addEventListener("DOMContentLoaded", () => {
       { passive: true },
     );
 
-    prevButton.addEventListener("click", () => goTo(getIndex() - 1));
-    nextButton.addEventListener("click", () => goTo(getIndex() + 1));
+    prevButton.addEventListener("click", () => goTo(getTarget() - 1));
+    nextButton.addEventListener("click", () => goTo(getTarget() + 1));
 
     // Table-of-contents buttons on intro slides
     chapter.querySelectorAll("[data-goto]").forEach((button) => {
@@ -266,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     enableDragScroll(track, getIndex, goTo);
 
-    carousels.push({ chapter, track, getIndex, goTo });
+    carousels.push({ chapter, track, getIndex, getTarget, goTo });
   });
 
   // Click-and-drag for mouse users (touch and trackpads scroll natively)
@@ -334,33 +403,62 @@ document.addEventListener("DOMContentLoaded", () => {
   const DEAL_STAGGER = 70;
   const LIFT = "scale(1.06)";
 
+  // Every custom property in our own stylesheet, so a card lifted out of its
+  // slide can take the slide's theme along
+  const themeProperties = new Set();
+  const collectProperties = (rules) => {
+    [...rules].forEach((rule) => {
+      if (rule.cssRules) collectProperties(rule.cssRules);
+      if (!rule.style) return;
+      [...rule.style].forEach((name) => {
+        if (name.startsWith("--")) themeProperties.add(name);
+      });
+    });
+  };
+  [...document.styleSheets].forEach((sheet) => {
+    try {
+      collectProperties(sheet.cssRules);
+    } catch (error) {
+      // Cross-origin sheets (fonts, icons) can't be read and hold no tokens
+    }
+  });
+  const inheritedProperties = ["color", "font-family", "font-style", "font-weight", "line-height", "letter-spacing"];
+
   document.querySelectorAll(".deck").forEach((deck) => {
     const cards = [...deck.querySelectorAll(".credential")];
     const count = deck.parentElement.querySelector(".deck__count");
-    const slideBody = deck.closest(".slide__body");
+    const themed = deck.closest("[data-theme]");
     let pile = [...cards];
     let drag = null;
     let settleTimer = null;
 
-    // While a card is held or flying, the deck sits above the rest of the slide
-    // and the slide body drops its fade mask, which would otherwise clip it
+    // Held and thrown cards ride in a layer on <body>: iOS clips even fixed
+    // elements to the scrolling slide body around them
+    const layer = document.createElement("div");
+    layer.className = "deck-layer";
+    layer.setAttribute("aria-hidden", "true");
+    if (themed) layer.dataset.theme = themed.dataset.theme;
+
+    function dressLayer() {
+      const styles = getComputedStyle(deck);
+      themeProperties.forEach((name) => layer.style.setProperty(name, styles.getPropertyValue(name)));
+      inheritedProperties.forEach((name) => layer.style.setProperty(name, styles.getPropertyValue(name)));
+      if (!layer.isConnected) document.body.appendChild(layer);
+    }
+
     function hold() {
       clearTimeout(settleTimer);
-      deck.classList.add("is-holding");
-      if (slideBody) slideBody.classList.add("is-holding-card");
     }
 
     function settle(delay, card) {
       clearTimeout(settleTimer);
       settleTimer = setTimeout(() => {
-        if (card && (!drag || drag.card !== card)) reattach(card);
-        deck.classList.remove("is-holding");
-        if (slideBody) slideBody.classList.remove("is-holding-card");
+        if (!drag || drag.card !== card) reattach(card);
       }, delay);
     }
 
-    // Pin the card to the viewport at the exact spot it occupies, so no
-    // scroll area or board can clip it while it travels
+    // Pin the card to the viewport at the exact spot it occupies, then lift it
+    // into the layer so nothing on the slide can clip it while it travels
     function detach(card) {
       if (card.classList.contains("is-detached")) return;
       const transform = card.style.transform;
@@ -371,12 +469,18 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.top = `${rect.top}px`;
       card.style.width = `${rect.width}px`;
       card.classList.add("is-detached");
+      dressLayer();
+      layer.appendChild(card);
       card.style.transform = transform;
       void card.offsetWidth;
       card.style.transition = "";
     }
 
+    // Back into the pile, in its original place in the markup
     function reattach(card) {
+      if (!card.classList.contains("is-detached")) return;
+      const next = cards.slice(cards.indexOf(card) + 1).find((other) => other.parentElement === deck);
+      deck.insertBefore(card, next || null);
       card.classList.remove("is-detached");
       card.style.left = "";
       card.style.top = "";
@@ -424,7 +528,6 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.zIndex = String(cards.length + 1);
       card.style.transform = `translate(${x}px, ${y}px) rotate(${x / 12}deg) ${LIFT}`;
       layout();
-      settle(THROW_DURATION);
 
       setTimeout(() => {
         card.dataset.pos = "gone";
@@ -437,6 +540,9 @@ document.addEventListener("DOMContentLoaded", () => {
     deck.addEventListener("pointerdown", (event) => {
       const card = pile[0];
       if (!card || event.button > 0) return;
+      // The card is about to leave the deck, so the track's drag-to-scroll
+      // could no longer tell this press started on a deck
+      event.stopPropagation();
       drag = { card, id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0, dy: 0 };
       hold();
       detach(card);
@@ -475,6 +581,15 @@ document.addEventListener("DOMContentLoaded", () => {
     deck.addEventListener("pointerup", release);
     deck.addEventListener("pointercancel", release);
 
+    // Press-and-hold must stay a drag: no iOS long-press menu, selection or
+    // native drag, any of which would cancel the pointer mid-gesture. The layer
+    // needs it too: the card already sits there when touchstart arrives.
+    [deck, layer].forEach((surface) => {
+      surface.addEventListener("touchstart", (event) => event.preventDefault(), { passive: false });
+      surface.addEventListener("contextmenu", (event) => event.preventDefault());
+      surface.addEventListener("dragstart", (event) => event.preventDefault());
+    });
+
     // Enter / Space deal the next card for keyboard users
     deck.addEventListener("keydown", (event) => {
       if (event.key !== "Enter" && event.key !== " ") return;
@@ -506,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const carousel = carousels.find((item) => item.chapter === chapter);
     if (!carousel) return;
     event.preventDefault();
-    carousel.goTo(carousel.getIndex() + (event.key === "ArrowRight" ? 1 : -1));
+    carousel.goTo(carousel.getTarget() + (event.key === "ArrowRight" ? 1 : -1));
   });
 
   // Keep tracks aligned to a slide after resizing

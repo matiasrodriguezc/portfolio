@@ -830,6 +830,13 @@ button {
   font: inherit;
 }
 
+/* Quick repeated taps (next, next…) stay taps instead of a double-tap zoom */
+a,
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent, var(--chrome-accent));
   outline-offset: 3px;
@@ -3378,8 +3385,16 @@ button {
 .deck {
   cursor: grab;
   touch-action: none;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+}
+
+/* iOS starts its own image drag on a long press, cancelling the card drag */
+.deck img,
+.deck-layer img {
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .deck:focus-visible {
@@ -3411,29 +3426,36 @@ button {
   transform: rotate(9deg) translate(1.4rem, 0.9rem);
 }
 
-/* Held card: lifted off the board, free to leave it */
-.deck.is-holding {
-  z-index: 30;
+/* Held and thrown cards leave the slide for this layer on <body>, above the
+   header, so nothing can clip them (themed tokens are copied from JS) */
+.deck-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-/* Pinned to the viewport while held or thrown (position set from JS) */
-.deck .credential.is-detached {
+.deck-layer .credential {
+  transition: transform 0.45s var(--ease), opacity 0.35s ease, filter 0.45s ease;
+}
+
+/* Pinned to the viewport at the spot it left (position set from JS) */
+.credential.is-detached {
   position: fixed;
   margin: 0;
 }
 
-.slide__body.is-holding-card {
-  -webkit-mask-image: none;
-  mask-image: none;
-}
-
-.deck .credential.is-dragging {
+.credential.is-dragging {
+  pointer-events: auto;
   cursor: grabbing;
   box-shadow: 0 45px 70px -25px rgba(0, 0, 0, 0.55);
   transition: transform 0.08s linear, box-shadow 0.2s ease;
 }
 
-.deck .credential[data-pos="thrown"] {
+.credential[data-pos="thrown"] {
   opacity: 0;
   box-shadow: 0 45px 70px -25px rgba(0, 0, 0, 0.55);
   transition: transform 0.5s ease-in, opacity 0.5s ease-in;
@@ -4573,6 +4595,11 @@ button {
   .chat-toggle-button {
     width: 2.6rem;
     height: 2.6rem;
+    font-size: 1rem;
+  }
+
+  /* Under 16px, iOS zooms the whole page in when the field takes focus */
+  #chat-input {
     font-size: 1rem;
   }
 
