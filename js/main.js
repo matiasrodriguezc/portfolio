@@ -337,19 +337,50 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".deck").forEach((deck) => {
     const cards = [...deck.querySelectorAll(".credential")];
     const count = deck.parentElement.querySelector(".deck__count");
+    const slideBody = deck.closest(".slide__body");
     let pile = [...cards];
     let drag = null;
     let settleTimer = null;
 
     // While a card is held or flying, the deck sits above the rest of the slide
+    // and the slide body drops its fade mask, which would otherwise clip it
     function hold() {
       clearTimeout(settleTimer);
       deck.classList.add("is-holding");
+      if (slideBody) slideBody.classList.add("is-holding-card");
     }
 
-    function settle(delay) {
+    function settle(delay, card) {
       clearTimeout(settleTimer);
-      settleTimer = setTimeout(() => deck.classList.remove("is-holding"), delay);
+      settleTimer = setTimeout(() => {
+        if (card && (!drag || drag.card !== card)) reattach(card);
+        deck.classList.remove("is-holding");
+        if (slideBody) slideBody.classList.remove("is-holding-card");
+      }, delay);
+    }
+
+    // Pin the card to the viewport at the exact spot it occupies, so no
+    // scroll area or board can clip it while it travels
+    function detach(card) {
+      if (card.classList.contains("is-detached")) return;
+      const transform = card.style.transform;
+      card.style.transition = "none";
+      card.style.transform = "none";
+      const rect = card.getBoundingClientRect();
+      card.style.left = `${rect.left}px`;
+      card.style.top = `${rect.top}px`;
+      card.style.width = `${rect.width}px`;
+      card.classList.add("is-detached");
+      card.style.transform = transform;
+      void card.offsetWidth;
+      card.style.transition = "";
+    }
+
+    function reattach(card) {
+      card.classList.remove("is-detached");
+      card.style.left = "";
+      card.style.top = "";
+      card.style.width = "";
     }
 
     // data-pos drives the stacked look: 0 is the top card, 3+ sit hidden behind
@@ -388,6 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const x = (dx / length) * reach;
       const y = (dy / length) * reach;
       hold();
+      detach(card);
       card.dataset.pos = "thrown";
       card.style.zIndex = String(cards.length + 1);
       card.style.transform = `translate(${x}px, ${y}px) rotate(${x / 12}deg) ${LIFT}`;
@@ -397,6 +429,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         card.dataset.pos = "gone";
         card.style.transform = "";
+        reattach(card);
         if (!pile.length) refill();
       }, THROW_DURATION);
     }
@@ -406,6 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!card || event.button > 0) return;
       drag = { card, id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0, dy: 0 };
       hold();
+      detach(card);
       card.classList.add("is-dragging");
       // Lift it off the pile as soon as it is pressed
       card.style.transform = `rotate(var(--tilt)) ${LIFT}`;
@@ -434,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         // Not far enough: spring back onto the pile
         card.style.transform = "";
-        settle(SETTLE_DURATION);
+        settle(SETTLE_DURATION, card);
       }
     }
 

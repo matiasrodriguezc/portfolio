@@ -3207,7 +3207,43 @@ button {
   color: var(--muted);
 }
 
-/* Grouped course list (Anthropic Academy) */
+/* Course catalogue as chips, one row of chips per group (Anthropic Academy) */
+.course-groups {
+  display: grid;
+  gap: clamp(0.7rem, 1.8vh, 1rem);
+  max-width: 40rem;
+}
+
+.chips--courses {
+  margin: 0;
+}
+
+.chips--courses li {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: clamp(0.7rem, 0.15vw + 0.64rem, 0.78rem);
+  letter-spacing: 0;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* Highlighted course: accent border and dot */
+.chips--courses li.is-key {
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.chips--courses li.is-key::before {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  vertical-align: 0.08em;
+  background: var(--accent);
+}
+
+/* Grouped course list */
 .creds-groups {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -3231,6 +3267,41 @@ button {
 
 .creds--compact {
   border-top: 0;
+}
+
+/* Single column of groups, each list split in two (Google) */
+.creds-groups--stack {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.creds--cols {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.5rem;
+}
+
+/* Course name linking to its public verification */
+.creds__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.creds__link i {
+  font-size: 0.55rem;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+
+.creds__link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+.creds__link:hover i {
+  opacity: 1;
 }
 
 .creds--compact li {
@@ -3341,6 +3412,17 @@ button {
 /* Held card: lifted off the board, free to leave it */
 .deck.is-holding {
   z-index: 30;
+}
+
+/* Pinned to the viewport while held or thrown (position set from JS) */
+.deck .credential.is-detached {
+  position: fixed;
+  margin: 0;
+}
+
+.slide__body.is-holding-card {
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .deck .credential.is-dragging {
@@ -4234,6 +4316,23 @@ button {
   .mcp__sources li {
     padding: 0.35rem 0.6rem;
   }
+
+  .course-groups {
+    gap: 0.5rem;
+  }
+
+  .course-groups .creds-groups__title {
+    margin-bottom: 0.25rem;
+  }
+
+  .chips--courses {
+    gap: 0.25rem;
+  }
+
+  .chips--courses li {
+    padding: 0.18rem 0.5rem;
+    font-size: 0.7rem;
+  }
 }
 
 @media screen and (max-width: 1180px) {
@@ -4510,6 +4609,10 @@ button {
   }
 
   .creds-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .creds--cols {
     grid-template-columns: 1fr;
   }
 
