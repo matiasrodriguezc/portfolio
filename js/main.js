@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     track.addEventListener("pointerdown", (event) => {
       if (event.pointerType !== "mouse" || event.button !== 0) return;
-      if (event.target.closest("a, button, input, textarea")) return;
+      if (event.target.closest("a, button, input, textarea, .deck")) return;
       isDragging = true;
       hasMoved = false;
       startX = event.clientX;
@@ -324,6 +324,133 @@ document.addEventListener("DOMContentLoaded", () => {
     track.addEventListener("pointerup", endDrag);
     track.addEventListener("pointercancel", endDrag);
   }
+
+  // ========== CERTIFICATE DECKS ==========
+  // Drag the top card off the pile to see the next certificate; once the
+  // pile is empty it deals itself again.
+  const THROW_DISTANCE = 80;
+  const THROW_DURATION = 500;
+  const SETTLE_DURATION = 450;
+  const DEAL_STAGGER = 70;
+  const LIFT = "scale(1.06)";
+
+  document.querySelectorAll(".deck").forEach((deck) => {
+    const cards = [...deck.querySelectorAll(".credential")];
+    const count = deck.parentElement.querySelector(".deck__count");
+    let pile = [...cards];
+    let drag = null;
+    let settleTimer = null;
+
+    // While a card is held or flying, the deck sits above the rest of the slide
+    function hold() {
+      clearTimeout(settleTimer);
+      deck.classList.add("is-holding");
+    }
+
+    function settle(delay) {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => deck.classList.remove("is-holding"), delay);
+    }
+
+    // data-pos drives the stacked look: 0 is the top card, 3+ sit hidden behind
+    function layout() {
+      pile.forEach((card, index) => {
+        card.dataset.pos = String(Math.min(index, 3));
+        card.style.zIndex = String(pile.length - index);
+      });
+      if (count) {
+        const current = Math.min(cards.length - pile.length + 1, cards.length);
+        count.textContent = `${current} / ${cards.length}`;
+      }
+    }
+
+    function refill() {
+      pile = [...cards];
+      // Bottom cards land first, the top one last
+      pile.forEach((card, index) => {
+        card.style.transitionDelay = `${(pile.length - 1 - index) * DEAL_STAGGER}ms`;
+      });
+      layout();
+      setTimeout(() => {
+        cards.forEach((card) => {
+          card.style.transitionDelay = "";
+        });
+      }, pile.length * DEAL_STAGGER + 500);
+    }
+
+    function throwTop(dx, dy) {
+      const card = pile.shift();
+      if (!card) return;
+
+      // Fly well past the board, in the direction it was thrown
+      const length = Math.hypot(dx, dy) || 1;
+      const reach = Math.max(window.innerWidth, window.innerHeight) * 0.7;
+      const x = (dx / length) * reach;
+      const y = (dy / length) * reach;
+      hold();
+      card.dataset.pos = "thrown";
+      card.style.zIndex = String(cards.length + 1);
+      card.style.transform = `translate(${x}px, ${y}px) rotate(${x / 12}deg) ${LIFT}`;
+      layout();
+      settle(THROW_DURATION);
+
+      setTimeout(() => {
+        card.dataset.pos = "gone";
+        card.style.transform = "";
+        if (!pile.length) refill();
+      }, THROW_DURATION);
+    }
+
+    deck.addEventListener("pointerdown", (event) => {
+      const card = pile[0];
+      if (!card || event.button > 0) return;
+      drag = { card, id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0, dy: 0 };
+      hold();
+      card.classList.add("is-dragging");
+      // Lift it off the pile as soon as it is pressed
+      card.style.transform = `rotate(var(--tilt)) ${LIFT}`;
+      try {
+        deck.setPointerCapture(event.pointerId);
+      } catch (error) {
+        // Pointer already released; the drag still ends on pointerup
+      }
+    });
+
+    deck.addEventListener("pointermove", (event) => {
+      if (!drag || event.pointerId !== drag.id) return;
+      drag.dx = event.clientX - drag.x;
+      drag.dy = event.clientY - drag.y;
+      drag.card.style.transform =
+        `translate(${drag.dx}px, ${drag.dy}px) rotate(calc(var(--tilt) + ${drag.dx / 14}deg)) ${LIFT}`;
+    });
+
+    function release(event) {
+      if (!drag || event.pointerId !== drag.id) return;
+      const { card, dx, dy } = drag;
+      drag = null;
+      card.classList.remove("is-dragging");
+      if (Math.hypot(dx, dy) > THROW_DISTANCE) {
+        throwTop(dx, dy);
+      } else {
+        // Not far enough: spring back onto the pile
+        card.style.transform = "";
+        settle(SETTLE_DURATION);
+      }
+    }
+
+    deck.addEventListener("pointerup", release);
+    deck.addEventListener("pointercancel", release);
+
+    // Enter / Space deal the next card for keyboard users
+    deck.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      event.stopPropagation();
+      throwTop(1, -0.25);
+    });
+
+    layout();
+  });
 
   // ← → move inside the active horizontal chapter
   document.addEventListener("keydown", (event) => {

@@ -409,6 +409,373 @@
     linear-gradient(180deg, #6c0d2b 0%, #620b26 55%, #5a0923 100%);
 }
 
+/* Background · UNICEN — from unicen.edu.ar: navy nav bar, bold uppercase Roboto, cyan headings */
+[data-theme="unicen"] {
+  --bg: #004171;
+  --ink: #ffffff;
+  --muted: rgba(255, 255, 255, 0.76);
+  --line: rgba(255, 255, 255, 0.18);
+  --accent: #00fcdf;
+  --on-accent: #004171;
+  --accent-2: #00fcdf;
+  --on-accent-2: #004171;
+  --font-display: "Roboto", Arial, sans-serif;
+  --font-body: "Roboto", Arial, sans-serif;
+  --display-weight: 700;
+  --display-scale: 0.86;
+  --display-tracking: -0.01em;
+  --em-style: normal;
+  --em-color: #00fcdf;
+  --radius: 0;
+  --card: #f5f8fa;
+  --shadow: 0 40px 70px -35px rgba(0, 20, 40, 0.8);
+  --bg-image:
+    radial-gradient(50% 60% at 90% 10%, rgba(0, 115, 170, 0.5), transparent 70%),
+    linear-gradient(160deg, #004171 0%, #003a66 60%, #00325a 100%);
+}
+
+[data-theme="unicen"] .display {
+  text-transform: uppercase;
+}
+
+/* The UNICEN board is the site itself: navy nav bar over a light section */
+[data-theme="unicen"] .board {
+  --ink: #003349;
+  --muted: rgba(0, 51, 73, 0.66);
+  --line: rgba(0, 65, 113, 0.14);
+  --accent: #004171;
+}
+
+[data-theme="unicen"] .board__head {
+  margin: calc(-1 * clamp(1rem, 2vw, 1.6rem)) calc(-1 * clamp(1rem, 2vw, 1.6rem)) 0;
+  padding: 0.85rem clamp(1rem, 2vw, 1.6rem);
+  border-bottom: 0;
+  background: #004171;
+}
+
+[data-theme="unicen"] .board__num {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="unicen"] .tape {
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  transform: none;
+}
+
+/* Background · Anthropic Academy — from anthropic.com: ivory, slate, clay, Tiempos-like serif */
+[data-theme="anthropic"] {
+  --bg: #faf9f5;
+  --ink: #141413;
+  --muted: #5e5d59;
+  --line: rgba(20, 20, 19, 0.12);
+  --accent: #d97757;
+  --on-accent: #ffffff;
+  --accent-2: #141413;
+  --on-accent-2: #faf9f5;
+  --font-display: "Newsreader", Georgia, serif;
+  --display-weight: 400;
+  --display-scale: 1.02;
+  --display-tracking: -0.025em;
+  --em-color: #d97757;
+  --radius: 12px;
+  --card: #ffffff;
+  --shadow: 0 1px 2px rgba(20, 20, 19, 0.06), 0 30px 60px -30px rgba(20, 20, 19, 0.25);
+  --bg-image:
+    radial-gradient(45% 55% at 92% 8%, rgba(217, 119, 87, 0.14), transparent 70%),
+    linear-gradient(180deg, #faf9f5 0%, #f0eee6 100%);
+}
+
+[data-theme="anthropic"] .tape {
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: none;
+}
+
+/* Background · Google — from Google's brand: white, four primaries, Google Sans */
+[data-theme="google"] {
+  --bg: #ffffff;
+  --ink: #202124;
+  --muted: #5f6368;
+  --line: #dadce0;
+  --accent: #1a73e8;
+  --on-accent: #ffffff;
+  --accent-2: #e8f0fe;
+  --on-accent-2: #1967d2;
+  --font-display: "Google Sans", Roboto, Arial, sans-serif;
+  --font-body: "Google Sans", Roboto, Arial, sans-serif;
+  --display-weight: 500;
+  --display-scale: 0.94;
+  --display-tracking: -0.035em;
+  --em-style: normal;
+  --em-color: #1a73e8;
+  --radius: 16px;
+  --card: #ffffff;
+  --shadow: 0 1px 3px rgba(60, 64, 67, 0.15), 0 30px 60px -30px rgba(60, 64, 67, 0.3);
+  --bg-image:
+    radial-gradient(30% 40% at 95% 5%, rgba(66, 133, 244, 0.12), transparent 70%),
+    radial-gradient(30% 40% at 0% 100%, rgba(52, 168, 83, 0.1), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+[data-theme="google"] .tape {
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: none;
+}
+
+/* Background · Tandil Tech Cluster — conference look: night slate, lime pass, Space Grotesk */
+[data-theme="tandil"] {
+  --bg: #111827;
+  --ink: #e6edf3;
+  --muted: rgba(230, 237, 243, 0.66);
+  --line: rgba(230, 237, 243, 0.13);
+  --accent: #c6f432;
+  --on-accent: #111827;
+  --accent-2: #c6f432;
+  --on-accent-2: #111827;
+  --font-display: "Space Grotesk", sans-serif;
+  --display-weight: 700;
+  --display-scale: 0.92;
+  --display-tracking: -0.04em;
+  --em-style: normal;
+  --em-color: #c6f432;
+  --radius: 14px;
+  --card: #182132;
+  --shadow: 0 40px 70px -35px rgba(0, 0, 0, 0.8);
+  --bg-image:
+    radial-gradient(40% 55% at 85% 15%, rgba(139, 147, 255, 0.22), transparent 70%),
+    radial-gradient(rgba(230, 237, 243, 0.07) 1px, transparent 1px);
+}
+
+[data-theme="tandil"] .tape {
+  border-radius: 999px;
+  transform: none;
+}
+
+/* Background · Udemy — from udemy.com: white, medium-weight headings with italic emphasis,
+   aqua badges, purple buttons, dark rounded panels */
+[data-theme="udemy"] {
+  --bg: #ffffff;
+  --ink: #2a2b3f;
+  --muted: #595c73;
+  --line: #e9eaf2;
+  --accent: #6d28d2;
+  --on-accent: #ffffff;
+  --accent-2: #c2e9eb;
+  --on-accent-2: #0d5261;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --display-weight: 500;
+  --display-scale: 0.92;
+  --display-tracking: -0.035em;
+  --em-color: inherit;
+  --radius: 24px;
+  --card: #202230;
+  --shadow: 0 30px 60px -30px rgba(32, 34, 48, 0.55);
+  --bg-image:
+    linear-gradient(180deg, #c2e9eb 0, #c2e9eb 0.5rem, transparent 0.5rem),
+    radial-gradient(40% 55% at 100% 100%, rgba(109, 40, 210, 0.1), transparent 70%);
+}
+
+/* "Bestseller" badge */
+[data-theme="udemy"] .tape {
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Course-card rows: rating-style chip for the year */
+[data-theme="udemy"] .creds li {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+[data-theme="udemy"] .creds__year {
+  padding: 0.2rem 0.45rem;
+  border: 1px solid #d1d2e0;
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+/* The board is the dark "Reimagine your career" panel */
+[data-theme="udemy"] .board {
+  --ink: #ffffff;
+  --muted: rgba(255, 255, 255, 0.66);
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #a435f0;
+  border: 0;
+  background:
+    radial-gradient(45% 55% at 70% 50%, rgba(164, 53, 240, 0.4), transparent 70%),
+    radial-gradient(35% 45% at 25% 60%, rgba(56, 132, 255, 0.28), transparent 70%),
+    #202230;
+}
+
+/* Background · EF SET — from efset.org: aqua-to-green hero, bold white Circular-like sans,
+   white pill button, hatched lines, violet certificate */
+[data-theme="efset"] {
+  --bg: #0a8ea6;
+  --ink: #ffffff;
+  --muted: rgba(255, 255, 255, 0.9);
+  --line: rgba(255, 255, 255, 0.28);
+  --accent: #ffffff;
+  --on-accent: #0a8ea6;
+  --accent-2: #ffffff;
+  --on-accent-2: #0a8ea6;
+  --font-display: "Figtree", sans-serif;
+  --font-body: "Figtree", sans-serif;
+  --display-weight: 800;
+  --display-scale: 1;
+  --display-tracking: -0.025em;
+  --em-style: normal;
+  --em-color: #062f36;
+  --radius: 24px;
+  --card: #ffffff;
+  --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.35);
+  --bg-image:
+    radial-gradient(50% 60% at 85% 0%, rgba(0, 198, 222, 0.55), transparent 70%),
+    linear-gradient(180deg, #0a8ea6 0%, #0b9590 55%, #0c9a78 100%);
+}
+
+/* Hatched diagonals in the corners, like the section under the hero */
+[data-theme="efset"].slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 8px);
+  -webkit-mask-image: radial-gradient(30% 45% at 0% 100%, #000, transparent 75%);
+  mask-image: radial-gradient(30% 45% at 0% 100%, #000, transparent 75%);
+  pointer-events: none;
+}
+
+[data-theme="efset"] .board {
+  --ink: #191919;
+  --muted: rgba(25, 25, 25, 0.6);
+  --line: rgba(25, 25, 25, 0.1);
+  --accent: #5b4de8;
+  border: 0;
+}
+
+/* "Test your English now" pill */
+[data-theme="efset"] .tape {
+  padding: 0.55em 1em 0.5em;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: none;
+}
+
+[data-theme="efset"] .creds li {
+  font-weight: 700;
+}
+
+[data-theme="efset"] .creds__year {
+  color: var(--ink);
+}
+
+/* Background · Cambridge English — from cambridgeenglish.org: grey band, teal header, organic
+   plum / orange / mint shapes, dark petrol shield, mint buttons and cards */
+[data-theme="cambridge"] {
+  --bg: #e8eded;
+  --ink: #133743;
+  --muted: #3f5a63;
+  --line: rgba(19, 55, 67, 0.16);
+  --accent: #00bdb6;
+  --on-accent: #133743;
+  --accent-2: #3be0d0;
+  --on-accent-2: #133743;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --display-weight: 600;
+  --display-scale: 0.96;
+  --display-tracking: -0.02em;
+  --em-style: normal;
+  --em-color: #00918b;
+  --radius: 6px;
+  --card: #ffffff;
+  --shadow: 0 30px 60px -30px rgba(17, 39, 48, 0.35);
+  /* White top bar, then the teal header band */
+  --bg-image:
+    linear-gradient(180deg, #ffffff 0, #ffffff var(--header-h), #00bdb6 var(--header-h), #00bdb6 calc(var(--header-h) + 0.5rem), transparent calc(var(--header-h) + 0.5rem)),
+    radial-gradient(30% 40% at 100% 100%, rgba(244, 103, 60, 0.18), transparent 70%);
+}
+
+[data-theme="cambridge"] .board {
+  border: 0;
+  border-top: 6px solid #00bdb6;
+}
+
+/* "Why Cambridge?" button */
+[data-theme="cambridge"] .tape {
+  border-radius: 4px;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mint call-to-action cards */
+[data-theme="cambridge"] .creds {
+  gap: 0.5rem;
+  border-top: 0;
+}
+
+[data-theme="cambridge"] .creds li {
+  padding: 0.95rem 1.2rem;
+  border-bottom: 0;
+  border-radius: 6px;
+  background: #b5f2e9;
+}
+
+[data-theme="cambridge"] .creds__year {
+  color: var(--ink);
+}
+
+/* Background · Lamansys — from lamansys.com: navy, mint, sky, Raleway */
+[data-theme="lamansys"] {
+  --bg: #f3f7fb;
+  --ink: #192f5e;
+  --muted: #5b6478;
+  --line: rgba(25, 47, 94, 0.12);
+  --accent: #1ecca6;
+  --on-accent: #192f5e;
+  --accent-2: #234b97;
+  --on-accent-2: #ffffff;
+  --font-display: "Raleway", sans-serif;
+  --display-weight: 800;
+  --display-scale: 0.95;
+  --display-tracking: -0.03em;
+  --em-style: normal;
+  --em-color: #1aa88a;
+  --radius: 10px;
+  --card: #ffffff;
+  --shadow: 0 30px 60px -30px rgba(25, 47, 94, 0.35);
+  --bg-image:
+    radial-gradient(40% 55% at 90% 10%, rgba(46, 163, 242, 0.16), transparent 70%),
+    radial-gradient(35% 45% at 0% 100%, rgba(30, 204, 166, 0.16), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
+}
+
+[data-theme="lamansys"] .tape {
+  border-radius: 4px;
+  transform: none;
+}
+
 /* ---------- Reset / base ---------- */
 *,
 *::before,
@@ -759,6 +1126,10 @@ button {
 
 [data-theme="crypto"].slide {
   background-size: 100% 2.2rem;
+}
+
+[data-theme="tandil"].slide {
+  background-size: auto, 1.6rem 1.6rem;
 }
 
 .slide__body {
@@ -2740,7 +3111,7 @@ button {
 }
 
 /* ==========================================================================
-   Sheet slides (skills + background)
+   Sheet slides (skills)
    ========================================================================== */
 .sheet__body {
   display: flex;
@@ -2781,10 +3152,6 @@ button {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.sheet__cols--3 {
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 .sheet__col h3 {
   margin: 0 0 0.9rem;
   font-family: var(--font-display);
@@ -2806,29 +3173,784 @@ button {
   line-height: 1.4;
 }
 
-.entries {
+/* ==========================================================================
+   Background slides (education + certifications)
+   ========================================================================== */
+.creds {
   display: grid;
-  gap: clamp(0.8rem, 2.2vh, 1.25rem);
+  max-width: 38rem;
   margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
 }
 
-.entries dt {
-  font-size: 0.9rem;
+.creds li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.55rem, 1.5vh, 0.8rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.creds__name {
+  font-size: clamp(0.88rem, 0.35vw + 0.72rem, 1.02rem);
   font-weight: 700;
   line-height: 1.35;
 }
 
-.entries dd {
-  margin: 0.15rem 0 0;
-  font-size: 0.8rem;
-  line-height: 1.4;
+.creds__year {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   color: var(--muted);
 }
 
-.entries__period {
-  font-family: var(--font-serif);
-  font-size: 0.95rem !important;
-  font-style: italic;
+/* Grouped course list (Anthropic Academy) */
+.creds-groups {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem 2rem;
+  max-width: 40rem;
+}
+
+.creds-groups__title {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.creds + .creds-groups__title {
+  margin-top: clamp(0.8rem, 2.2vh, 1.3rem);
+}
+
+.creds--compact {
+  border-top: 0;
+}
+
+.creds--compact li {
+  position: relative;
+  justify-content: flex-start;
+  padding: 0.3rem 0 0.3rem 1.1rem;
+  border-bottom: 0;
+}
+
+.creds--compact li::before {
+  content: "";
+  position: absolute;
+  top: 0.95em;
+  left: 0;
+  width: 0.55rem;
+  height: 1px;
+  background: var(--muted);
+}
+
+.creds--compact .creds__name {
+  font-size: clamp(0.8rem, 0.3vw + 0.66rem, 0.93rem);
+  font-weight: 500;
+}
+
+/* Highlighted course: accent dot instead of a dash */
+.creds--compact li.is-key::before {
+  top: calc(0.95em - 0.2rem);
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.creds--compact li.is-key .creds__name {
+  font-weight: 700;
+}
+
+/* ---------- Credential card (board key visual) ---------- */
+.credential-stack {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.credential-stack > * {
+  grid-area: 1 / 1;
+}
+
+.credential {
+  --credential-bg: #ffffff;
+  --tilt: -2deg;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  width: min(100%, 23rem);
+  padding: clamp(1rem, 2.4vh, 1.5rem) clamp(1.1rem, 2vw, 1.6rem);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) * 0.75);
+  background: var(--credential-bg);
+  color: var(--ink);
+  box-shadow: 0 24px 40px -24px rgba(0, 0, 0, 0.35);
+  transform: rotate(var(--tilt));
+}
+
+/* ---------- Certificate deck (drag the top card away) ---------- */
+.deck {
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.deck:focus-visible {
+  outline: none;
+}
+
+.deck:focus-visible .credential[data-pos="0"] {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.deck .credential {
+  transition: transform 0.45s var(--ease), opacity 0.35s ease, filter 0.45s ease;
+}
+
+/* The pile: top card, two visible behind it, the rest waiting out of sight */
+.deck .credential[data-pos="1"] {
+  filter: brightness(0.97);
+  transform: rotate(4deg) translate(0.8rem, 0.4rem);
+}
+
+.deck .credential[data-pos="2"] {
+  filter: brightness(0.94);
+  transform: rotate(-7deg) translate(-0.9rem, 0.5rem);
+}
+
+.deck .credential[data-pos="3"] {
+  opacity: 0;
+  transform: rotate(9deg) translate(1.4rem, 0.9rem);
+}
+
+/* Held card: lifted off the board, free to leave it */
+.deck.is-holding {
+  z-index: 30;
+}
+
+.deck .credential.is-dragging {
+  cursor: grabbing;
+  box-shadow: 0 45px 70px -25px rgba(0, 0, 0, 0.55);
+  transition: transform 0.08s linear, box-shadow 0.2s ease;
+}
+
+.deck .credential[data-pos="thrown"] {
+  opacity: 0;
+  box-shadow: 0 45px 70px -25px rgba(0, 0, 0, 0.55);
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+}
+
+/* Off the pile: waits just above it, so the deal drops the cards back in */
+.deck .credential[data-pos="gone"] {
+  opacity: 0;
+  transition: none;
+  transform: translateY(-1.5rem) scale(0.94) rotate(var(--tilt));
+}
+
+.deck__hint {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.deck__count {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.credential__issuer {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.credential__kind {
+  font-family: var(--font-sans);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.credential__title {
+  max-width: 17rem;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: calc(clamp(1.15rem, 1.8vw, 1.55rem) * var(--display-scale));
+  line-height: 1.08;
+  letter-spacing: var(--display-tracking);
+}
+
+/* Leave room for a corner seal */
+.credential__seal ~ .credential__title {
+  padding-right: 2.75rem;
+}
+
+/* Name written on the signature line */
+.credential__holder {
+  margin-top: 0.35rem;
+  padding: 0 1.5rem 0.1rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.credential__foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--muted);
+}
+
+.credential__seal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--accent);
+}
+
+/* UNICEN — university diploma */
+.credential--diploma {
+  --credential-bg: #fbf8f0;
+  align-items: center;
+  text-align: center;
+  border-radius: 2px;
+  outline: 1px solid rgba(0, 65, 113, 0.35);
+  outline-offset: -0.45rem;
+}
+
+.credential__logo--unicen {
+  height: 2.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.credential--diploma .credential__holder {
+  padding-left: 1.5rem;
+}
+
+/* Google — four-color strip on top */
+[data-theme="google"] .credential::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: linear-gradient(90deg, #4285f4 0 25%, #ea4335 25% 50%, #fbbc04 50% 75%, #34a853 75%);
+}
+
+[data-theme="google"] .credential__issuer {
+  color: var(--muted);
+}
+
+/* Tandil — event pass on a lanyard */
+.credential--pass {
+  --credential-bg: #c6f432;
+  --ink: #111827;
+  --muted: rgba(17, 24, 39, 0.62);
+  --line: rgba(17, 24, 39, 0.2);
+  --tilt: 3deg;
+  width: min(100%, 18.5rem);
+  padding-top: 2.2rem;
+  border-radius: 18px;
+}
+
+/* Short strap that fades out, so the pass can travel without clipping */
+.credential--pass::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% - 0.8rem);
+  left: 50%;
+  width: 0.9rem;
+  height: 5rem;
+  background: linear-gradient(to top, #8b93ff 55%, rgba(139, 147, 255, 0));
+  transform: translateX(-50%);
+}
+
+.credential__hole {
+  position: absolute;
+  top: 0.9rem;
+  left: 50%;
+  width: 3rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #182132;
+  transform: translateX(-50%);
+}
+
+.credential__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.credential__tags i {
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-style: normal;
+  color: #c6f432;
+  background: #111827;
+}
+
+/* Official logo printed on a certificate */
+.credential__logo {
+  display: block;
+  width: auto;
+  height: 1.3rem;
+  margin-bottom: 0.15rem;
+}
+
+/* Udemy — white certificate on the dark panel, hand-drawn strokes behind */
+[data-theme="udemy"] .credential {
+  --ink: #2a2b3f;
+  --muted: #595c73;
+  --line: #e9eaf2;
+  border-radius: 8px;
+}
+
+.doodle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.doodle path {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.doodle__a,
+.doodle__c {
+  stroke: #e7f25c;
+}
+
+.doodle__b {
+  stroke: #5ef2c6;
+}
+
+/* Lamansys — colored top edge */
+[data-theme="lamansys"] .credential {
+  border-top: 5px solid #1ecca6;
+}
+
+[data-theme="lamansys"] .credential__issuer {
+  color: #234b97;
+}
+
+.credential__code {
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #1ecca6;
+  background: #192f5e;
+}
+
+/* EF SET — the real certificate: layered violet diamonds and the CEFR scale */
+.credential--efset {
+  --tilt: 5deg;
+  align-items: center;
+  width: min(100%, 18.5rem);
+  border: 0;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.credential--efset .credential__logo {
+  height: 1.1rem;
+}
+
+.credential__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.efset-level {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 8rem;
+  aspect-ratio: 1;
+}
+
+.efset-level__diamonds,
+.efset-level__diamonds i {
+  position: absolute;
+  inset: 0;
+}
+
+.efset-level__diamonds i {
+  margin: auto;
+}
+
+.efset-level__diamonds i:nth-child(1) {
+  width: 66%;
+  height: 66%;
+  background: repeating-linear-gradient(90deg, rgba(91, 77, 232, 0.22) 0 1px, #f1efff 1px 4px);
+}
+
+.efset-level__diamonds i:nth-child(2) {
+  width: 66%;
+  height: 66%;
+  background: repeating-linear-gradient(0deg, rgba(196, 120, 232, 0.3) 0 1px, transparent 1px 4px);
+  transform: rotate(45deg);
+}
+
+.efset-level__diamonds i:nth-child(3) {
+  width: 46%;
+  height: 46%;
+  background: radial-gradient(closest-side, #3d2fd6, #6f62ee 60%, rgba(143, 134, 242, 0.6));
+  transform: rotate(45deg);
+}
+
+.efset-level__text {
+  position: relative;
+  display: grid;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.efset-level__text b {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.efset-level__text small {
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.cefr {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 3px;
+  width: 100%;
+  padding: 0.45rem;
+  border-radius: 10px;
+  background: #e4effc;
+}
+
+.cefr i {
+  padding: 0.3rem 0;
+  border-radius: 3px;
+  font-size: 0.58rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #9a9aa8;
+  background: #ffffff;
+}
+
+.cefr .is-on {
+  color: #ffffff;
+  background: #5b4de8;
+}
+
+/* Cambridge — certificate card whose banner is the hero: organic shapes around a petrol shield */
+.credential--cambridge {
+  --tilt: -3deg;
+  gap: 0;
+  width: min(100%, 19rem);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-top: 6px solid #00bdb6;
+  border-radius: 6px;
+}
+
+.credential__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 1rem 1.3rem 1.2rem;
+}
+
+.credential--cambridge .credential__logo {
+  height: 1.5rem;
+}
+
+.cam-hero {
+  position: relative;
+  width: 100%;
+  height: 8.5rem;
+  overflow: hidden;
+  background: #133743;
+}
+
+.cam-hero__blob {
+  position: absolute;
+  display: block;
+}
+
+.cam-hero__blob--1 {
+  top: -20%;
+  left: -12%;
+  width: 34%;
+  height: 140%;
+  border-radius: 40% 60% 55% 45% / 50% 40% 60% 50%;
+  background: #5d0a4e;
+}
+
+.cam-hero__blob--2 {
+  top: -35%;
+  left: 12%;
+  width: 26%;
+  height: 105%;
+  border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%;
+  background: #f4673c;
+}
+
+.cam-hero__blob--3 {
+  top: -15%;
+  left: 24%;
+  width: 18%;
+  height: 80%;
+  border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+  background: #8de8d7;
+}
+
+.cam-hero__blob--4 {
+  bottom: -38%;
+  left: 26%;
+  width: 26%;
+  height: 62%;
+  border-radius: 50%;
+  background: #e94d62;
+}
+
+.cam-hero__blob--5 {
+  top: -10%;
+  right: -6%;
+  width: 40%;
+  height: 130%;
+  border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%;
+  background: #00bdb6;
+}
+
+.cam-hero__blob--6 {
+  top: -30%;
+  right: -14%;
+  width: 24%;
+  height: 80%;
+  border-radius: 50%;
+  background: #5d0a4e;
+}
+
+/* Shield: teal rim, petrol body, white serif lines underlined in teal */
+.cam-shield,
+.cam-shield__body {
+  clip-path: polygon(0 0, 100% 0, 100% 62%, 93% 76%, 77% 89%, 50% 100%, 23% 89%, 7% 76%, 0 62%);
+}
+
+.cam-shield {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5.2rem;
+  height: 6rem;
+  padding: 0.35rem;
+  background: #00bdb6;
+  transform: translate(-50%, -50%);
+}
+
+.cam-shield__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  height: 100%;
+  padding-bottom: 18%;
+  background: #133743;
+}
+
+.cam-shield__body b {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #ffffff;
+  background: linear-gradient(transparent 80%, #00bdb6 80%, #00bdb6 92%, transparent 92%);
+  transform: rotate(-4deg);
+}
+
+/* UNICEN — capsule streams from the hero video */
+.streams {
+  position: absolute;
+  z-index: 0;
+  display: grid;
+  gap: 0.3rem;
+  width: 7rem;
+  pointer-events: none;
+}
+
+.streams--tr {
+  top: 0.4rem;
+  right: 0;
+  justify-items: end;
+}
+
+.streams--bl {
+  bottom: 0.4rem;
+  left: 0;
+  justify-items: start;
+}
+
+.streams i {
+  display: block;
+  height: 0.55rem;
+  border-radius: 999px;
+}
+
+.streams i:nth-child(1) {
+  width: 60%;
+  background: #45c3d6;
+}
+
+.streams i:nth-child(2) {
+  width: 90%;
+  background: repeating-linear-gradient(-45deg, #7b6fd0 0 2px, transparent 2px 5px);
+}
+
+.streams i:nth-child(3) {
+  width: 38%;
+  background: #ec5a9b;
+}
+
+.streams i:nth-child(4) {
+  width: 72%;
+  background-image: radial-gradient(#ec5a9b 1px, transparent 1.3px);
+  background-size: 4px 4px;
+}
+
+/* ---------- Background brandmarks ---------- */
+.brandmark--unicen .brandmark__logo {
+  height: 2.5rem;
+}
+
+.brandmark__spark {
+  flex: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #d97757;
+}
+
+.brandmark--anthropic .brandmark__word {
+  font-size: 1.55rem;
+}
+
+.brandmark--google .brandmark__word {
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.brandmark--google b {
+  font-weight: inherit;
+}
+
+.brandmark--google b:nth-child(1),
+.brandmark--google b:nth-child(4) {
+  color: #4285f4;
+}
+
+.brandmark--google b:nth-child(2),
+.brandmark--google b:nth-child(6) {
+  color: #ea4335;
+}
+
+.brandmark--google b:nth-child(3) {
+  color: #fbbc04;
+}
+
+.brandmark--google b:nth-child(5) {
+  color: #34a853;
+}
+
+.brandmark--tandil .brandmark__tile {
+  border-radius: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #111827;
+  background: #c6f432;
+}
+
+.brandmark--tandil .brandmark__word {
+  font-size: 1.25rem;
+}
+
+.brandmark--udemy .brandmark__logo {
+  height: 2.1rem;
+}
+
+.brandmark--efset .brandmark__logo {
+  height: 1.55rem;
+}
+
+.brandmark--cambridge .brandmark__logo {
+  height: 2.4rem;
+}
+
+.brandmark__diamond {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #1ecca6, #2ea3f2);
+  transform: rotate(45deg);
+}
+
+.brandmark--lamansys .brandmark__word {
+  font-size: 1.6rem;
+  color: #234b97;
 }
 
 /* ==========================================================================
@@ -3278,9 +4400,58 @@ button {
     right: -32%;
   }
 
-  .sheet__cols--5,
-  .sheet__cols--3 {
+  .sheet__cols--5 {
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Credential cards shrink to issuer, title and level */
+  .credential {
+    gap: 0.25rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .credential__holder,
+  .credential__foot,
+  .credential__tags,
+  .credential__code,
+  .credential--pass::before {
+    display: none;
+  }
+
+  .credential--pass {
+    padding-top: 1.8rem;
+  }
+
+  .credential__name,
+  .cefr {
+    display: none;
+  }
+
+  .efset-level {
+    width: 5rem;
+  }
+
+  .credential--cambridge {
+    padding: 0;
+  }
+
+  .credential__body {
+    gap: 0.25rem;
+    padding: 0.7rem 1rem 0.8rem;
+  }
+
+  .cam-hero {
+    height: 4.8rem;
+  }
+
+  .cam-shield {
+    width: 3.4rem;
+    height: 4rem;
+    padding: 0.25rem;
+  }
+
+  .cam-shield__body b {
+    font-size: 0.85rem;
   }
 
   .sheet__body {
@@ -3338,12 +4509,8 @@ button {
     grid-template-columns: 4rem minmax(0, 1fr) auto;
   }
 
-  .sheet__cols--3 {
+  .creds-groups {
     grid-template-columns: 1fr;
-  }
-
-  .sheet__cols--3 .sheet__col:last-child h3 {
-    display: none;
   }
 
   /* Cover binder turns portrait: dark page on top, light page below */

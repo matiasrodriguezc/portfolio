@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Caveat:wght@500;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Lato:wght@400;700;900&family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,100,1&family=Manrope:wght@500;700;800&family=Outfit:wght@500;600&family=Rajdhani:wght@500;600;700&family=Syne:wght@600;800&family=Unbounded:wght@500;600&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Caveat:wght@500;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Lato:wght@400;700;900&family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,100,1&family=Manrope:wght@500;700;800&family=Outfit:wght@500;600&family=Rajdhani:wght@500;600;700&family=Syne:wght@600;800&family=Unbounded:wght@500;600&family=Figtree:wght@400;500;700;800&family=Google+Sans:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;1,500&family=Raleway:wght@700;800&family=Roboto:wght@400;500;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,600&family=Space+Grotesk:wght@500;700&display=swap">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
@@ -76,6 +76,12 @@
     <symbol id="paperclip" viewBox="0 0 20 44">
       <path d="M7 30V8a4.5 4.5 0 0 1 9 0v26a7 7 0 0 1-14 0V11" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" />
+    </symbol>
+    <!-- Claude spark: uneven rays around a center -->
+    <symbol id="spark" viewBox="0 0 24 24">
+      <path
+        d="M14.2 12.3L22.4 13.3M13.8 13.3L18.4 16.8M12.9 14L16.1 21.7M11.7 14.2L11 19.9M10.7 13.8L5.7 20.4M10 12.9L4.6 15.1M9.8 11.7L1.6 10.7M10.2 10.7L5.6 7.2M11.1 10L7.9 2.3M12.3 9.8L13 4.1M13.3 10.2L18.3 3.6M14 11.1L19.4 8.9"
+        fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
     </symbol>
   </svg>
 
@@ -1179,83 +1185,669 @@
           <footer class="slide__foot"><span>17</span><span data-i18n="skills.meta"></span></footer>
         </article>
 
-        <!-- Education & certifications -->
-        <article class="slide sheet" data-theme="stone" role="group" aria-roledescription="slide">
-          <div class="slide__body sheet__body">
-            <header class="sheet__head">
+        <!-- Background: intro -->
+        <article class="slide intro" data-theme="stone" role="group" aria-roledescription="slide">
+          <div class="slide__body intro__body">
+            <div class="intro__head">
               <p class="kicker reveal" data-i18n="skills.kicker"></p>
-              <h2 class="display reveal" style="--d: 1" data-i18n-html="bg.title"></h2>
-            </header>
-            <div class="sheet__cols sheet__cols--3">
-              <div class="sheet__col reveal" style="--d: 2">
-                <h3 data-i18n="bg.education"></h3>
-                <dl class="entries">
-                  <div>
-                    <dt data-i18n="edu1.degree"></dt>
-                    <dd data-i18n="edu.institution"></dd>
-                    <dd class="entries__period">2020 — 2024</dd>
+              <h2 class="display display--xl reveal" style="--d: 1" data-i18n-html="bg.title"></h2>
+              <p class="lead reveal" style="--d: 2" data-i18n="bg.lead"></p>
+              <p class="hand intro__note reveal" style="--d: 3" data-i18n="bg.note"></p>
+            </div>
+            <ol class="index index--compact reveal" style="--d: 2">
+              <li>
+                <button class="index__item" data-goto="2" style="--dot: #004171; --f: 'Roboto', sans-serif; --fw: 900">
+                  <span class="index__num">01</span><span class="index__name">UNICEN</span>
+                  <span class="index__role" data-i18n="edu1.degree"></span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="3" style="--dot: #d97757; --f: 'Newsreader', serif; --fw: 400">
+                  <span class="index__num">02</span><span class="index__name">Anthropic</span>
+                  <span class="index__role">API · MCP · Claude Code</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="4" style="--dot: #4285f4; --f: 'Google Sans', sans-serif; --fw: 500">
+                  <span class="index__num">03</span><span class="index__name">Google</span>
+                  <span class="index__role">Generative AI · Agents</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="5" style="--dot: #c6f432; --f: 'Space Grotesk', sans-serif; --fw: 700">
+                  <span class="index__num">04</span><span class="index__name">Tandil Tech Cluster</span>
+                  <span class="index__role">GenAI · SDLC</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="6" style="--dot: #6d28d2; --f: 'Plus Jakarta Sans', sans-serif; --fw: 800">
+                  <span class="index__num">05</span><span class="index__name">Udemy</span>
+                  <span class="index__role">AI · Data · Angular</span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="7" style="--dot: #15d0a0; --f: 'Figtree', sans-serif; --fw: 800">
+                  <span class="index__num">06</span><span class="index__name">EF SET</span>
+                  <span class="index__role" data-i18n="cert.c1"></span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="8" style="--dot: #036268; --f: 'Source Serif 4', serif; --fw: 600">
+                  <span class="index__num">07</span><span class="index__name">Cambridge English</span>
+                  <span class="index__role" data-i18n="cert.b2"></span>
+                </button>
+              </li>
+              <li>
+                <button class="index__item" data-goto="9" style="--dot: #1ecca6; --f: 'Raleway', sans-serif; --fw: 800">
+                  <span class="index__num">08</span><span class="index__name">Lamansys</span>
+                  <span class="index__role" data-i18n="cert.java"></span>
+                </button>
+              </li>
+            </ol>
+          </div>
+          <footer class="slide__foot"><span>18</span><span data-i18n="bg.meta"></span></footer>
+        </article>
+
+        <!-- Background · UNICEN -->
+        <article class="slide case" data-theme="unicen" role="group" aria-roledescription="slide" aria-label="UNICEN">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg1.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg1.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape" data-i18n="bg1.tag"></span>
+                <span>2020 — 2024</span><span aria-hidden="true">·</span><span>Tandil</span>
+              </p>
+              <p class="case__desc reveal" style="--d: 3" data-i18n="edu.institution"></p>
+              <ul class="creds reveal" style="--d: 3">
+                <li><span class="creds__name" data-i18n="edu1.degree"></span><span class="creds__year">2020 — 2024</span></li>
+                <li><span class="creds__name" data-i18n="edu2.degree"></span><span class="creds__year">2020 — 2024</span></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--unicen">
+                    <img class="brandmark__logo" src="assets/logos/unicen.png"
+                      alt="UNICEN — Universidad Nacional del Centro de la Provincia de Buenos Aires" width="900" height="225">
                   </div>
-                  <div>
-                    <dt data-i18n="edu2.degree"></dt>
-                    <dd data-i18n="edu.institution"></dd>
-                    <dd class="entries__period">2020 — 2024</dd>
+                  <span class="board__num">01</span>
+                </div>
+                <div class="board__art">
+                  <!-- Capsule streams from the unicen.edu.ar hero -->
+                  <div class="streams streams--tr" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                  <div class="streams streams--bl" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential credential--diploma" aria-hidden="true">
+                      <img class="credential__logo credential__logo--unicen" src="assets/logos/unicen-navy.png" alt=""
+                        width="900" height="225">
+                      <span class="credential__kind" data-i18n="bg1.kind"></span>
+                      <strong class="credential__title" data-i18n="edu1.degree"></strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Tandil</span><span>2024</span></span>
+                    </div>
+                    <div class="credential credential--diploma" aria-hidden="true">
+                      <img class="credential__logo credential__logo--unicen" src="assets/logos/unicen-navy.png" alt=""
+                        width="900" height="225">
+                      <span class="credential__kind" data-i18n="bg1.kind2"></span>
+                      <strong class="credential__title" data-i18n="edu2.degree"></strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Tandil</span><span>2024</span></span>
+                    </div>
                   </div>
-                </dl>
-              </div>
-              <div class="sheet__col reveal" style="--d: 3">
-                <h3 data-i18n="bg.certs"></h3>
-                <dl class="entries">
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 2</span></p>
+                </div>
+                <div class="specs">
                   <div>
-                    <dt>Google Professional AI Certificate</dt>
-                    <dd>Google · Online</dd>
-                    <dd class="entries__period">2025</dd>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #004171" data-hex="#004171"></i>
+                      <i style="--c: #00fcdf" data-hex="#00FCDF"></i>
+                      <i style="--c: #ec5a9b" data-hex="#EC5A9B"></i>
+                      <i style="--c: #f5f8fa" data-hex="#F5F8FA"></i>
+                    </div>
                   </div>
-                  <div>
-                    <dt>Google AI Agents Course</dt>
-                    <dd>Google · Online</dd>
-                    <dd class="entries__period">2026</dd>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Roboto</span>
                   </div>
-                  <div>
-                    <dt data-i18n="cert.sdlc"></dt>
-                    <dd data-i18n="cert.sdlc.inst"></dd>
-                    <dd class="entries__period">2025</dd>
-                  </div>
-                  <div>
-                    <dt><span data-i18n="cert.aieng"></span> · <span data-i18n="cert.ds"></span> · <span
-                        data-i18n="cert.de"></span></dt>
-                    <dd>Udemy · Online</dd>
-                    <dd class="entries__period">2025</dd>
-                  </div>
-                </dl>
-              </div>
-              <div class="sheet__col reveal" style="--d: 4">
-                <h3>&nbsp;</h3>
-                <dl class="entries">
-                  <div>
-                    <dt data-i18n="cert.c1"></dt>
-                    <dd>EF SET · Online</dd>
-                    <dd class="entries__period">2024</dd>
-                  </div>
-                  <div>
-                    <dt data-i18n="cert.b2"></dt>
-                    <dd>Cambridge University</dd>
-                    <dd class="entries__period">2018</dd>
-                  </div>
-                  <div>
-                    <dt data-i18n="cert.java"></dt>
-                    <dd>Lamansys · Tandil</dd>
-                    <dd class="entries__period">2024</dd>
-                  </div>
-                  <div>
-                    <dt data-i18n="cert.angular"></dt>
-                    <dd>Udemy · Online</dd>
-                    <dd class="entries__period">2024</dd>
-                  </div>
-                </dl>
+                </div>
               </div>
             </div>
           </div>
-          <footer class="slide__foot"><span>18</span><span data-i18n="bg.meta"></span></footer>
+          <footer class="slide__foot"><span>19</span><span><span data-i18n="bg.meta"></span> | UNICEN</span></footer>
+        </article>
+
+        <!-- Background · Anthropic Academy -->
+        <article class="slide case" data-theme="anthropic" role="group" aria-roledescription="slide"
+          aria-label="Anthropic Academy">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg2.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg2.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape">Anthropic Academy</span>
+                <span>2026</span><span aria-hidden="true">·</span><span>Online</span>
+              </p>
+              <div class="creds-groups reveal" style="--d: 3">
+                <div>
+                  <h4 class="creds-groups__title" data-i18n="bg2.g1"></h4>
+                  <ul class="creds creds--compact">
+                    <li><span class="creds__name">Building with the Claude API</span></li>
+                    <li class="is-key"><span class="creds__name">Introduction to Model Context Protocol</span></li>
+                    <li class="is-key"><span class="creds__name">Model Context Protocol: Advanced Topics</span></li>
+                    <li><span class="creds__name">Claude with Amazon Bedrock</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="creds-groups__title">Claude Code</h4>
+                  <ul class="creds creds--compact">
+                    <li><span class="creds__name">Claude Code in Action</span></li>
+                    <li><span class="creds__name">Introduction to Agent Skills</span></li>
+                    <li><span class="creds__name">Introduction to Subagents</span></li>
+                  </ul>
+                  <h4 class="creds-groups__title" data-i18n="bg2.g3"></h4>
+                  <ul class="creds creds--compact">
+                    <li><span class="creds__name">Deploying Claude Enterprise with Confidence</span></li>
+                    <li><span class="creds__name">AI Fluency: Framework &amp; Foundations</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--anthropic">
+                    <svg class="brandmark__spark" aria-hidden="true"><use href="#spark" /></svg>
+                    <span class="brandmark__word">Anthropic<small>Academy</small></span>
+                  </div>
+                  <span class="board__num">02</span>
+                </div>
+                <div class="board__art">
+                  <p class="board__caption" data-i18n="bg2.board"></p>
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Model Context Protocol: Advanced Topics</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Introduction to Model Context Protocol</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Building with the Claude API</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Claude Code in Action</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Introduction to Agent Skills</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Introduction to Subagents</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Claude with Amazon Bedrock</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">Deploying Claude Enterprise with Confidence</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <svg class="credential__seal"><use href="#spark" /></svg>
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title">AI Fluency: Framework &amp; Foundations</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Anthropic Academy</span><span>2026</span></span>
+                    </div>
+                  </div>
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 9</span></p>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #141413" data-hex="#141413"></i>
+                      <i style="--c: #d97757" data-hex="#D97757"></i>
+                      <i style="--c: #f0eee6" data-hex="#F0EEE6"></i>
+                      <i style="--c: #faf9f5" data-hex="#FAF9F5"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Newsreader</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>20</span><span><span data-i18n="bg.meta"></span> | Anthropic Academy</span></footer>
+        </article>
+
+        <!-- Background · Google -->
+        <article class="slide case" data-theme="google" role="group" aria-roledescription="slide" aria-label="Google">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg3.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg3.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape">Google</span>
+                <span>2025 — 2026</span><span aria-hidden="true">·</span><span>Online</span>
+              </p>
+              <ul class="creds reveal" style="--d: 3">
+                <li><span class="creds__name">Google Professional AI Certificate</span><span class="creds__year">2025</span></li>
+                <li><span class="creds__name">Google AI Agents Course</span><span class="creds__year">2026</span></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--google">
+                    <span class="brandmark__word"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span>
+                  </div>
+                  <span class="board__num">03</span>
+                </div>
+                <div class="board__art">
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential" aria-hidden="true">
+                      <span class="credential__issuer">Google</span>
+                      <span class="credential__kind">Professional Certificate</span>
+                      <strong class="credential__title">Google Professional AI Certificate</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Google · Online</span><span>2025</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <span class="credential__issuer">Google</span>
+                      <span class="credential__kind">Professional Certificate</span>
+                      <strong class="credential__title">Google AI Agents Course</strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Google · Online</span><span>2026</span></span>
+                    </div>
+                  </div>
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 2</span></p>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #4285f4" data-hex="#4285F4"></i>
+                      <i style="--c: #ea4335" data-hex="#EA4335"></i>
+                      <i style="--c: #fbbc04" data-hex="#FBBC04"></i>
+                      <i style="--c: #34a853" data-hex="#34A853"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Google Sans</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>21</span><span><span data-i18n="bg.meta"></span> | Google</span></footer>
+        </article>
+
+        <!-- Background · Tandil Tech Cluster -->
+        <article class="slide case" data-theme="tandil" role="group" aria-roledescription="slide"
+          aria-label="Tandil Tech Cluster">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg4.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg4.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape">Developer Boost Seminar</span>
+                <span>2025</span><span aria-hidden="true">·</span><span>Tandil</span>
+              </p>
+              <p class="case__desc reveal" style="--d: 3" data-i18n="bg4.desc"></p>
+              <ul class="creds reveal" style="--d: 3">
+                <li><span class="creds__name" data-i18n="cert.sdlc"></span><span class="creds__year">2025</span></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--tandil">
+                    <span class="brandmark__tile" aria-hidden="true">&lt;/&gt;</span>
+                    <span class="brandmark__word">Tandil Tech Cluster<small>Developer Boost</small></span>
+                  </div>
+                  <span class="board__num">04</span>
+                </div>
+                <div class="board__art">
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential credential--pass" aria-hidden="true">
+                      <span class="credential__hole"></span>
+                      <span class="credential__kind">Developer Boost Seminar</span>
+                      <strong class="credential__title">Generative AI for SDLC</strong>
+                      <span class="credential__tags"><i>Agents</i><i>MCP</i><i>Copilot</i><i>Cursor</i></span>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Tandil Tech Cluster</span><span>2025</span></span>
+                    </div>
+                  </div>
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 1</span></p>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #111827" data-hex="#111827"></i>
+                      <i style="--c: #c6f432" data-hex="#C6F432"></i>
+                      <i style="--c: #8b93ff" data-hex="#8B93FF"></i>
+                      <i style="--c: #e6edf3" data-hex="#E6EDF3"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Space Grotesk</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>22</span><span><span data-i18n="bg.meta"></span> | Tandil Tech Cluster</span></footer>
+        </article>
+
+        <!-- Background · Udemy -->
+        <article class="slide case" data-theme="udemy" role="group" aria-roledescription="slide" aria-label="Udemy">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg5.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg5.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape">Udemy</span>
+                <span>2024 — 2025</span><span aria-hidden="true">·</span><span>Online</span>
+              </p>
+              <ul class="creds reveal" style="--d: 3">
+                <li><span class="creds__name" data-i18n="cert.aieng"></span><span class="creds__year">2025</span></li>
+                <li><span class="creds__name" data-i18n="cert.ds"></span><span class="creds__year">2025</span></li>
+                <li><span class="creds__name" data-i18n="cert.de"></span><span class="creds__year">2025</span></li>
+                <li><span class="creds__name" data-i18n="cert.angular"></span><span class="creds__year">2024</span></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--udemy">
+                    <img class="brandmark__logo" src="assets/logos/udemy-inverted.svg" alt="Udemy" width="213" height="80">
+                  </div>
+                  <span class="board__num">05</span>
+                </div>
+                <div class="board__art">
+                  <!-- Hand-drawn strokes from the udemy.com hero -->
+                  <svg class="doodle" viewBox="0 0 200 160" aria-hidden="true">
+                    <path class="doodle__a" d="M18 120c-8-38 10-82 52-96 30-10 64-2 84 18" />
+                    <path class="doodle__b" d="M176 34c14 26 10 66-14 88-20 18-50 24-76 18" />
+                    <path class="doodle__c" d="M150 10l8-8M164 18l11-5M168 32l12 1" />
+                  </svg>
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential" aria-hidden="true">
+                      <img class="credential__logo" src="assets/logos/udemy.svg" alt="" width="91" height="34">
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title" data-i18n="cert.aieng"></strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>udemy.com</span><span>2025</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <img class="credential__logo" src="assets/logos/udemy.svg" alt="" width="91" height="34">
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title" data-i18n="cert.ds"></strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>udemy.com</span><span>2025</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <img class="credential__logo" src="assets/logos/udemy.svg" alt="" width="91" height="34">
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title" data-i18n="cert.de"></strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>udemy.com</span><span>2025</span></span>
+                    </div>
+                    <div class="credential" aria-hidden="true">
+                      <img class="credential__logo" src="assets/logos/udemy.svg" alt="" width="91" height="34">
+                      <span class="credential__kind">Certificate of completion</span>
+                      <strong class="credential__title" data-i18n="cert.angular"></strong>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>udemy.com</span><span>2024</span></span>
+                    </div>
+                  </div>
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 4</span></p>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #6d28d2" data-hex="#6D28D2"></i>
+                      <i style="--c: #a435f0" data-hex="#A435F0"></i>
+                      <i style="--c: #c2e9eb" data-hex="#C2E9EB"></i>
+                      <i style="--c: #202230" data-hex="#202230"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Plus Jakarta Sans</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>23</span><span><span data-i18n="bg.meta"></span> | Udemy</span></footer>
+        </article>
+
+        <!-- Background · EF SET -->
+        <article class="slide case" data-theme="efset" role="group" aria-roledescription="slide" aria-label="EF SET">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg6.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg6.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape">EF SET</span>
+                <span>2024</span><span aria-hidden="true">·</span><span>Online</span>
+              </p>
+              <p class="case__desc reveal" style="--d: 3" data-i18n="bg6.desc"></p>
+              <ul class="creds reveal" style="--d: 3">
+                <li><span class="creds__name" data-i18n="cert.c1"></span><span class="creds__year">2024</span></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--efset">
+                    <img class="brandmark__logo" src="assets/logos/efset.svg" alt="EF SET" width="103" height="24">
+                  </div>
+                  <span class="board__num">06</span>
+                </div>
+                <div class="board__art">
+                  <!-- The EF SET certificate: layered diamonds and the CEFR scale -->
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential credential--efset" aria-hidden="true">
+                      <img class="credential__logo" src="assets/logos/efset.svg" alt="" width="103" height="24">
+                      <span class="credential__kind">English certification</span>
+                      <strong class="credential__name">Matías Rodríguez Cárdenas</strong>
+                      <span class="efset-level">
+                        <span class="efset-level__diamonds"><i></i><i></i><i></i></span>
+                        <span class="efset-level__text"><small>EF SET</small><b>C1</b><small>Advanced</small></span>
+                      </span>
+                      <span class="cefr"><i>A1</i><i>A2</i><i>B1</i><i>B2</i><i class="is-on">C1</i><i>C2</i></span>
+                    </div>
+                  </div>
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 1</span></p>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #00c6de" data-hex="#00C6DE"></i>
+                      <i style="--c: #4be5a5" data-hex="#4BE5A5"></i>
+                      <i style="--c: #5b4de8" data-hex="#5B4DE8"></i>
+                      <i style="--c: #191919" data-hex="#191919"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Figtree</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>24</span><span><span data-i18n="bg.meta"></span> | EF SET</span></footer>
+        </article>
+
+        <!-- Background · Cambridge English -->
+        <article class="slide case" data-theme="cambridge" role="group" aria-roledescription="slide"
+          aria-label="Cambridge English">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg7.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg7.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape">Cambridge English</span>
+                <span>2018</span>
+              </p>
+              <p class="case__desc reveal" style="--d: 3" data-i18n="bg7.desc"></p>
+              <ul class="creds reveal" style="--d: 3">
+                <li><span class="creds__name" data-i18n="cert.b2"></span><span class="creds__year">2018</span></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--cambridge">
+                    <img class="brandmark__logo" src="assets/logos/cambridge.png"
+                      alt="Cambridge University Press &amp; Assessment" width="1046" height="215">
+                  </div>
+                  <span class="board__num">07</span>
+                </div>
+                <div class="board__art">
+                  <!-- A certificate card with the cambridgeenglish.org hero as its banner -->
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential credential--cambridge" aria-hidden="true">
+                      <div class="cam-hero">
+                        <i class="cam-hero__blob cam-hero__blob--1"></i>
+                        <i class="cam-hero__blob cam-hero__blob--2"></i>
+                        <i class="cam-hero__blob cam-hero__blob--3"></i>
+                        <i class="cam-hero__blob cam-hero__blob--4"></i>
+                        <i class="cam-hero__blob cam-hero__blob--5"></i>
+                        <i class="cam-hero__blob cam-hero__blob--6"></i>
+                        <div class="cam-shield">
+                          <span class="cam-shield__body"><b>B2</b><b>First</b></span>
+                        </div>
+                      </div>
+                      <div class="credential__body">
+                        <img class="credential__logo" src="assets/logos/cambridge.png" alt="" width="1046" height="215">
+                        <span class="credential__kind">Cambridge English Qualifications</span>
+                        <strong class="credential__title">B2 First</strong>
+                        <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                        <span class="credential__foot"><span>CEFR · B2</span><span>2018</span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 1</span></p>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #133743" data-hex="#133743"></i>
+                      <i style="--c: #00bdb6" data-hex="#00BDB6"></i>
+                      <i style="--c: #5d0a4e" data-hex="#5D0A4E"></i>
+                      <i style="--c: #f4673c" data-hex="#F4673C"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Source Serif 4</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>25</span><span><span data-i18n="bg.meta"></span> | Cambridge English</span></footer>
+        </article>
+
+        <!-- Background · Lamansys -->
+        <article class="slide case" data-theme="lamansys" role="group" aria-roledescription="slide" aria-label="Lamansys">
+          <div class="slide__body case__body">
+            <div class="case__text">
+              <p class="kicker reveal" data-i18n="bg8.kicker"></p>
+              <h3 class="display reveal" style="--d: 1" data-i18n-html="bg8.title"></h3>
+              <p class="case__meta reveal" style="--d: 2">
+                <span class="tape">Lamansys</span>
+                <span>2024</span><span aria-hidden="true">·</span><span>Tandil</span>
+              </p>
+              <p class="case__desc reveal" style="--d: 3" data-i18n="bg8.desc"></p>
+              <ul class="creds reveal" style="--d: 3">
+                <li><span class="creds__name" data-i18n="cert.java"></span><span class="creds__year">2024</span></li>
+              </ul>
+            </div>
+            <div class="case__visual reveal" style="--d: 2">
+              <div class="board">
+                <div class="board__head">
+                  <div class="brandmark brandmark--lamansys">
+                    <span class="brandmark__diamond" aria-hidden="true"></span>
+                    <span class="brandmark__word">lamansys</span>
+                  </div>
+                  <span class="board__num">08</span>
+                </div>
+                <div class="board__art">
+                  <div class="credential-stack deck" role="button" tabindex="0" data-i18n-aria="bg.deck.aria">
+                    <div class="credential" aria-hidden="true">
+                      <span class="credential__issuer">Lamansys</span>
+                      <span class="credential__kind">Certificate</span>
+                      <strong class="credential__title" data-i18n="cert.java"></strong>
+                      <code class="credential__code">@RestController</code>
+                      <span class="credential__holder">Matías Rodríguez Cárdenas</span>
+                      <span class="credential__foot"><span>Tandil</span><span>2024</span></span>
+                    </div>
+                  </div>
+                  <p class="deck__hint" aria-hidden="true"><span data-i18n="bg.deck"></span> <span class="deck__count">1 / 1</span></p>
+                </div>
+                <div class="specs">
+                  <div>
+                    <span class="specs__label" data-i18n="board.palette"></span>
+                    <div class="swatches">
+                      <i style="--c: #234b97" data-hex="#234B97"></i>
+                      <i style="--c: #192f5e" data-hex="#192F5E"></i>
+                      <i style="--c: #1ecca6" data-hex="#1ECCA6"></i>
+                      <i style="--c: #2ea3f2" data-hex="#2EA3F2"></i>
+                    </div>
+                  </div>
+                  <div class="specs__type">
+                    <span class="specs__label" data-i18n="board.type"></span>
+                    <span class="specs__aa">Aa</span><span class="specs__name">Raleway</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="slide__foot"><span>26</span><span><span data-i18n="bg.meta"></span> | Lamansys</span></footer>
         </article>
       </div>
 
@@ -1311,7 +1903,7 @@
             </li>
           </ul>
         </div>
-        <footer class="slide__foot"><span>19</span><span class="copyright"></span></footer>
+        <footer class="slide__foot"><span>27</span><span class="copyright"></span></footer>
       </div>
     </section>
   </main>
