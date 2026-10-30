@@ -3373,9 +3373,11 @@ button {
 }
 
 /* ---------- Certificate deck (drag the top card away) ---------- */
+/* touch-action: none so a vertical swipe on the pile drags the card instead
+   of scrolling the page (which cancels the pointer mid-drag) */
 .deck {
   cursor: grab;
-  touch-action: pan-y;
+  touch-action: none;
   -webkit-user-select: none;
   user-select: none;
 }
