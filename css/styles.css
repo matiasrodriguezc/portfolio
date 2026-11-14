@@ -776,6 +776,48 @@
   transform: none;
 }
 
+/* Background · Oracle — taken from oracle.com: white page, warm-gray bands, ink #161513,
+   charcoal buttons, links #006B8F, Oracle red only for the logo. Oracle Sans is proprietary and
+   not served cross-origin, so Albert Sans stands in at the site's weights (300 headings). */
+[data-theme="oracle"] {
+  --bg: #ffffff;
+  --ink: #161513;
+  --muted: #6f6964;
+  --line: rgba(63, 58, 54, 0.2);
+  --accent: #312d2a;
+  --on-accent: #ffffff;
+  --accent-2: #312d2a;
+  --on-accent-2: #ffffff;
+  --font-display: "Albert Sans", Arial, sans-serif;
+  --font-body: "Albert Sans", Arial, sans-serif;
+  --display-weight: 300;
+  --display-scale: 1;
+  --display-tracking: -0.02em;
+  --em-style: normal;
+  --em-color: #c74634;
+  --radius: 12px;
+  --card: #f1efed;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+  --bg-image: none;
+}
+
+/* Charcoal button from oracle.com */
+[data-theme="oracle"] .tape {
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: none;
+}
+
+[data-theme="oracle"] .board {
+  border: 0;
+}
+
+[data-theme="oracle"] .creds__link {
+  color: #006b8f;
+}
+
 /* ---------- Reset / base ---------- */
 *,
 *::before,
@@ -3685,6 +3727,32 @@ button,
   color: #234b97;
 }
 
+/* Oracle — card as on oracle.com (12px radius, hairline, soft shadow) with the official badge */
+.credential--oracle {
+  --ink: #161513;
+  --muted: #6f6964;
+  --line: rgba(63, 58, 54, 0.2);
+  --tilt: 2deg;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16), 0 24px 40px -24px rgba(0, 0, 0, 0.3);
+}
+
+.credential__badge {
+  display: block;
+  width: auto;
+  height: clamp(5.5rem, 15vh, 8rem);
+}
+
+.credential--oracle .credential__title {
+  font-weight: 600;
+}
+
+.credential--oracle .credential__holder {
+  padding-left: 1.5rem;
+}
+
 .credential__code {
   padding: 0.2rem 0.45rem;
   border-radius: 4px;
@@ -4057,6 +4125,10 @@ button,
 .brandmark--lamansys .brandmark__word {
   font-size: 1.6rem;
   color: #234b97;
+}
+
+.brandmark--oracle .brandmark__logo {
+  height: 1.35rem;
 }
 
 /* ==========================================================================
@@ -4543,6 +4615,14 @@ button,
 
   .credential--pass {
     padding-top: 1.8rem;
+  }
+
+  .credential__badge {
+    height: 4.5rem;
+  }
+
+  .brandmark--oracle .brandmark__logo {
+    height: 1rem;
   }
 
   .credential__name,
