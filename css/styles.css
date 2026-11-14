@@ -818,6 +818,47 @@
   color: #006b8f;
 }
 
+/* Background · Hugging Face — from huggingface.co: the gray-950 hero panel (#030712), white bold
+   headings in Source Sans Pro, gray-300/80 copy, pill buttons with a gray-600 hairline, and the
+   logo's own yellow #FFD21E and orange #FF9D0B as the only colors. */
+[data-theme="huggingface"] {
+  --bg: #030712;
+  --ink: #ffffff;
+  --muted: rgba(209, 213, 220, 0.8);
+  --line: #364153;
+  --accent: #ffd21e;
+  --on-accent: #030712;
+  --accent-2: #ff9d0b;
+  --on-accent-2: #030712;
+  --font-display: "Source Sans Pro", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Source Sans Pro", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display-weight: 700;
+  --display-scale: 1;
+  --display-tracking: -0.01em;
+  --em-style: normal;
+  --em-color: #ffd21e;
+  --radius: 25px;
+  --card: #101828;
+  --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  --bg-image: none;
+}
+
+/* Hero pill button from huggingface.co */
+[data-theme="huggingface"] .tape {
+  border: 1px solid #4a5565;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.05);
+  transform: none;
+}
+
+[data-theme="huggingface"] .creds__link {
+  color: #ffd21e;
+}
+
 /* ---------- Reset / base ---------- */
 *,
 *::before,
@@ -3753,6 +3794,86 @@ button,
   padding-left: 1.5rem;
 }
 
+/* Hugging Face — the course certificate itself: yellow double frame, Quattrocento headings,
+   Open Sans lines, the instructors' seal and the logo */
+.credential--hf {
+  --ink: #000000;
+  --muted: #000000;
+  --line: #000000;
+  --tilt: -2deg;
+  align-items: center;
+  gap: 0.35rem;
+  padding: clamp(1.1rem, 2.6vh, 1.6rem) clamp(1.2rem, 2vw, 1.7rem) clamp(0.9rem, 2vh, 1.2rem);
+  border: 3px solid #ffc718;
+  border-radius: 0;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  box-shadow: inset 0 0 0 5px #ffffff, inset 0 0 0 6px #ffc718, 0 24px 40px -24px rgba(0, 0, 0, 0.6);
+}
+
+.credential__cert,
+.credential--hf .credential__title {
+  font-family: "Quattrocento", serif;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.credential__cert {
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+}
+
+.credential--hf .credential__title {
+  font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+}
+
+.credential--hf .credential__kind {
+  margin-top: 0.3rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+}
+
+.credential--hf .credential__holder {
+  margin-top: 0;
+  padding: 0 1.5rem 0.15rem;
+  font-family: "Quattrocento", serif;
+  font-size: 1.15rem;
+}
+
+.credential__course {
+  font-size: 0.66rem;
+  font-weight: 300;
+}
+
+.credential__course b {
+  font-weight: 700;
+}
+
+.credential--hf .credential__foot {
+  align-items: center;
+  margin-top: 0.3rem;
+  font-family: "Quattrocento", serif;
+  font-size: 0.7rem;
+}
+
+.credential__medal {
+  width: 2.6rem;
+  height: auto;
+}
+
+.credential__emoji {
+  width: 2.3rem;
+  height: auto;
+}
+
+.credential__date {
+  padding: 0 0.3rem 0.1rem;
+  border-bottom: 1px solid #000000;
+  color: #000000;
+}
+
 .credential__code {
   padding: 0.2rem 0.45rem;
   border-radius: 4px;
@@ -4129,6 +4250,14 @@ button,
 
 .brandmark--oracle .brandmark__logo {
   height: 1.35rem;
+}
+
+.brandmark--huggingface .brandmark__logo {
+  height: 2.1rem;
+}
+
+.brandmark--huggingface .brandmark__word {
+  font-size: 1.3rem;
 }
 
 /* ==========================================================================
@@ -4623,6 +4752,14 @@ button,
 
   .brandmark--oracle .brandmark__logo {
     height: 1rem;
+  }
+
+  .brandmark--huggingface .brandmark__logo {
+    height: 1.6rem;
+  }
+
+  .credential--hf .credential__kind {
+    display: none;
   }
 
   .credential__name,
