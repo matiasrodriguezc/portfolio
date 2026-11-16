@@ -172,10 +172,10 @@ const translations = {
       "App web que agrupa datos con K-Means: subís un CSV, elegís variables y ves los clusters en gráficos interactivos. Detecta el número óptimo de clusters (método del codo) y Gemini les asigna nombres y descripciones accionables.",
 
     "proj6.kicker": "Proyecto · 06 / 06",
-    "proj6.tag": "DevOps · Cloud-Native",
-    "proj6.title": "Crypto <em>Tracker</em>",
+    "proj6.tag": "AI Engineering · Agentes",
+    "proj6.title": "Harness <em>Engineering</em>",
     "proj6.desc":
-      "Plataforma de monitoreo de criptomonedas basada en microservicios (Python/FastAPI) con orquestación en Kubernetes y Helm, infraestructura como código con Terraform, CI/CD automatizado y observabilidad con Grafana.",
+      "Ocho experimentos medidos con Claude Code: la misma tarea y el mismo modelo, cambiando solo el arnés (instrucciones, herramientas, entorno, estado y verificación). 48 sesiones con transcript, suites end-to-end ocultas contra la app Electron real y una demo interactiva que dibuja cada sesión como un hilo.",
 
     // Próximamente
     "soon.kicker": "Próximamente",
@@ -462,10 +462,10 @@ const translations = {
       "A web app that clusters data with K-Means: upload a CSV, pick variables and explore clusters on interactive charts. It finds the optimal number of clusters (elbow method) and Gemini gives each segment an actionable name and description.",
 
     "proj6.kicker": "Project · 06 / 06",
-    "proj6.tag": "DevOps · Cloud-Native",
-    "proj6.title": "Crypto <em>Tracker</em>",
+    "proj6.tag": "AI Engineering · Agents",
+    "proj6.title": "Harness <em>Engineering</em>",
     "proj6.desc":
-      "A microservices-based crypto monitoring platform (Python/FastAPI) orchestrated with Kubernetes and Helm, Infrastructure as Code with Terraform, automated CI/CD and real-time observability with Grafana.",
+      "Eight measured experiments with Claude Code: the same task and the same model, changing only the harness (instructions, tools, environment, state and verification). 48 sessions with saved transcripts, hidden end-to-end suites against the real Electron app, and an interactive demo that draws each session as a thread.",
 
     // Coming soon
     "soon.kicker": "Coming soon",

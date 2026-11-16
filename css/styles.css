@@ -301,25 +301,25 @@
   --bg-image: radial-gradient(rgba(17, 17, 17, 0.09) 1px, transparent 1px);
 }
 
-/* Project · Crypto Tracker — terminal black, bitcoin orange */
-[data-theme="crypto"] {
-  --bg: #060707;
-  --ink: #e7e7e7;
-  --muted: rgba(231, 231, 231, 0.62);
-  --line: rgba(231, 231, 231, 0.12);
-  --accent: #f7931a;
-  --on-accent: #060707;
-  --accent-2: #f7931a;
-  --on-accent-2: #060707;
-  --font-display: "JetBrains Mono", monospace;
-  --display-weight: 700;
-  --display-scale: 0.78;
-  --display-tracking: -0.05em;
+/* Project · Harness Engineering — a loom at night: indigo-black, bone thread, natural dyes, Monoton */
+[data-theme="harness"] {
+  --bg: #0e1520;
+  --ink: #ece4d6;
+  --muted: rgba(236, 228, 214, 0.64);
+  --line: rgba(236, 228, 214, 0.13);
+  --accent: #f09440;
+  --on-accent: #0e1520;
+  --accent-2: #f09440;
+  --on-accent-2: #0e1520;
+  --font-display: "Monoton", "Impact", sans-serif;
+  --display-weight: 400;
+  --display-scale: 0.62;
+  --display-tracking: 0.01em;
   --em-style: normal;
-  --em-color: #22c55e;
-  --radius: 6px;
-  --card: #0c0e0e;
-  --bg-image: linear-gradient(rgba(34, 197, 94, 0.05) 1px, transparent 1px);
+  --em-color: #4cbfa3;
+  --radius: 8px;
+  --card: #141d2a;
+  --bg-image: linear-gradient(90deg, rgba(236, 228, 214, 0.035) 1px, transparent 1px);
 }
 
 /* Coming soon · Ronda — from the Ronda brand manual: papel, monte, mandarina, Bricolage Grotesque */
@@ -1214,8 +1214,8 @@ button,
   background-size: 1.4rem 1.4rem;
 }
 
-[data-theme="crypto"].slide {
-  background-size: 100% 2.2rem;
+[data-theme="harness"].slide {
+  background-size: 1.1rem 100%;
 }
 
 [data-theme="tandil"].slide {
@@ -2064,7 +2064,7 @@ button,
   letter-spacing: 0.02em;
 }
 
-[data-theme="crypto"] .chips li,
+[data-theme="harness"] .chips li,
 [data-theme="cluster"] .chips li,
 [data-theme="northbridge"] .chips li {
   border-radius: var(--radius);
@@ -2382,17 +2382,15 @@ button,
   background: #2a9d8f;
 }
 
-/* Crypto tile */
-.brandmark--crypto .brandmark__tile {
-  border: 1px solid #f7931a;
-  border-radius: 0.4rem;
-  font-size: 1.4rem;
-  color: #f7931a;
+/* Harness tile: three dyed threads braiding */
+.brandmark--harness .brandmark__tile {
+  border: 1px solid rgba(236, 228, 214, 0.28);
+  border-radius: 0.5rem;
 }
 
-.brandmark--crypto .brandmark__word {
+.brandmark--harness .brandmark__word {
   font-size: 1.15rem;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.02em;
 }
 
 /* ---------- Coming soon (Ronda, Lumbre, Zero) ---------- */
@@ -3149,7 +3147,7 @@ button,
   transform: rotate(-7deg);
 }
 
-/* Crypto — chart + terminal */
+/* Harness — demo image + terminal */
 .art-chart {
   display: block;
   width: 100%;
@@ -3166,9 +3164,9 @@ button,
   bottom: -0.5rem;
   width: min(86%, 24rem);
   overflow: hidden;
-  border: 1px solid rgba(247, 147, 26, 0.4);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
   border-radius: var(--radius);
-  background: rgba(6, 7, 7, 0.94);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
   box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.9);
 }
 
@@ -3197,7 +3195,7 @@ button,
 
 .terminal em {
   font-style: normal;
-  color: #22c55e;
+  color: var(--em-color);
 }
 
 /* ==========================================================================
